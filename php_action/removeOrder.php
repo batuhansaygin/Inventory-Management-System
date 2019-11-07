@@ -15,10 +15,10 @@ if($orderId) {
 
  if($connect->query($sql) === TRUE && $connect->query($orderItem) === TRUE) {
  	$valid['success'] = true;
-	$valid['messages'] = "Successfully Removed";		
+	$valid['messages'] = "Başarıyla Silindi.";		
  } else {
  	$valid['success'] = false;
- 	$valid['messages'] = "Error while remove the brand";
+ 	$valid['messages'] = "Silinirken bir hata ile karşılaşıldı.";
  }
  
  $connect->close();

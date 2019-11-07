@@ -9,6 +9,10 @@
 		  <li class="active">Şirketler</li>
 		</ol>
 
+		<div class="div-action pull pull-right" style="padding: 4px 20px 20px 0;">
+					<button class="btn btn-default button1" data-toggle="modal" data-target="#addBrandModel"> <i class="glyphicon glyphicon-plus-sign"></i> Yeni Şirket </button>
+				</div>
+
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<div class="page-heading"> <i class="glyphicon glyphicon-edit"></i> Şirket Yönetimi</div>
@@ -17,9 +21,7 @@
 
 				<div class="remove-messages"></div>
 
-				<div class="div-action pull pull-right" style="padding-bottom:20px;">
-					<button class="btn btn-default button1" data-toggle="modal" data-target="#addBrandModel"> <i class="glyphicon glyphicon-plus-sign"></i> Yeni Şirket </button>
-				</div> <!-- /div-action -->				
+				 <!-- /div-action -->				
 				
 				<table class="table" id="manageBrandTable">
 					<thead>

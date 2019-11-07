@@ -5,8 +5,8 @@
 	<div class="col-md-12">
 
 		<ol class="breadcrumb">
-		  <li><a href="dashboard.php">Home</a></li>		  
-		  <li class="active">Category</li>
+		  <li><a href="dashboard.php">Anasayfa</a></li>		  
+		  <li class="active">Formüller</li>
 		</ol>
 
 		<div class="panel panel-default">

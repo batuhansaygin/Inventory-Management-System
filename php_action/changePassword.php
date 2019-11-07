@@ -22,20 +22,20 @@ if($_POST) {
 			$updateSql = "UPDATE users SET password = '$newPassword' WHERE user_id = {$userId}";
 			if($connect->query($updateSql) === TRUE) {
 				$valid['success'] = true;
-				$valid['messages'] = "Successfully Updated";		
+				$valid['messages'] = "Başarıyla değiştirildi.";		
 			} else {
 				$valid['success'] = false;
-				$valid['messages'] = "Error while updating the password";	
+				$valid['messages'] = "Değiştirilirken bir hata ile karşılaşıldı.";	
 			}
 
 		} else {
 			$valid['success'] = false;
-			$valid['messages'] = "New password does not match with Conform password";
+			$valid['messages'] = "Yeni şifre onaylama şifresi ile aynı değil !";
 		}
 
 	} else {
 		$valid['success'] = false;
-		$valid['messages'] = "Current password is incorrect";
+		$valid['messages'] = "Mevcut şifre hatalı !";
 	}
 
 	$connect->close();

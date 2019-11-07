@@ -80,7 +80,7 @@ if($_POST) {
 	
 
 	$valid['success'] = true;
-	$valid['messages'] = "Successfully Updated";		
+	$valid['messages'] = "Başarıyla değiştirildi.";		
 	
 	$connect->close();
 
