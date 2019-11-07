@@ -1,0 +1,6 @@
+1. database dosyası içindeki örnek sql sorgusunu phpmyadmin içine at
+
+2. aşağıdaki dosyaları değiştir
+core.php, logout.php, index.php
+header('location: http://localhost:8080/ims/index.php'); //örnektir
+
