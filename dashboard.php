@@ -95,7 +95,7 @@ $connect->close();
 		<br/>
 
 		<div class="card">
-		  <div class="cardHeader" style="background-color:#245580;">
+		  <div class="cardHeader" style="background-color:#6093D2;">
 		    <h1><?php if($totalRevenue) {
 		    	echo $totalRevenue;
 		    	} else {

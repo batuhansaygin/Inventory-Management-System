@@ -83,7 +83,7 @@ if($_POST) {
 			<div class="col-md-5 col-md-offset-4">
 				<div class="panel panel-info">
 					<div class="panel-heading">
-						<h3 class="panel-title">Baerlocher Product Management System</h3>
+						<h3 class="panel-title" style="color: #fff;">Baerlocher Product Management System</h3>
 					</div>
 					<div class="panel-body">
 

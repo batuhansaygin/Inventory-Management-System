@@ -80,11 +80,11 @@
         <li id="navReport"><a href="#report.php"> <i class="glyphicon glyphicon-check"></i> Raporlar </a></li>
 		<?php } ?>   
         <li class="dropdown" id="navSetting">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-user"></i> <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span></a>
           <ul class="dropdown-menu">    
 			<?php if(isset($_SESSION['userId']) && $_SESSION['userId']==1) { ?>
             <li id="topNavSetting"><a href="setting.php"> <i class="glyphicon glyphicon-wrench"></i> Ayarlar</a></li>
-            <li id="topNavUser"><a href="user.php"> <i class="glyphicon glyphicon-plus"></i> Yeni Kullanıcı</a></li>
+            <li id="topNavUser"><a href="user.php"> <i class="glyphicon glyphicon-user"></i> Kullanıcılar</a></li>
 <?php } ?>              
             <li id="topNavLogout"><a href="logout.php"> <i class="glyphicon glyphicon-log-out"></i> Çıkış Yap</a></li>            
           </ul>

@@ -6,6 +6,9 @@
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;
+  background-image: url("../logo.png");
+  background-repeat: no-repeat;
+  background-position: 1100px 600px
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
@@ -1388,7 +1391,7 @@ a.bg-success:focus {
   background-color: #c1e2b3;
 }
 .bg-info {
-  background-color: #d9edf7;
+  background-color: #7a9fc7;
 }
 a.bg-info:hover,
 a.bg-info:focus {
@@ -2389,14 +2392,14 @@ table th[class*="col-"] {
 .table > thead > tr.info > th,
 .table > tbody > tr.info > th,
 .table > tfoot > tr.info > th {
-  background-color: #d9edf7;
+  background-color: #7a9fc7;
 }
 .table-hover > tbody > tr > td.info:hover,
 .table-hover > tbody > tr > th.info:hover,
 .table-hover > tbody > tr.info:hover > td,
 .table-hover > tbody > tr:hover > .info,
 .table-hover > tbody > tr.info:hover > th {
-  background-color: #c4e3f3;
+  background-color: #8daccf;
 }
 .table > thead > tr > td.warning,
 .table > tbody > tr > td.warning,
@@ -5114,7 +5117,7 @@ a.thumbnail.active {
 }
 .alert-info {
   color: #31708f;
-  background-color: #d9edf7;
+  background-color: #7a9fc7;
   border-color: #bce8f1;
 }
 .alert-info hr {
@@ -5400,7 +5403,7 @@ button.list-group-item-success.active:focus {
 }
 .list-group-item-info {
   color: #31708f;
-  background-color: #d9edf7;
+  background-color: #7a9fc7;
 }
 a.list-group-item-info,
 button.list-group-item-info {
@@ -5415,7 +5418,7 @@ button.list-group-item-info:hover,
 a.list-group-item-info:focus,
 button.list-group-item-info:focus {
   color: #31708f;
-  background-color: #c4e3f3;
+  background-color: #8daccf;
 }
 a.list-group-item-info.active,
 button.list-group-item-info.active,
@@ -5787,14 +5790,14 @@ button.list-group-item-danger.active:focus {
 }
 .panel-info > .panel-heading {
   color: #31708f;
-  background-color: #d9edf7;
+  background-color: #7a9fc7;
   border-color: #bce8f1;
 }
 .panel-info > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #bce8f1;
 }
 .panel-info > .panel-heading .badge {
-  color: #d9edf7;
+  color: #7a9fc7;
   background-color: #31708f;
 }
 .panel-info > .panel-footer + .panel-collapse > .panel-body {

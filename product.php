@@ -3,7 +3,11 @@
 
 <div class="row">
 	<div class="col-md-12">
-
+	
+		<div class="div-action pull pull-right" style="padding-bottom:20px;">
+			<button class="btn btn-default button1" data-toggle="modal" id="addProductModalBtn" data-target="#addProductModal"> <i class="glyphicon glyphicon-plus-sign"></i> Yeni Ürün </button>
+		</div>
+		
 		<ol class="breadcrumb">
 		  <li><a href="dashboard.php">Home</a></li>		  
 		  <li class="active">Product</li>
@@ -17,9 +21,7 @@
 
 				<div class="remove-messages"></div>
 
-				<div class="div-action pull pull-right" style="padding-bottom:20px;">
-					<button class="btn btn-default button1" data-toggle="modal" id="addProductModalBtn" data-target="#addProductModal"> <i class="glyphicon glyphicon-plus-sign"></i> Yeni Ürün </button>
-				</div> <!-- /div-action -->				
+				 <!-- /div-action -->				
 				
 				<table class="table" id="manageProductTable">
 					<thead>

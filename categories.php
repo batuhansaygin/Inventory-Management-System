@@ -53,14 +53,14 @@
 	      	<div id="add-categories-messages"></div>
 
 	        <div class="form-group">
-	        	<label for="categoriesName" class="col-sm-4 control-label">Formül Adı: </label>
+	        	<label for="categoriesName" class="col-sm-4 control-label">Formül Adı</label>
 	        	<label class="col-sm-1 control-label">: </label>
 				    <div class="col-sm-7">
 				      <input type="text" class="form-control" id="categoriesName" placeholder="Örn: Polietilen Teraftalat" name="categoriesName" autocomplete="off">
 				    </div>
 	        </div> <!-- /form-group-->	         	        
 	        <div class="form-group">
-	        	<label for="categoriesStatus" class="col-sm-4 control-label">Durum: </label>
+	        	<label for="categoriesStatus" class="col-sm-4 control-label">Durum</label>
 	        	<label class="col-sm-1 control-label">: </label>
 				    <div class="col-sm-7">
 				      <select class="form-control" id="categoriesStatus" name="categoriesStatus">
@@ -69,7 +69,56 @@
 				      	<option value="2">Pasif</option>
 				      </select>
 				    </div>
-	        </div> <!-- /form-group-->	         	        
+	        </div> <!-- /form-group-->
+<!-- /new-features-->
+<div class="form-group">
+  <label for="comment" class="col-sm-4 control-label">Formül Açıklaması</label>
+  <label class="col-sm-1 control-label">: </label>
+  <div class="col-sm-7">
+  <textarea class="form-control" rows="5" id="categories-comment" placeholder="Örn: Şu maddeden şu kadar kullanıldı."></textarea>
+</div>
+</div>
+
+<div class="checkbox">
+  <label for="checkbox" class="col-sm-4 control-label">Formül İçeriği</label>
+  <label class="col-sm-1 control-label">: </label>
+  <div class="col-sm-7">
+  <label><input type="checkbox" value="icerik1">1. İçerik</label><br>
+  <label><input type="checkbox" value="icerik2">2. İçerik</label><br>
+  <label><input type="checkbox" value="icerik3" disabled class="">3. İçerik</label>
+</div>
+</div>
+
+<label class="checkbox-inline"><input type="checkbox" value="" class="col-sm-4 control-label">Option 1</label>
+<label class="checkbox-inline"><input type="checkbox" value="" class="col-sm-4 control-label">Option 2</label>
+<label class="checkbox-inline"><input type="checkbox" value="" class="col-sm-4 control-label">Option 3</label>
+
+<div class="radio">
+  <label><input type="radio" name="optradio" checked class="col-sm-4 control-label">Option 1</label>
+</div>
+<div class="radio">
+  <label><input type="radio" name="optradio" class="col-sm-4 control-label">Option 2</label>
+</div>
+<div class="radio disabled">
+  <label><input type="radio" name="optradio" disabled class="col-sm-4 control-label">Option 3</label>
+</div>
+
+<label class="radio-inline"><input type="radio" name="optradio" checked class="col-sm-4 control-label">Option 1</label>
+<label class="radio-inline"><input type="radio" name="optradio" class="col-sm-4 control-label">Option 2</label>
+<label class="radio-inline"><input type="radio" name="optradio" class="col-sm-4 control-label">Option 3</label>
+
+<div class="form-group">
+  <label for="sel1" class="col-sm-4 control-label">Select list:</label>
+  <select class="form-control" id="sel1">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+  </select>
+</div>
+
+
+<!-- /new-features-->			
 	      </div> <!-- /modal-body -->
 	      
 	      <div class="modal-footer">
