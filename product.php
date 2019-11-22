@@ -15,7 +15,7 @@
 
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<div class="page-heading"> <i class="glyphicon glyphicon-edit"></i> Manage Product</div>
+				<div class="page-heading"> <i class="glyphicon glyphicon-edit"></i> Ürün Yönetimi</div>
 			</div> <!-- /panel-heading -->
 			<div class="panel-body">
 

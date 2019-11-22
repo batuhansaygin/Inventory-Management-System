@@ -9,9 +9,9 @@ $dbname = "baerlocher";
 $connect = new mysqli($localhost, $username, $password, $dbname);
 // check connection
 if($connect->connect_error) {
-  die("Connection Failed : " . $connect->connect_error);
+  die("Bağlantı Başarısız : " . $connect->connect_error);
 } else {
-  // echo "Successfully connected";
+  // echo "Başarıyla Bağlandı";
 }
 
 ?>

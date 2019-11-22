@@ -6,8 +6,8 @@ $valid['success'] = array('success' => false, 'messages' => array());
 
 if($_POST) {	
 
-	$brandName = $_POST['brandName'];
-  $brandStatus = $_POST['brandStatus']; 
+	$brandName 		= $_POST['brandName'];
+	$brandStatus 	= $_POST['brandStatus']; 
 
 	$sql = "INSERT INTO brands (brand_name, brand_active, brand_status) VALUES ('$brandName', '$brandStatus', 1)";
 
