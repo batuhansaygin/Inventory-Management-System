@@ -6,11 +6,12 @@ $valid['success'] = array('success' => false, 'messages' => array());
 
 if($_POST) {	
 
-	$brandName = $_POST['editCategoriesName'];
-  $brandStatus = $_POST['editCategoriesStatus']; 
-  $categoriesId = $_POST['editCategoriesId'];
+	$categoriesName = $_POST['editCategoriesName'];
+	$categoriesStatus = $_POST['editCategoriesStatus']; 
+	$categoriesId = $_POST['editCategoriesId'];
+	$categoriesDescription = $_POST['editCategoriesDescription'];
 
-	$sql = "UPDATE categories SET categories_name = '$brandName', categories_active = '$brandStatus' WHERE categories_id = '$categoriesId'";
+	$sql = "UPDATE categories SET categories_name = '$categoriesName', categories_active = '$categoriesStatus', categories_description = '$categoriesDescription' WHERE categories_id = '$categoriesId'";
 
 	if($connect->query($sql) === TRUE) {
 	 	$valid['success'] = true;

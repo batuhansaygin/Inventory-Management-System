@@ -15,26 +15,26 @@ if($_GET['o'] == 'add') {
 ?>
 
 <ol class="breadcrumb">
-  <li><a href="dashboard.php">Home</a></li>
-  <li>Order</li>
+  <li><a href="dashboard.php">Anasayfa</a></li>
+  <li>Siparişler</li>
   <li class="active">
   	<?php if($_GET['o'] == 'add') { ?>
-  		Add Order
+  		Sipariş Ekle
 		<?php } else if($_GET['o'] == 'manord') { ?>
-			Manage Order
+			Sipariş Yönetimi
 		<?php } // /else manage order ?>
   </li>
 </ol>
 
 
 <h4>
-	<i class='glyphicon glyphicon-circle-arrow-right'></i>
+	<i class='glyphicon glyphicon-edit'></i>
 	<?php if($_GET['o'] == 'add') {
-		echo "Add Order";
+		echo "Sipariş Bilgileri";
 	} else if($_GET['o'] == 'manord') { 
-		echo "Manage Order";
+		echo "Sipariş Yönetimi";
 	} else if($_GET['o'] == 'editOrd') { 
-		echo "Edit Order";
+		echo "Düzenle";
 	}
 	?>	
 </h4>
@@ -45,11 +45,11 @@ if($_GET['o'] == 'add') {
 	<div class="panel-heading">
 
 		<?php if($_GET['o'] == 'add') { ?>
-  		<i class="glyphicon glyphicon-plus-sign"></i>	Add Order
+  		<i class="glyphicon glyphicon-plus-sign"></i> Yeni Sipariş
 		<?php } else if($_GET['o'] == 'manord') { ?>
-			<i class="glyphicon glyphicon-edit"></i> Manage Order
+			<i class="glyphicon glyphicon-edit"></i> Sipariş Yönetimi
 		<?php } else if($_GET['o'] == 'editOrd') { ?>
-			<i class="glyphicon glyphicon-edit"></i> Edit Order
+			<i class="glyphicon glyphicon-edit"></i> Düzenle
 		<?php } ?>
 
 	</div> <!--/panel-->	
@@ -64,21 +64,21 @@ if($_GET['o'] == 'add') {
   		<form class="form-horizontal" method="POST" action="php_action/createOrder.php" id="createOrderForm">
 
 			  <div class="form-group">
-			    <label for="orderDate" class="col-sm-2 control-label">Order Date</label>
+			    <label for="orderDate" class="col-sm-2 control-label">Sipariş Tarihi</label>
 			    <div class="col-sm-10">
-			      <input type="text" class="form-control" id="orderDate" name="orderDate" autocomplete="off" />
+			      <input type="text" class="form-control" id="orderDate" name="orderDate" placeholder="Örn: 11/07/2017" autocomplete="off" />
 			    </div>
 			  </div> <!--/form-group-->
 			  <div class="form-group">
-			    <label for="clientName" class="col-sm-2 control-label">Client Name</label>
+			    <label for="clientName" class="col-sm-2 control-label">Müşteri Bilgisi</label>
 			    <div class="col-sm-10">
-			      <input type="text" class="form-control" id="clientName" name="clientName" placeholder="Client Name" autocomplete="off" />
+			      <input type="text" class="form-control" id="clientName" name="clientName" placeholder="Örn: Öztürk Endüstriyel Plastik Kalip Metal San ve Tic" autocomplete="off" />
 			    </div>
 			  </div> <!--/form-group-->
 			  <div class="form-group">
-			    <label for="clientContact" class="col-sm-2 control-label">Client Contact</label>
+			    <label for="clientContact" class="col-sm-2 control-label">İletişim Bilgisi</label>
 			    <div class="col-sm-10">
-			      <input type="text" class="form-control" id="clientContact" name="clientContact" placeholder="Contact Number" autocomplete="off" />
+			      <input type="text" class="form-control" id="clientContact" name="clientContact" placeholder="Örn: (0212) 485 24 21" autocomplete="off" />
 			    </div>
 			  </div> <!--/form-group-->			  
 
@@ -87,9 +87,9 @@ if($_GET['o'] == 'add') {
 			  		<tr>			  			
 			  			<th style="width:40%;">Ürün</th>
 			  			<th style="width:20%;">Fiyat</th>
-			  			<th style="width:10%;">Aktif Quantity</th>
-			  			<th style="width:15%;">Quantity</th>			  			
-			  			<th style="width:25%;">Total</th>			  			
+			  			<th style="width:10%;">Stok</th>
+			  			<th style="width:15%;">Adet</th>			  			
+			  			<th style="width:25%;">Tutar</th>			  			
 			  			<th style="width:10%;"></th>
 			  		</tr>
 			  	</thead>
@@ -147,7 +147,7 @@ if($_GET['o'] == 'add') {
 
 			  <div class="col-md-6">
 			  	<div class="form-group">
-				    <label for="subTotal" class="col-sm-3 control-label">Sub Amount</label>
+				    <label for="subTotal" class="col-sm-3 control-label">Vergiler Hariç</label>
 				    <div class="col-sm-9">
 				      <input type="text" class="form-control" id="subTotal" name="subTotal" disabled="true" />
 				      <input type="hidden" class="form-control" id="subTotalValue" name="subTotalValue" />
@@ -155,27 +155,27 @@ if($_GET['o'] == 'add') {
 				  </div> <!--/form-group-->			  
 				   <!--/form-group-->			  
 				  <div class="form-group">
-				    <label for="totalAmount" class="col-sm-3 control-label">Total Amount</label>
+				    <label for="totalAmount" class="col-sm-3 control-label">Vergiler Dahil</label>
 				    <div class="col-sm-9">
 				      <input type="text" class="form-control" id="totalAmount" name="totalAmount" disabled="true"/>
 				      <input type="hidden" class="form-control" id="totalAmountValue" name="totalAmountValue" />
 				    </div>
 				  </div> <!--/form-group-->			  
 				  <div class="form-group">
-				    <label for="discount" class="col-sm-3 control-label">Discount</label>
+				    <label for="discount" class="col-sm-3 control-label" placeholder="Örn: 220">İndirim</label>
 				    <div class="col-sm-9">
 				      <input type="text" class="form-control" id="discount" name="discount" onkeyup="discountFunc()" autocomplete="off" />
 				    </div>
 				  </div> <!--/form-group-->	
 				  <div class="form-group">
-				    <label for="grandTotal" class="col-sm-3 control-label">Grand Total</label>
+				    <label for="grandTotal" class="col-sm-3 control-label">Toplam</label>
 				    <div class="col-sm-9">
 				      <input type="text" class="form-control" id="grandTotal" name="grandTotal" disabled="true" />
 				      <input type="hidden" class="form-control" id="grandTotalValue" name="grandTotalValue" />
 				    </div>
 				  </div> <!--/form-group-->	
 				  <div class="form-group">
-				    <label for="vat" class="col-sm-3 control-label gst">GST 18%</label>
+				    <label for="vat" class="col-sm-3 control-label gst">TOPKDV</label>
 				    <div class="col-sm-9">
 				      <input type="text" class="form-control" id="vat" name="gstn" readonly="true" />
 				      <input type="hidden" class="form-control" id="vatValue" name="vatValue" />
@@ -185,47 +185,47 @@ if($_GET['o'] == 'add') {
 
 			  <div class="col-md-6">
 			  	<div class="form-group">
-				    <label for="paid" class="col-sm-3 control-label">Paid Amount</label>
+				    <label for="paid" class="col-sm-3 control-label">Ödenen Miktar</label>
 				    <div class="col-sm-9">
 				      <input type="text" class="form-control" id="paid" name="paid" autocomplete="off" onkeyup="paidAmount()" />
 				    </div>
 				  </div> <!--/form-group-->			  
 				  <div class="form-group">
-				    <label for="due" class="col-sm-3 control-label">Due Amount</label>
+				    <label for="due" class="col-sm-3 control-label">Borç</label>
 				    <div class="col-sm-9">
 				      <input type="text" class="form-control" id="due" name="due" disabled="true" />
 				      <input type="hidden" class="form-control" id="dueValue" name="dueValue" />
 				    </div>
 				  </div> <!--/form-group-->		
 				  <div class="form-group">
-				    <label for="clientContact" class="col-sm-3 control-label">Payment Type</label>
+				    <label for="clientContact" class="col-sm-3 control-label">Ödeme Tipi</label>
 				    <div class="col-sm-9">
 				      <select class="form-control" name="paymentType" id="paymentType">
 				      	<option value="">~~ SEÇİM YAP ~~</option>
-				      	<option value="1">Cheque</option>
-				      	<option value="2">Cash</option>
-				      	<option value="3">Credit Card</option>
+				      	<option value="1">Çek</option>
+				      	<option value="2">Peşin</option>
+				      	<option value="3">Kredi Kartı</option>
 				      </select>
 				    </div>
 				  </div> <!--/form-group-->							  
 				  <div class="form-group">
-				    <label for="clientContact" class="col-sm-3 control-label">Payment Status</label>
+				    <label for="clientContact" class="col-sm-3 control-label">Ödeme Durumu</label>
 				    <div class="col-sm-9">
 				      <select class="form-control" name="paymentStatus" id="paymentStatus">
 				      	<option value="">~~ SEÇİM YAP ~~</option>
-				      	<option value="1">Full Payment</option>
-				      	<option value="2">Advance Payment</option>
-				      	<option value="3">No Payment</option>
+				      	<option value="1">Tam Ödeme</option>
+				      	<option value="2">Ön Ödeme</option>
+				      	<option value="3">Ödeme Yok</option>
 				      </select>
 				    </div>
 				  </div> <!--/form-group-->
 				  <div class="form-group">
-				    <label for="clientContact" class="col-sm-3 control-label">Payment Place</label>
+				    <label for="clientContact" class="col-sm-3 control-label">Ödeme Yeri</label>
 				    <div class="col-sm-9">
 				      <select class="form-control" name="paymentPlace" id="paymentPlace">
 				      	<option value="">~~ SEÇİM YAP ~~</option>
-				      	<option value="1">In Gujarat</option>
-				      	<option value="2">Out Of Gujarat</option>
+				      	<option value="1">Yurt İçi</option>
+				      	<option value="2">Yurt Dışı</option>
 				      </select>
 				    </div>
 				  </div> <!--/form-group-->							  
@@ -234,11 +234,11 @@ if($_GET['o'] == 'add') {
 
 			  <div class="form-group submitButtonFooter">
 			    <div class="col-sm-offset-2 col-sm-10">
-			    <button type="button" class="btn btn-default" onclick="addRow()" id="addRowBtn" data-loading-text="Loading..."> <i class="glyphicon glyphicon-plus-sign"></i> Add Row </button>
+			    <button type="button" class="btn btn-default" onclick="addRow()" id="addRowBtn" data-loading-text="Loading..."> <i class="glyphicon glyphicon-plus-sign"></i> Ürün Ekle </button>
 
-			      <button type="submit" id="createOrderBtn" data-loading-text="Loading..." class="btn btn-success"><i class="glyphicon glyphicon-ok-sign"></i> Save Changes</button>
+			      <button type="submit" id="createOrderBtn" data-loading-text="Loading..." class="btn btn-success"><i class="glyphicon glyphicon-ok-sign"></i> Değişiklikleri Kaydet</button>
 
-			      <button type="reset" class="btn btn-default" onclick="resetOrderForm()"><i class="glyphicon glyphicon-erase"></i> Reset</button>
+			      <button type="reset" class="btn btn-default" onclick="resetOrderForm()"><i class="glyphicon glyphicon-erase"></i> Sıfırla</button>
 			    </div>
 			  </div>
 			</form>
@@ -252,12 +252,12 @@ if($_GET['o'] == 'add') {
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Order Date</th>
-						<th>Client Name</th>
-						<th>Contact</th>
-						<th>Total Order Item</th>
-						<th>Payment Status</th>
-						<th>Option</th>
+						<th>Sipariş Tarihi</th>
+						<th>Müşteri Bilgisi</th>
+						<th>İletişim Bilgisi</th>
+						<th>Toplam Sipariş</th>
+						<th>Ödeme Durumu</th>
+						<th>İşlem</th>
 					</tr>
 				</thead>
 			</table>
@@ -512,7 +512,7 @@ if($_GET['o'] == 'add') {
 
 			    <input type="hidden" name="orderId" id="orderId" value="<?php echo $_GET['i']; ?>" />
 
-			    <button type="submit" id="editOrderBtn" data-loading-text="Loading..." class="btn btn-success"><i class="glyphicon glyphicon-ok-sign"></i> Save Changes</button>
+			    <button type="submit" id="editOrderBtn" data-loading-text="Loading..." class="btn btn-success"><i class="glyphicon glyphicon-ok-sign"></i> Değişiklikleri Kaydet</button>
 			      
 			    </div>
 			  </div>

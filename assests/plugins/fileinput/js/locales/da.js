@@ -14,7 +14,7 @@
     $.fn.fileinputLocales['da'] = {
         fileSingle: 'fil',
         filePlural: 'filer',
-        browseLabel: 'Browse &hellip;',
+        browseLabel: 'Gözat &hellip;',
         removeLabel: 'Fjern',
         removeTitle: 'Fjern valgte filer',
         cancelLabel: 'Fortryd',

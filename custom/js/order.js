@@ -4,11 +4,11 @@ $(document).ready(function() {
 	$("#paymentPlace").change(function(){
 		if($("#paymentPlace").val() == 2)
 		{
-			$(".gst").text("IGST 18%");
+			$(".gst").text("//YurtDışı Oranı Yazılacak 18%");
 		}
 		else
 		{
-			$(".gst").text("GST 18%");	
+			$(".gst").text("%18 KDV");	
 		}
 });
 
@@ -42,49 +42,49 @@ $(document).ready(function() {
 
 			// form validation 
 			if(orderDate == "") {
-				$("#orderDate").after('<p class="text-danger"> The Order Date field is required </p>');
+				$("#orderDate").after('<p class="text-danger"> Lütfen sipariş tarihi girin. </p>');
 				$('#orderDate').closest('.form-group').addClass('has-error');
 			} else {
 				$('#orderDate').closest('.form-group').addClass('has-success');
 			} // /else
 
 			if(clientName == "") {
-				$("#clientName").after('<p class="text-danger"> The Client Name field is required </p>');
+				$("#clientName").after('<p class="text-danger"> Lütfen müşteri bilgisi girin. </p>');
 				$('#clientName').closest('.form-group').addClass('has-error');
 			} else {
 				$('#clientName').closest('.form-group').addClass('has-success');
 			} // /else
 
 			if(clientContact == "") {
-				$("#clientContact").after('<p class="text-danger"> The Contact field is required </p>');
+				$("#clientContact").after('<p class="text-danger"> Lütfen iletişim bilgisi girin. </p>');
 				$('#clientContact').closest('.form-group').addClass('has-error');
 			} else {
 				$('#clientContact').closest('.form-group').addClass('has-success');
 			} // /else
 
 			if(paid == "") {
-				$("#paid").after('<p class="text-danger"> The Paid field is required </p>');
+				$("#paid").after('<p class="text-danger"> Lütfen ödenen miktarı girin. </p>');
 				$('#paid').closest('.form-group').addClass('has-error');
 			} else {
 				$('#paid').closest('.form-group').addClass('has-success');
 			} // /else
 
 			if(discount == "") {
-				$("#discount").after('<p class="text-danger"> The Discount field is required </p>');
+				$("#discount").after('<p class="text-danger"> Lütfen indirim miktarı girin. </p>');
 				$('#discount').closest('.form-group').addClass('has-error');
 			} else {
 				$('#discount').closest('.form-group').addClass('has-success');
 			} // /else
 
 			if(paymentType == "") {
-				$("#paymentType").after('<p class="text-danger"> The Payment Type field is required </p>');
+				$("#paymentType").after('<p class="text-danger"> Lütfen ödeme tipini seçin. </p>');
 				$('#paymentType').closest('.form-group').addClass('has-error');
 			} else {
 				$('#paymentType').closest('.form-group').addClass('has-success');
 			} // /else
 
 			if(paymentStatus == "") {
-				$("#paymentStatus").after('<p class="text-danger"> The Payment Status field is required </p>');
+				$("#paymentStatus").after('<p class="text-danger"> Lütfen ödeme durumu seçin. </p>');
 				$('#paymentStatus').closest('.form-group').addClass('has-error');
 			} else {
 				$('#paymentStatus').closest('.form-group').addClass('has-success');
@@ -97,7 +97,7 @@ $(document).ready(function() {
 			for (var x = 0; x < productName.length; x++) {       			
 				var productNameId = productName[x].id;	    	
 		    if(productName[x].value == ''){	    		    	
-		    	$("#"+productNameId+"").after('<p class="text-danger"> Product Name Field is required!! </p>');
+		    	$("#"+productNameId+"").after('<p class="text-danger"> Lütfen eklemek istediğiniz ürünü seçin. </p>');
 		    	$("#"+productNameId+"").closest('.form-group').addClass('has-error');	    		    	    	
 	      } else {      	
 		    	$("#"+productNameId+"").closest('.form-group').addClass('has-success');	    		    		    	
@@ -117,7 +117,7 @@ $(document).ready(function() {
 	   	for (var x = 0; x < quantity.length; x++) {       
 	 			var quantityId = quantity[x].id;
 		    if(quantity[x].value == ''){	    	
-		    	$("#"+quantityId+"").after('<p class="text-danger"> Product Name Field is required!! </p>');
+		    	$("#"+quantityId+"").after('<p class="text-danger"> Lütfen eklemek istediğiniz ürünü seçin. </p>');
 		    	$("#"+quantityId+"").closest('.form-group').addClass('has-error');	    		    		    	
 	      } else {      	
 		    	$("#"+quantityId+"").closest('.form-group').addClass('has-success');	    		    		    		    	
@@ -157,8 +157,8 @@ $(document).ready(function() {
 								$(".success-messages").html('<div class="alert alert-success">'+
 	            	'<button type="button" class="close" data-dismiss="alert">&times;</button>'+
 	            	'<strong><i class="glyphicon glyphicon-ok-sign"></i></strong> '+ response.messages +
-	            	' <br /> <br /> <a type="button" onclick="printOrder('+response.order_id+')" class="btn btn-primary"> <i class="glyphicon glyphicon-print"></i> Print </a>'+
-	            	'<a href="orders.php?o=add" class="btn btn-default" style="margin-left:10px;"> <i class="glyphicon glyphicon-plus-sign"></i> Add New Order </a>'+
+	            	' <br /> <br /> <a type="button" onclick="printOrder('+response.order_id+')" class="btn btn-primary"> <i class="glyphicon glyphicon-print"></i> Yazdır </a>'+
+	            	'<a href="orders.php?o=add" class="btn btn-default" style="margin-left:10px;"> <i class="glyphicon glyphicon-plus-sign"></i> Yeni Sipariş </a>'+
 	            	
 	   		       '</div>');
 								
@@ -211,49 +211,49 @@ $(document).ready(function() {
 
 			// form validation 
 			if(orderDate == "") {
-				$("#orderDate").after('<p class="text-danger"> The Order Date field is required </p>');
+				$("#orderDate").after('<p class="text-danger"> Lütfen sipariş tarihi girin. </p>');
 				$('#orderDate').closest('.form-group').addClass('has-error');
 			} else {
 				$('#orderDate').closest('.form-group').addClass('has-success');
 			} // /else
 
 			if(clientName == "") {
-				$("#clientName").after('<p class="text-danger"> The Client Name field is required </p>');
+				$("#clientName").after('<p class="text-danger"> Lütfen müşteri bilgisi girin. </p>');
 				$('#clientName').closest('.form-group').addClass('has-error');
 			} else {
 				$('#clientName').closest('.form-group').addClass('has-success');
 			} // /else
 
 			if(clientContact == "") {
-				$("#clientContact").after('<p class="text-danger"> The Contact field is required </p>');
+				$("#clientContact").after('<p class="text-danger"> Lütfen iletişim bilgisi girin. </p>');
 				$('#clientContact').closest('.form-group').addClass('has-error');
 			} else {
 				$('#clientContact').closest('.form-group').addClass('has-success');
 			} // /else
 
 			if(paid == "") {
-				$("#paid").after('<p class="text-danger"> The Paid field is required </p>');
+				$("#paid").after('<p class="text-danger"> Lütfen ödenen miktarı girin. </p>');
 				$('#paid').closest('.form-group').addClass('has-error');
 			} else {
 				$('#paid').closest('.form-group').addClass('has-success');
 			} // /else
 
 			if(discount == "") {
-				$("#discount").after('<p class="text-danger"> The Discount field is required </p>');
+				$("#discount").after('<p class="text-danger"> Lütfen indirim miktarı girin. </p>');
 				$('#discount').closest('.form-group').addClass('has-error');
 			} else {
 				$('#discount').closest('.form-group').addClass('has-success');
 			} // /else
 
 			if(paymentType == "") {
-				$("#paymentType").after('<p class="text-danger"> The Payment Type field is required </p>');
+				$("#paymentType").after('<p class="text-danger"> Lütfen ödeme tipini seçin. </p>');
 				$('#paymentType').closest('.form-group').addClass('has-error');
 			} else {
 				$('#paymentType').closest('.form-group').addClass('has-success');
 			} // /else
 
 			if(paymentStatus == "") {
-				$("#paymentStatus").after('<p class="text-danger"> The Payment Status field is required </p>');
+				$("#paymentStatus").after('<p class="text-danger"> Lütfen ödeme durumu seçin. </p>');
 				$('#paymentStatus').closest('.form-group').addClass('has-error');
 			} else {
 				$('#paymentStatus').closest('.form-group').addClass('has-success');
@@ -266,7 +266,7 @@ $(document).ready(function() {
 			for (var x = 0; x < productName.length; x++) {       			
 				var productNameId = productName[x].id;	    	
 		    if(productName[x].value == ''){	    		    	
-		    	$("#"+productNameId+"").after('<p class="text-danger"> Product Name Field is required!! </p>');
+		    	$("#"+productNameId+"").after('<p class="text-danger"> Lütfen eklemek istediğiniz ürünü seçin. </p>');
 		    	$("#"+productNameId+"").closest('.form-group').addClass('has-error');	    		    	    	
 	      } else {      	
 		    	$("#"+productNameId+"").closest('.form-group').addClass('has-success');	    		    		    	
@@ -286,7 +286,7 @@ $(document).ready(function() {
 	   	for (var x = 0; x < quantity.length; x++) {       
 	 			var quantityId = quantity[x].id;
 		    if(quantity[x].value == ''){	    	
-		    	$("#"+quantityId+"").after('<p class="text-danger"> Product Name Field is required!! </p>');
+		    	$("#"+quantityId+"").after('<p class="text-danger"> Lütfen eklemek istediğiniz ürünü seçin. </p>');
 		    	$("#"+quantityId+"").closest('.form-group').addClass('has-error');	    		    		    	
 	      } else {      	
 		    	$("#"+quantityId+"").closest('.form-group').addClass('has-success');	    		    		    		    	
@@ -362,8 +362,8 @@ function printOrder(orderId = null) {
 			dataType: 'text',
 			success:function(response) {
 				
-				var mywindow = window.open('', 'Stock Management System', 'height=400,width=600');
-        mywindow.document.write('<html><head><title>Order Invoice</title>');        
+				var mywindow = window.open('', 'Baerlocher PMS', 'height=400,width=600');
+        mywindow.document.write('<html><head><title>Sipariş Faturası</title>');        
         mywindow.document.write('</head><body>');
         mywindow.document.write(response);
         mywindow.document.write('</body></html>');
@@ -466,7 +466,7 @@ function removeProductRow(row = null) {
 
 		subAmount();
 	} else {
-		alert('error! Refresh the page again');
+		alert('HATA! Lütfen sayfayı yenileyin.');
 	}
 }
 
@@ -539,7 +539,7 @@ function getProductData(row = null) {
 		}
 				
 	} else {
-		alert('no row! please refresh the page');
+		alert('Satır mevcut değil! Lütfen sayfayı yenileyin.');
 	}
 } // /select on product data
 
@@ -554,7 +554,7 @@ function getTotal(row = null) {
 		subAmount();
 
 	} else {
-		alert('no row !! please refresh the page');
+		alert('Satır mevcut değil! Lütfen sayfayı yenileyin.');
 	}
 }
 
@@ -718,7 +718,7 @@ function removeOrder(orderId = null) {
 		
 
 	} else {
-		alert('error! refresh the page again');
+		alert('HATA! Lütfen sayfayı yenileyin.');
 	}
 }
 // /remove order from server
@@ -753,21 +753,21 @@ function paymentOrder(orderId = null) {
 					var paymentStatus = $("#paymentStatus").val();
 
 					if(payAmount == "") {
-						$("#payAmount").after('<p class="text-danger">The Pay Amount field is required</p>');
+						$("#payAmount").after('<p class="text-danger"> Lütfen ödeme tutarı bilgisi girin. </p>');
 						$("#payAmount").closest('.form-group').addClass('has-error');
 					} else {
 						$("#payAmount").closest('.form-group').addClass('has-success');
 					}
 
 					if(paymentType == "") {
-						$("#paymentType").after('<p class="text-danger">The Pay Amount field is required</p>');
+						$("#paymentType").after('<p class="text-danger"> Lütfen ödeme tutarı bilgisi girin. </p>');
 						$("#paymentType").closest('.form-group').addClass('has-error');
 					} else {
 						$("#paymentType").closest('.form-group').addClass('has-success');
 					}
 
 					if(paymentStatus == "") {
-						$("#paymentStatus").after('<p class="text-danger">The Pay Amount field is required</p>');
+						$("#paymentStatus").after('<p class="text-danger"> Lütfen ödeme tutarı bilgisi girin. </p>');
 						$("#paymentStatus").closest('.form-group').addClass('has-error');
 					} else {
 						$("#paymentStatus").closest('.form-group').addClass('has-success');
@@ -822,6 +822,6 @@ function paymentOrder(orderId = null) {
 			} // /success
 		}); // fetch order data
 	} else {
-		alert('Error ! Refresh the page again');
+		alert('HATA! Lütfen sayfayı yenileyin.');
 	}
 }

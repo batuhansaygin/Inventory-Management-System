@@ -70,14 +70,14 @@
 				      </select>
 				    </div>
 	        </div> <!-- /form-group-->
-<!-- /new-features-->
-<div class="form-group">
-  <label for="comment" class="col-sm-4 control-label">Formül Açıklaması</label>
-  <label class="col-sm-1 control-label">: </label>
-  <div class="col-sm-7">
-  <textarea class="form-control" rows="5" id="categories-comment" placeholder="Örn: Şu maddeden şu kadar kullanıldı."></textarea>
-</div>
-</div>
+			<!-- /new-features-->
+			<div class="form-group">
+				<label for="categoriesDescription" class="col-sm-4 control-label">Formül Açıklaması</label>
+				<label class="col-sm-1 control-label">: </label>
+					<div class="col-sm-7">
+						<textarea type="text" class="form-control" rows="5" id="categoriesDescription" placeholder="Örn: Şu maddeden şu kadar kullanıldı." name="categoriesDescription" autocomplete="off"></textarea>
+					</div>
+			</div>
 
 <div class="checkbox">
   <label for="checkbox" class="col-sm-4 control-label">Formül İçeriği</label>
@@ -170,7 +170,14 @@
 					      	<option value="2">Pasif</option>
 					      </select>
 					    </div>
-		        </div> <!-- /form-group-->	 
+		        </div> <!-- /form-group-->
+				<div class="form-group">
+				<label for="editCategoriesDescription" class="col-sm-4 control-label">Formül Açıklaması</label>
+				<label class="col-sm-1 control-label">: </label>
+					<div class="col-sm-7">
+						<textarea type="text" class="form-control" rows="5" id="editCategoriesDescription" placeholder="Örn: Şu maddeden şu kadar kullanıldı." name="editCategoriesDescription" autocomplete="off"></textarea>
+					</div>
+			</div> <!-- /form-group-->	 
 		      </div>         	        
 		      <!-- /edit brand result -->
 

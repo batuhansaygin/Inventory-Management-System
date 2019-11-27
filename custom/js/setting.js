@@ -11,7 +11,7 @@ $(document).ready(function() {
 		var username = $("#username").val();
 
 		if(username == "") {
-			$("#username").after('<p class="text-danger">Username field is required</p>');
+			$("#username").after('<p class="text-danger">Lütfen kullanıcı adı giriniz.</p>');
 			$("#username").closest('.form-group').addClass('has-error');
 		} else {
 
@@ -81,7 +81,7 @@ $(document).ready(function() {
 
 		if(currentPassword == "" || newPassword == "" || conformPassword == "") {
 			if(currentPassword == "") {
-				$("#password").after('<p class="text-danger">The Current Password field is required</p>');
+				$("#password").after('<p class="text-danger">Lütfen şifre giriniz.</p>');
 				$("#password").closest('.form-group').addClass('has-error');
 			} else {
 				$("#password").closest('.form-group').removeClass('has-error');
@@ -89,7 +89,7 @@ $(document).ready(function() {
 			}
 
 			if(newPassword == "") {
-				$("#npassword").after('<p class="text-danger">The New Password field is required</p>');
+				$("#npassword").after('<p class="text-danger">Lütfen yeni şifre giriniz.</p>');
 				$("#npassword").closest('.form-group').addClass('has-error');
 			} else {
 				$("#npassword").closest('.form-group').removeClass('has-error');
@@ -97,7 +97,7 @@ $(document).ready(function() {
 			}
 
 			if(conformPassword == "") {
-				$("#cpassword").after('<p class="text-danger">The Conform Password field is required</p>');
+				$("#cpassword").after('<p class="text-danger">Lütfen şifreyi doğrulayın.</p>');
 				$("#cpassword").closest('.form-group').addClass('has-error');
 			} else {
 				$("#cpassword").closest('.form-group').removeClass('has-error');

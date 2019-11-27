@@ -99,7 +99,7 @@ $(document).ready(function() {
 			}	// /else
 
 			if(categoryName == "") {
-				$("#categoryName").after('<p class="text-danger">Category Name field is required</p>');
+				$("#categoryName").after('<p class="text-danger">Formül adı girmelisiniz.</p>');
 				$('#categoryName').closest('.form-group').addClass('has-error');
 			}	else {
 				// remov error text field
@@ -109,7 +109,7 @@ $(document).ready(function() {
 			}	// /else
 
 			if(productStatus == "") {
-				$("#productStatus").after('<p class="text-danger">Product Status field is required</p>');
+				$("#productStatus").after('<p class="text-danger">Formül durumu seçmelisiniz.</p>');
 				$('#productStatus').closest('.form-group').addClass('has-error');
 			}	else {
 				// remov error text field
@@ -258,7 +258,7 @@ function editProduct(productId = null) {
 								
 
 					if(productName == "") {
-						$("#editProductName").after('<p class="text-danger">Product Name field is required</p>');
+						$("#editProductName").after('<p class="text-danger">Ürün adı girmelisiniz.</p>');
 						$('#editProductName').closest('.form-group').addClass('has-error');
 					}	else {
 						// remov error text field
@@ -268,7 +268,7 @@ function editProduct(productId = null) {
 					}	// /else
 
 					if(quantity == "") {
-						$("#editQuantity").after('<p class="text-danger">Quantity field is required</p>');
+						$("#editQuantity").after('<p class="text-danger">Adet bilgisi girmelisiniz.</p>');
 						$('#editQuantity').closest('.form-group').addClass('has-error');
 					}	else {
 						// remov error text field
@@ -278,7 +278,7 @@ function editProduct(productId = null) {
 					}	// /else
 
 					if(rate == "") {
-						$("#editRate").after('<p class="text-danger">Rate field is required</p>');
+						$("#editRate").after('<p class="text-danger">Fiyat bilgisi girmelisiniz.</p>');
 						$('#editRate').closest('.form-group').addClass('has-error');
 					}	else {
 						// remov error text field
@@ -298,7 +298,7 @@ function editProduct(productId = null) {
 					}	// /else
 
 					if(categoryName == "") {
-						$("#editCategoryName").after('<p class="text-danger">Category Name field is required</p>');
+						$("#editCategoryName").after('<p class="text-danger">Formül adı girmelisiniz.</p>');
 						$('#editCategoryName').closest('.form-group').addClass('has-error');
 					}	else {
 						// remov error text field
@@ -308,7 +308,7 @@ function editProduct(productId = null) {
 					}	// /else
 
 					if(productStatus == "") {
-						$("#editProductStatus").after('<p class="text-danger">Product Status field is required</p>');
+						$("#editProductStatus").after('<p class="text-danger">Formül durumu seçmelisiniz.</p>');
 						$('#editProductStatus').closest('.form-group').addClass('has-error');
 					}	else {
 						// remov error text field
@@ -376,7 +376,7 @@ function editProduct(productId = null) {
 					var productImage = $("#editProductImage").val();					
 					
 					if(productImage == "") {
-						$("#editProductImage").closest('.center-block').after('<p class="text-danger">Product Image field is required</p>');
+						$("#editProductImage").closest('.center-block').after('<p class="text-danger">Ürün görseli eklemelisiniz.</p>');
 						$('#editProductImage').closest('.form-group').addClass('has-error');
 					}	else {
 						// remov error text field

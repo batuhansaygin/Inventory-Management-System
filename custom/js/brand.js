@@ -264,6 +264,6 @@ function removeBrands(brandId = null) {
 
 		$('.removeBrandFooter').after();
 	} else {
-		alert('error!! Refresh the page again');
+		alert('HATA! Lütfen sayfayı yenileyin.');
 	}
 } // /remove brands function

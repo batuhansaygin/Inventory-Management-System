@@ -15,7 +15,7 @@ if($_POST) {
 				VALUES ('$userName', '$upassword' , '$uemail')";
 				if($connect->query($sql) === TRUE) {
 					$valid['success'] = true;
-					$valid['messages'] = "Successfully Added";	
+					$valid['messages'] = "Başarıyla Eklendi.";	
 				} else {
 					$valid['success'] = false;
 					$valid['messages'] = "Error while adding the members";

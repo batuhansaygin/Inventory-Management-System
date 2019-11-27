@@ -23,9 +23,10 @@ $(document).ready(function() {
 
 			var categoriesName = $("#categoriesName").val();
 			var categoriesStatus = $("#categoriesStatus").val();
+			var categoriesDescription = $("#categoriesDescription").val();
 
 			if(categoriesName == "") {
-				$("#categoriesName").after('<p class="text-danger">Şirket adı girmelisiniz.</p>');
+				$("#categoriesName").after('<p class="text-danger">Formül adı girmelisiniz.</p>');
 				$('#categoriesName').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
@@ -35,7 +36,7 @@ $(document).ready(function() {
 			}
 
 			if(categoriesStatus == "") {
-				$("#categoriesStatus").after('<p class="text-danger">Şirket durumunu seçmelisiniz.</p>');
+				$("#categoriesStatus").after('<p class="text-danger">Formül durumunu seçmelisiniz.</p>');
 				$('#categoriesStatus').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
@@ -43,8 +44,18 @@ $(document).ready(function() {
 				// success out for form 
 				$("#categoriesStatus").closest('.form-group').addClass('has-success');	  	
 			}
+			
+			if(categoriesDescription == "") {
+				$("#categoriesDescription").after('<p class="text-danger">Formül açıklaması girmelisiniz.</p>');
+				$('#categoriesDescription').closest('.form-group').addClass('has-error');
+			} else {
+				// remov error text field
+				$("#categoriesName").find('.text-danger').remove();
+				// success out for form 
+				$("#categoriesName").closest('.form-group').addClass('has-success');	  	
+			}
 
-			if(categoriesName && categoriesStatus) {
+			if(categoriesName && categoriesStatus && categoriesDescription) {
 				var form = $(this);
 				// button loading
 				$("#createCategoriesBtn").button('loading');
@@ -130,6 +141,8 @@ function editCategories(categoriesId = null) {
 				$("#editCategoriesName").val(response.categories_name);
 				// set the categories status
 				$("#editCategoriesStatus").val(response.categories_active);
+				// set the categories description
+				$("#editCategoriesDescription").val(response.categories_description);
 				// add the categories id 
 				$(".editCategoriesFooter").after('<input type="hidden" name="editCategoriesId" id="editCategoriesId" value="'+response.categories_id+'" />');
 
@@ -138,9 +151,10 @@ function editCategories(categoriesId = null) {
 				$("#editCategoriesForm").unbind('submit').bind('submit', function() {
 					var categoriesName = $("#editCategoriesName").val();
 					var categoriesStatus = $("#editCategoriesStatus").val();
+					var categoriesDescription = $("#editCategoriesDescription").val();
 
 					if(categoriesName == "") {
-						$("#editCategoriesName").after('<p class="text-danger">Şirket adı girmelisiniz.</p>');
+						$("#editCategoriesName").after('<p class="text-danger">Formül adı girmelisiniz.</p>');
 						$('#editCategoriesName').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
@@ -150,7 +164,7 @@ function editCategories(categoriesId = null) {
 					}
 
 					if(categoriesStatus == "") {
-						$("#editCategoriesStatus").after('<p class="text-danger">Şirket durumunu seçmelisiniz.</p>');
+						$("#editCategoriesStatus").after('<p class="text-danger">Formül durumunu seçmelisiniz.</p>');
 						$('#editCategoriesStatus').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
@@ -158,8 +172,18 @@ function editCategories(categoriesId = null) {
 						// success out for form 
 						$("#editCategoriesStatus").closest('.form-group').addClass('has-success');	  	
 					}
+					
+					if(categoriesDescription == "") {
+						$("#editCategoriesDescription").after('<p class="text-danger">Formül açıklaması girmelisiniz.</p>');
+						$('#editCategoriesDescription').closest('.form-group').addClass('has-error');
+					} else {
+						// remov error text field
+						$("#editCategoriesDescription").find('.text-danger').remove();
+						// success out for form 
+						$("#editCategoriesDescription").closest('.form-group').addClass('has-success');	  	
+					}
 
-					if(categoriesName && categoriesStatus) {
+					if(categoriesName && categoriesStatus & categoriesDescription) {
 						var form = $(this);
 						// button loading
 						$("#editCategoriesBtn").button('loading');
@@ -206,7 +230,7 @@ function editCategories(categoriesId = null) {
 		}); // /fetch the selected categories data
 
 	} else {
-		alert('Oops!! Refresh the page');
+		alert('HATA! Lütfen sayfayı yenileyin.');
 	}
 } // /edit categories function
 
