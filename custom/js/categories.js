@@ -50,9 +50,9 @@ $(document).ready(function() {
 				$('#categoriesDescription').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
-				$("#categoriesName").find('.text-danger').remove();
+				$("#categoriesDescription").find('.text-danger').remove();
 				// success out for form 
-				$("#categoriesName").closest('.form-group').addClass('has-success');	  	
+				$("#categoriesDescription").closest('.form-group').addClass('has-success');	  	
 			}
 
 			if(categoriesName && categoriesStatus && categoriesDescription) {
@@ -164,7 +164,7 @@ function editCategories(categoriesId = null) {
 					}
 
 					if(categoriesStatus == "") {
-						$("#editCategoriesStatus").after('<p class="text-danger">Formül durumunu seçmelisiniz.</p>');
+						$("#editCategoriesStatus").after('<p class="text-danger">Formül adı girmelisiniz.</p>');
 						$('#editCategoriesStatus').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
@@ -172,7 +172,6 @@ function editCategories(categoriesId = null) {
 						// success out for form 
 						$("#editCategoriesStatus").closest('.form-group').addClass('has-success');	  	
 					}
-					
 					if(categoriesDescription == "") {
 						$("#editCategoriesDescription").after('<p class="text-danger">Formül açıklaması girmelisiniz.</p>');
 						$('#editCategoriesDescription').closest('.form-group').addClass('has-error');
@@ -183,7 +182,7 @@ function editCategories(categoriesId = null) {
 						$("#editCategoriesDescription").closest('.form-group').addClass('has-success');	  	
 					}
 
-					if(categoriesName && categoriesStatus & categoriesDescription) {
+					if(categoriesName && categoriesStatus && categoriesDescription) {
 						var form = $(this);
 						// button loading
 						$("#editCategoriesBtn").button('loading');
@@ -230,7 +229,7 @@ function editCategories(categoriesId = null) {
 		}); // /fetch the selected categories data
 
 	} else {
-		alert('HATA! Lütfen sayfayı yenileyin.');
+		alert('Oops!! Refresh the page');
 	}
 } // /edit categories function
 

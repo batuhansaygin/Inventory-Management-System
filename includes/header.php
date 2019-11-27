@@ -59,7 +59,7 @@
 
       	<li id="navDashboard"><a href="index.php"><i class="glyphicon glyphicon-home"></i>&emsp;Ana Sayfa</a></li>        
         <?php if(isset($_SESSION['userId']) && $_SESSION['userId']==1) { ?>
-        <li id="navBrand"><a href="brand.php"><i class="glyphicon glyphicon-barcode"></i>&emsp;Şirketler</a></li>        
+        <li id="navBrand"><a href="brand.php"><i class="glyphicon glyphicon-briefcase"></i>&emsp;Şirketler</a></li>        
 		<?php } ?>
 		<?php if(isset($_SESSION['userId']) && $_SESSION['userId']==1) { ?>
         <li id="navCategories"><a href="categories.php"> <i class="glyphicon glyphicon-fire"></i>&emsp;Formüller</a></li>        

@@ -28,9 +28,9 @@ if($_GET['o'] == 'add') {
 
 
 <h4>
-	<i class='glyphicon glyphicon-edit'></i>
+	<i class='glyphicon glyphicon-plus-sign'></i>
 	<?php if($_GET['o'] == 'add') {
-		echo "Sipariş Bilgileri";
+		echo "Yeni Sipariş";
 	} else if($_GET['o'] == 'manord') { 
 		echo "Sipariş Yönetimi";
 	} else if($_GET['o'] == 'editOrd') { 
@@ -45,7 +45,7 @@ if($_GET['o'] == 'add') {
 	<div class="panel-heading">
 
 		<?php if($_GET['o'] == 'add') { ?>
-  		<i class="glyphicon glyphicon-plus-sign"></i> Yeni Sipariş
+  		<i class="glyphicon glyphicon-th-list"></i> Sipariş Bilgileri
 		<?php } else if($_GET['o'] == 'manord') { ?>
 			<i class="glyphicon glyphicon-edit"></i> Sipariş Yönetimi
 		<?php } else if($_GET['o'] == 'editOrd') { ?>
@@ -236,9 +236,9 @@ if($_GET['o'] == 'add') {
 			    <div class="col-sm-offset-2 col-sm-10">
 			    <button type="button" class="btn btn-default" onclick="addRow()" id="addRowBtn" data-loading-text="Loading..."> <i class="glyphicon glyphicon-plus-sign"></i> Ürün Ekle </button>
 
-			      <button type="submit" id="createOrderBtn" data-loading-text="Loading..." class="btn btn-success"><i class="glyphicon glyphicon-ok-sign"></i> Değişiklikleri Kaydet</button>
+			      <button type="submit" id="createOrderBtn" data-loading-text="Loading..." class="btn btn-success"><i class="glyphicon glyphicon-ok"></i> Değişiklikleri Kaydet</button>
 
-			      <button type="reset" class="btn btn-default" onclick="resetOrderForm()"><i class="glyphicon glyphicon-erase"></i> Sıfırla</button>
+			      <button type="reset" class="btn btn-default" onclick="resetOrderForm()"><i class="glyphicon glyphicon-remove"></i> Sıfırla</button>
 			    </div>
 			  </div>
 			</form>
@@ -508,11 +508,11 @@ if($_GET['o'] == 'add') {
 
 			  <div class="form-group editButtonFooter">
 			    <div class="col-sm-offset-2 col-sm-10">
-			    <button type="button" class="btn btn-default" onclick="addRow()" id="addRowBtn" data-loading-text="Loading..."> <i class="glyphicon glyphicon-plus-sign"></i> Add Row </button>
+			    <button type="button" class="btn btn-default" onclick="addRow()" id="addRowBtn" data-loading-text="Loading..."> <i class="glyphicon glyphicon-plus"></i> Add Row </button>
 
 			    <input type="hidden" name="orderId" id="orderId" value="<?php echo $_GET['i']; ?>" />
 
-			    <button type="submit" id="editOrderBtn" data-loading-text="Loading..." class="btn btn-success"><i class="glyphicon glyphicon-ok-sign"></i> Değişiklikleri Kaydet</button>
+			    <button type="submit" id="editOrderBtn" data-loading-text="Loading..." class="btn btn-success"><i class="glyphicon glyphicon-ok"></i> Değişiklikleri Kaydet</button>
 			      
 			    </div>
 			  </div>
@@ -591,17 +591,17 @@ if($_GET['o'] == 'add') {
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title"><i class="glyphicon glyphicon-trash"></i> Remove Order</h4>
+        <h4 class="modal-title"><i class="glyphicon glyphicon-trash"></i> Siparişi Sil</h4>
       </div>
       <div class="modal-body">
 
       	<div class="removeOrderMessages"></div>
 
-        <p>Do you really want to remove ?</p>
+        <p>Siparişi silmek istediğinize emin misiniz ?</p>
       </div>
       <div class="modal-footer removeProductFooter">
-        <button type="button" class="btn btn-default" data-dismiss="modal"> <i class="glyphicon glyphicon-remove-sign"></i> Close</button>
-        <button type="button" class="btn btn-primary" id="removeOrderBtn" data-loading-text="Loading..."> <i class="glyphicon glyphicon-ok-sign"></i> Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"> <i class="glyphicon glyphicon-remove"></i> İptal Et</button>
+        <button type="button" class="btn btn-primary" id="removeOrderBtn" data-loading-text="Loading..."> <i class="glyphicon glyphicon-ok"></i> Onayla</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
