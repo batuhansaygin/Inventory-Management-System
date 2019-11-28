@@ -24,11 +24,11 @@ if($result->num_rows > 0) {
 
  	// active 
  	if($row[4] == 1) { 		
- 		$paymentStatus = "<label class='label label-success'>Full Payment</label>";
+ 		$paymentStatus = "<label class='label label-success'>Tam Ödeme</label>";
  	} else if($row[4] == 2) { 		
- 		$paymentStatus = "<label class='label label-info'>Advance Payment</label>";
+ 		$paymentStatus = "<label class='label label-info'>Ön Ödeme</label>";
  	} else { 		
- 		$paymentStatus = "<label class='label label-warning'>No Payment</label>";
+ 		$paymentStatus = "<label class='label label-warning'>Ödeme Yok</label>";
  	} // /else
 
  	$button = '<!-- Single button -->
