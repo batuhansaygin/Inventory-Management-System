@@ -2,5 +2,5 @@
 
 2. aşağıdaki dosyaları değiştir
 core.php, logout.php, index.php
-header('location: http://localhost:8080/ims/index.php'); //örnektir
+header('location: http://localhost/ims/index.php'); //örnektir
 

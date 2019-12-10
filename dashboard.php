@@ -6,27 +6,21 @@ $sql = "SELECT * FROM product WHERE status = 1";
 $query = $connect->query($sql);
 $countProduct = $query->num_rows;
 
-$orderSql = "SELECT * FROM orders WHERE order_status = 1";
-$orderQuery = $connect->query($orderSql);
-$countOrder = $orderQuery->num_rows;
+$sql = "SELECT * FROM brands WHERE brand_status = 1";
+$query = $connect->query($sql);
+$countBrand = $query->num_rows;
 
-$totalRevenue = "";
-while ($orderResult = $orderQuery->fetch_assoc()) {
-	$totalRevenue += $orderResult['paid'];
-}
+$sql = "SELECT * FROM categories WHERE categories_status = 1";
+$query = $connect->query($sql);
+$countCategories = $query->num_rows;
 
-$lowStockSql = "SELECT * FROM product WHERE quantity <= 3 AND status = 1";
-$lowStockQuery = $connect->query($lowStockSql);
-$countLowStock = $lowStockQuery->num_rows;
-
-$userwisesql = "SELECT users.username , SUM(orders.grand_total) as totalorder FROM orders INNER JOIN users ON orders.user_id = users.user_id WHERE orders.order_status = 1 GROUP BY orders.user_id";
-$userwiseQuery = $connect->query($userwisesql);
-$userwieseOrder = $userwiseQuery->num_rows;
+$formulasql = "SELECT categories_name , categories_status FROM categories WHERE categories_status = 1 GROUP BY categories_id";
+$categoriesQuery = $connect->query($formulasql);
+$formulaQuery = $categoriesQuery->num_rows;
 
 $connect->close();
 
 ?>
-
 
 <style type="text/css">
 	.ui-datepicker-calendar {
@@ -38,15 +32,38 @@ $connect->close();
     <link rel="stylesheet" href="assests/plugins/fullcalendar/fullcalendar.min.css">
     <link rel="stylesheet" href="assests/plugins/fullcalendar/fullcalendar.print.css" media="print">
 
-
 <div class="row">
 	<?php  if(isset($_SESSION['userId']) && $_SESSION['userId']==1) { ?>
 	<div class="col-md-4">
+			<div class="panel panel-info">
+			<div class="panel-heading">
+				<a href="brand.php" style="text-decoration:none;color:white;">
+					Toplam Şirket
+					<span class="badge pull pull-right" ><?php echo $countBrand; ?></span>
+				</a>
+					
+			</div> <!--/panel-hdeaing-->
+		</div> <!--/panel-->
+		</div> <!--/col-md-4-->
+	
+	<div class="col-md-4">
+		<div class="panel panel-danger">
+			<div class="panel-heading">
+				<a href="categories.php" style="text-decoration:none;color:black;">
+					Toplam Formül
+					<span class="badge pull pull-right"><?php echo $countCategories; ?></span>	
+				</a>
+			</div> <!--/panel-hdeaing-->
+		</div> <!--/panel-->
+	</div> <!--/col-md-4-->
+	
+	<?php } ?>
+		<div class="col-md-4">
 		<div class="panel panel-success">
 			<div class="panel-heading">
 				
 				<a href="product.php" style="text-decoration:none;color:black;">
-					Ürünler
+					Toplam Ürün
 					<span class="badge pull pull-right"><?php echo $countProduct; ?></span>	
 				</a>
 				
@@ -54,34 +71,6 @@ $connect->close();
 		</div> <!--/panel-->
 	</div> <!--/col-md-4-->
 	
-	<div class="col-md-4">
-		<div class="panel panel-danger">
-			<div class="panel-heading">
-				<a href="product.php" style="text-decoration:none;color:black;">
-					Azalan Stok
-					<span class="badge pull pull-right"><?php echo $countLowStock; ?></span>	
-				</a>
-				
-			</div> <!--/panel-hdeaing-->
-		</div> <!--/panel-->
-	</div> <!--/col-md-4-->
-	
-	
-	<?php } ?>  
-		<div class="col-md-4">
-			<div class="panel panel-info">
-			<div class="panel-heading">
-				<a href="orders.php?o=manord" style="text-decoration:none;color:black;">
-					Siparişler
-					<span class="badge pull pull-right"><?php echo $countOrder; ?></span>
-				</a>
-					
-			</div> <!--/panel-hdeaing-->
-		</div> <!--/panel-->
-		</div> <!--/col-md-4-->
-
-	
-
 	<div class="col-md-4">
 		<div class="card">
 		  <div class="cardHeader">
@@ -91,52 +80,34 @@ $connect->close();
 		  <div class="cardContainer">
 		    <p><?php echo date('l') .' '.date('d').', '.date('Y'); ?></p>
 		  </div>
-		</div> 
+		</div>
 		<br/>
-
-		<div class="card">
-		  <div class="cardHeader" style="background-color:#6093D2;">
-		    <h1><?php if($totalRevenue) {
-		    	echo $totalRevenue;
-		    	} else {
-		    		echo '0';
-		    		} ?></h1>
-		  </div>
-
-		  <div class="cardContainer">
-		    <p> Gelir</p>
-		  </div>
-		</div> 
-
 	</div>
 	
 	<?php  if(isset($_SESSION['userId']) && $_SESSION['userId']==1) { ?>
 	<div class="col-md-8">
 		<div class="panel panel-default">
-			<div class="panel-heading"> <i class="glyphicon glyphicon-calendar"></i> Kullanıcı Siparişleri</div>
+			<div class="panel-heading"> <i class="glyphicon glyphicon-calendar"></i>&emsp;Aktif Formüller</div>
 			<div class="panel-body">
-				<table class="table" id="productTable">
+				<table class="table" id="manageCategoriesTable">
 			  	<thead>
 			  		<tr>			  			
-			  			<th style="width:40%;">Kullanıcı Adı</th>
-			  			<th style="width:20%;">Sipariş</th>
+			  			<th style="width:40%;">Formül Adı</th>
+			  			<th style="width:20%;">Durum</th>
 			  		</tr>
 			  	</thead>
 			  	<tbody>
-					<?php while ($orderResult = $userwiseQuery->fetch_assoc()) { ?>
+					<?php while ($categoriesResult = $categoriesQuery->fetch_assoc()) { ?>
 						<tr>
-							<td><?php echo $orderResult['username']?></td>
-							<td><?php echo $orderResult['totalorder']?></td>
-							
+							<td><?php echo $categoriesResult['categories_name']?></td>
+							<td><?php echo $categoriesResult['categories_status']?></td>
 						</tr>
-						
 					<?php } ?>
 				</tbody>
 				</table>
 				<!--<div id="calendar"></div>-->
 			</div>	
 		</div>
-		
 	</div> 
 	<?php  } ?>
 	

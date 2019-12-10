@@ -151,7 +151,7 @@
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
 	        
-	        <button type="submit" class="btn btn-primary" id="createProductBtn" data-loading-text="Loading..." autocomplete="off">Kaydet</button>
+	        <button type="submit" class="btn btn-primary" id="createProductBtn" data-loading-text="Yükleniyor..." autocomplete="off">Kaydet</button>
 	      </div> <!-- /modal-footer -->	      
      	</form> <!-- /.form -->	     
     </div> <!-- /modal-content -->    
@@ -218,7 +218,7 @@
 			        <div class="modal-footer editProductPhotoFooter">
 				        <button type="button" class="btn btn-default" data-dismiss="modal"> <i class="glyphicon glyphicon-remove-sign"></i> Kapat</button>
 				        
-				        <!-- <button type="submit" class="btn btn-success" id="editProductImageBtn" data-loading-text="Loading..."> <i class="glyphicon glyphicon-ok-sign"></i> Save Changes</button> -->
+				        <!-- <button type="submit" class="btn btn-success" id="editProductImageBtn" data-loading-text="Yükleniyor..."> <i class="glyphicon glyphicon-ok-sign"></i> Save Changes</button> -->
 				      </div>
 				      <!-- /modal-footer -->
 				      </form>
@@ -308,7 +308,7 @@
 			        <div class="modal-footer editProductFooter">
 				        <button type="button" class="btn btn-default" data-dismiss="modal"> <i class="glyphicon glyphicon-remove"></i> Kapat</button>
 				        
-				        <button type="submit" class="btn btn-success" id="editProductBtn" data-loading-text="Loading..."> <i class="glyphicon glyphicon-ok"></i> Değişiklikleri Kaydet</button>
+				        <button type="submit" class="btn btn-success" id="editProductBtn" data-loading-text="Yükleniyor..."> <i class="glyphicon glyphicon-ok"></i> Değişiklikleri Kaydet</button>
 				      </div> <!-- /modal-footer -->				     
 			        </form> <!-- /.form -->				     	
 				    </div>    
@@ -343,7 +343,7 @@
       </div>
       <div class="modal-footer removeProductFooter">
         <button type="button" class="btn btn-default" data-dismiss="modal"> <i class="glyphicon glyphicon-remove"></i> İptal Et</button>
-        <button type="button" class="btn btn-primary" id="removeProductBtn" data-loading-text="Loading..."> <i class="glyphicon glyphicon-ok"></i> Onayla</button>
+        <button type="button" class="btn btn-primary" id="removeProductBtn" data-loading-text="Yükleniyor..."> <i class="glyphicon glyphicon-ok"></i> Onayla</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

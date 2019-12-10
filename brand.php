@@ -76,7 +76,7 @@
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
 	        
-	        <button type="submit" class="btn btn-primary" id="createBrandBtn" data-loading-text="Loading..." autocomplete="off">Kaydet</button>
+	        <button type="submit" class="btn btn-primary" id="createBrandBtn" data-loading-text="Yükleniyor..." autocomplete="off">Kaydet</button>
 	      </div>
 	      <!-- /modal-footer -->
      	</form>
@@ -134,7 +134,7 @@
 	      <div class="modal-footer editBrandFooter">
 	        <button type="button" class="btn btn-default" data-dismiss="modal"> <i class="glyphicon glyphicon-remove"></i> Kapat</button>
 	        
-	        <button type="submit" class="btn btn-success" id="editBrandBtn" data-loading-text="Loading..." autocomplete="off"> <i class="glyphicon glyphicon-ok"></i> Değişiklikleri Kaydet</button>
+	        <button type="submit" class="btn btn-success" id="editBrandBtn" data-loading-text="Yükleniyor..." autocomplete="off"> <i class="glyphicon glyphicon-ok"></i> Değişiklikleri Kaydet</button>
 	      </div>
 	      <!-- /modal-footer -->
      	</form>
@@ -160,7 +160,7 @@
       </div>
       <div class="modal-footer removeBrandFooter">
         <button type="button" class="btn btn-default" data-dismiss="modal"> <i class="glyphicon glyphicon-remove"></i> İptal Et</button>
-        <button type="button" class="btn btn-primary" id="removeBrandBtn" data-loading-text="Loading..."> <i class="glyphicon glyphicon-ok"></i> Onayla</button>
+        <button type="button" class="btn btn-primary" id="removeBrandBtn" data-loading-text="Yükleniyor..."> <i class="glyphicon glyphicon-ok"></i> Onayla</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

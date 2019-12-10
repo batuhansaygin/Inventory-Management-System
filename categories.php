@@ -78,6 +78,8 @@
 						<textarea type="text" class="form-control" rows="5" id="categoriesDescription" placeholder="Örn: Şu maddeden şu kadar kullanıldı." name="categoriesDescription" autocomplete="off"></textarea>
 					</div>
 			</div>
+<hr/> <p style="color:red;font-size:24px;">
+      Bu bölüm <strong>Deneyimsel Geliştirme</strong> alanıdır.</p>
 
 <div class="checkbox">
   <label for="checkbox" class="col-sm-4 control-label">Formül İçeriği</label>
@@ -124,7 +126,7 @@
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
 	        
-	        <button type="submit" class="btn btn-primary" id="createCategoriesBtn" data-loading-text="Loading..." autocomplete="off">Kaydet</button>
+	        <button type="submit" class="btn btn-primary" id="createCategoriesBtn" data-loading-text="Yükleniyor..." autocomplete="off">Kaydet</button>
 	      </div> <!-- /modal-footer -->	      
      	</form> <!-- /.form -->	     
     </div> <!-- /modal-content -->    
@@ -186,7 +188,7 @@
 	      <div class="modal-footer editCategoriesFooter">
 	        <button type="button" class="btn btn-default" data-dismiss="modal"> <i class="glyphicon glyphicon-remove"></i> Kapat</button>
 	        
-	        <button type="submit" class="btn btn-success" id="editCategoriesBtn" data-loading-text="Loading..." autocomplete="off"> <i class="glyphicon glyphicon-ok"></i> Değişiklikleri Kaydet</button>
+	        <button type="submit" class="btn btn-success" id="editCategoriesBtn" data-loading-text="Yükleniyor..." autocomplete="off"> <i class="glyphicon glyphicon-ok"></i> Değişiklikleri Kaydet</button>
 	      </div>
 	      <!-- /modal-footer -->
      	</form>
@@ -211,7 +213,7 @@
       </div>
       <div class="modal-footer removeCategoriesFooter">
         <button type="button" class="btn btn-default" data-dismiss="modal"> <i class="glyphicon glyphicon-remove"></i> İptal Et</button>
-        <button type="button" class="btn btn-primary" id="removeCategoriesBtn" data-loading-text="Loading..."> <i class="glyphicon glyphicon-ok"></i> Onayla</button>
+        <button type="button" class="btn btn-primary" id="removeCategoriesBtn" data-loading-text="Yükleniyor..."> <i class="glyphicon glyphicon-ok"></i> Onayla</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

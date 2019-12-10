@@ -12,10 +12,10 @@ if($_POST) {
 	$sql = "UPDATE users SET username = '$username' WHERE user_id = {$userId}";
 	if($connect->query($sql) === TRUE) {
 		$valid['success'] = true;
-		$valid['messages'] = "Successfully Update";	
+		$valid['messages'] = "Başarıyla değiştirildi.";	
 	} else {
 		$valid['success'] = false;
-		$valid['messages'] = "Error while updating product info";
+		$valid['messages'] = "Değiştirilirken bir hata ile karşılaşıldı.";
 	}
 
 	$connect->close();

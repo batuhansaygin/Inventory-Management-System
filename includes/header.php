@@ -69,7 +69,7 @@
 		<?php } ?>
 		
         <li class="dropdown" id="navOrder">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-shopping-cart"></i> Siparişler <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-shopping-cart"></i>&emsp;Siparişler <span class="caret"></span></a>
           <ul class="dropdown-menu">            
             <li id="topNavAddOrder"><a href="orders.php?o=add"> <i class="glyphicon glyphicon-plus"></i> Sipariş Ekle</a></li>            
             <li id="topNavManageOrder"><a href="orders.php?o=manord"> <i class="glyphicon glyphicon-edit"></i> Sipariş Yönet</a></li>            
@@ -77,7 +77,7 @@
         </li> 
 		
 		<?php  if(isset($_SESSION['userId']) && $_SESSION['userId']==1) { ?>
-        <li id="navReport"><a href="#report.php"> <i class="glyphicon glyphicon-check"></i> Raporlar </a></li>
+        <li id="navReport"><a href="#report.php"> <i class="glyphicon glyphicon-check"></i>&emsp;Raporlar </a></li>
 		<?php } ?>   
         <li class="dropdown" id="navSetting">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span></a>

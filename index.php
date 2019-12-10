@@ -4,7 +4,7 @@ require_once 'php_action/db_connect.php';
 session_start();
 
 if(isset($_SESSION['userId'])) {
-	header('location: http://localhost:8080/baerlocher/dashboard.php');
+	header('location: http://localhost/baerlocher/dashboard.php');
 }
 
 $errors = array();
@@ -39,7 +39,7 @@ if($_POST) {
 				// set session
 				$_SESSION['userId'] = $user_id;
 
-				header('location: http://localhost:8080/baerlocher/dashboard.php');	
+				header('location: http://localhost/baerlocher/dashboard.php');	
 			} else{
 				
 				$errors[] = "Hatalı Şifre/Kullancı Adı girdiniz.";

@@ -19,10 +19,10 @@ if($_POST) {
 
 	if($connect->query($sql) === TRUE) {
 		$valid['success'] = true;
-		$valid['messages'] = "Successfully Update";	
+		$valid['messages'] = "Başarıyla değiştirildi.";	
 	} else {
 		$valid['success'] = false;
-		$valid['messages'] = "Error while updating product info";
+		$valid['messages'] = "Değiştirilirken bir hata ile karşılaşıldı.";
 	}
 
 	 
