@@ -9,23 +9,21 @@
 		  <li class="active">Formüller</li>
 		</ol>
 
+		<div class="div-action pull pull-right" style="padding: 4px 20px 20px 0;">
+					<button class="btn btn-default button1" data-toggle="modal" id="addCategoriesModalBtn" data-target="#addCategoriesModal"> <i class="glyphicon glyphicon-plus-sign"></i> Yeni Formül </button>
+		</div> <!-- /div-action -->
+
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<div class="page-heading"> <i class="glyphicon glyphicon-edit"></i> Formül Yönetimi</div>
 			</div> <!-- /panel-heading -->
 			<div class="panel-body">
-
 				<div class="remove-messages"></div>
-
-				<div class="div-action pull pull-right" style="padding-bottom:20px;">
-					<button class="btn btn-default button1" data-toggle="modal" id="addCategoriesModalBtn" data-target="#addCategoriesModal"> <i class="glyphicon glyphicon-plus-sign"></i> Yeni Formül </button>
-				</div> <!-- /div-action -->				
-				
-				<table class="table" id="manageCategoriesTable">
+				<table class="table table-hover" id="manageCategoriesTable">
 					<thead>
 						<tr>							
-							<th>Formül Adı</th>
-							<th>Durum</th>
+							<th style="width:60%;">Formül Adı</th>
+							<th style="width:25%;">Durum</th>
 							<th style="width:15%;">İşlem</th>
 						</tr>
 					</thead>
@@ -75,7 +73,7 @@
 				<label for="categoriesDescription" class="col-sm-4 control-label">Formül Açıklaması</label>
 				<label class="col-sm-1 control-label">: </label>
 					<div class="col-sm-7">
-						<textarea type="text" class="form-control" rows="5" id="categoriesDescription" placeholder="Örn: Şu maddeden şu kadar kullanıldı." name="categoriesDescription" autocomplete="off"></textarea>
+						<textarea type="text" style="max-width: 100%; min-width: 100%; min-height:100px;" class="form-control" rows="5" id="categoriesDescription" placeholder="Örn: Şu maddeden şu kadar kullanıldı." name="categoriesDescription" autocomplete="off"></textarea>
 					</div>
 			</div>
 <hr/> <p style="color:red;font-size:24px;">
@@ -177,11 +175,11 @@
 				<label for="editCategoriesDescription" class="col-sm-4 control-label">Formül Açıklaması</label>
 				<label class="col-sm-1 control-label">: </label>
 					<div class="col-sm-7">
-						<textarea type="text" class="form-control" rows="5" id="editCategoriesDescription" placeholder="Örn: Şu maddeden şu kadar kullanıldı." name="editCategoriesDescription" autocomplete="off"></textarea>
+						<textarea type="text" style="max-width: 100%; min-width: 100%; min-height:100px;" class="form-control" rows="5" id="editCategoriesDescription" placeholder="Örn: Şu maddeden şu kadar kullanıldı." name="editCategoriesDescription" autocomplete="off"></textarea>
 					</div>
 			</div> <!-- /form-group-->	 
-		      </div>         	        
-		      <!-- /edit brand result -->
+		    </div>         	        
+		    <!-- /edit categories result -->
 
 	      </div> <!-- /modal-body -->
 	      
@@ -220,6 +218,68 @@
 </div><!-- /.modal -->
 <!-- /categories brand -->
 
+<!-- show categories brand -->
+<div class="modal fade" id="showCategoriesModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    	
+    	<form class="form-horizontal" id="showCategoriesForm" action="php_action/editCategories.php" method="POST">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title"><i class="glyphicon glyphicon-list-alt"></i> Formül Ayrıntıları</h4>
+	      </div>
+	      <div class="modal-body">
+
+	      	<div id="show-categories-messages"></div>
+
+	      	<div class="modal-loading div-hide" style="width:50px; margin:auto;padding-top:50px; padding-bottom:50px;">
+						<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+						<span class="sr-only">Yükleniyor...</span>
+					</div>
+
+		      <div class="show-categories-result">
+		      	<div class="form-group">
+		        	<label for="showCategoriesName" class="col-sm-4 control-label">Formül Adı: </label>
+		        	<label class="col-sm-1 control-label">: </label>
+					    <div class="col-sm-7">
+					      <input type="text" style="pointer-events: none; background-color: white;" class="form-control" id="showCategoriesName" name="showCategoriesName" autocomplete="off" readonly="true">
+					    </div>
+		        </div> <!-- /form-group-->	         	        
+		        <div class="form-group">
+		        	<label for="showCategoriesStatus" class="col-sm-4 control-label">Durum: </label>
+		        	<label class="col-sm-1 control-label">: </label>
+					    <div class="col-sm-7">
+					      <select style="pointer-events: none; background-color: white; -webkit-appearance: none;" class="form-control" id="showCategoriesStatus" name="showCategoriesStatus" disabled>
+					      	<option value="">~~ SEÇİM YAP ~~</option>
+					      	<option value="1">Aktif</option>
+					      	<option value="2">Pasif</option>
+					      </select>
+					    </div>
+		        </div> <!-- /form-group-->
+				<div class="form-group">
+				<label for="showCategoriesDescription" class="col-sm-4 control-label">Formül Açıklaması</label>
+				<label class="col-sm-1 control-label">: </label>
+					<div class="col-sm-7">
+						<textarea type="text" style="max-width: 100%; min-width: 100%; min-height:100px; background-color: white;" class="form-control" rows="5" id="showCategoriesDescription" name="showCategoriesDescription" autocomplete="off" readonly="true"></textarea>
+					</div>
+			</div> <!-- /form-group-->	 
+		      </div>         	        
+		      <!-- /show brand result -->
+
+	      </div> <!-- /modal-body -->
+	      
+	      <div class="modal-footer showCategoriesFooter">
+	        <button type="submit" class="btn btn-success" data-dismiss="modal"> <i class="glyphicon glyphicon-ok"></i> Tamam</button>
+	      </div>
+	      <!-- /modal-footer -->
+     	</form>
+	     <!-- /.form -->
+    </div>
+    <!-- /modal-content -->
+  </div>
+  <!-- /modal-dailog -->
+</div>
+<!-- /categories brand -->
 
 <script src="custom/js/categories.js"></script>
 

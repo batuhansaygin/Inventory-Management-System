@@ -10,8 +10,8 @@
 		</ol>
 
 		<div class="div-action pull pull-right" style="padding: 4px 20px 20px 0;">
-					<button class="btn btn-default button1" data-toggle="modal" data-target="#addBrandModel"> <i class="glyphicon glyphicon-plus-sign"></i> Yeni Şirket </button>
-				</div>
+			<button class="btn btn-default button1" data-toggle="modal" data-target="#addBrandModel"> <i class="glyphicon glyphicon-plus-sign"></i> Yeni Şirket </button>
+		</div>
 
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -23,7 +23,7 @@
 
 				 <!-- /div-action -->				
 				
-				<table class="table" id="manageBrandTable">
+				<table class="table table-hover" id="manageBrandTable">
 					<thead>
 						<tr>							
 							<th>Şirket Adı</th>

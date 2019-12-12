@@ -3,15 +3,14 @@
 
 <div class="row">
 	<div class="col-md-12">
-	
-		<div class="div-action pull pull-right" style="padding-bottom:20px;">
-			<button class="btn btn-default button1" data-toggle="modal" id="addProductModalBtn" data-target="#addProductModal"> <i class="glyphicon glyphicon-plus-sign"></i> Yeni Ürün </button>
-		</div>
-		
 		<ol class="breadcrumb">
 		  <li><a href="dashboard.php">Anasayfa</a></li>		  
 		  <li class="active">Ürünler</li>
 		</ol>
+
+		<div class="div-action pull pull-right" style="padding: 4px 20px 20px 0;">
+			<button class="btn btn-default button1" data-toggle="modal" id="addProductModalBtn" data-target="#addProductModal"> <i class="glyphicon glyphicon-plus-sign"></i> Yeni Ürün </button>
+		</div>
 
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -23,7 +22,7 @@
 
 				 <!-- /div-action -->				
 				
-				<table class="table" id="manageProductTable">
+				<table class="table table-hover" id="manageProductTable">
 					<thead>
 						<tr>
 							<th style="width:10%;">Görsel</th>							
@@ -216,7 +215,7 @@
 			        </div> <!-- /form-group-->	     	           	       
 
 			        <div class="modal-footer editProductPhotoFooter">
-				        <button type="button" class="btn btn-default" data-dismiss="modal"> <i class="glyphicon glyphicon-remove-sign"></i> Kapat</button>
+				        <button type="button" class="btn btn-default" data-dismiss="modal"> <i class="glyphicon glyphicon-remove"></i> Kapat</button>
 				        
 				        <!-- <button type="submit" class="btn btn-success" id="editProductImageBtn" data-loading-text="Yükleniyor..."> <i class="glyphicon glyphicon-ok-sign"></i> Save Changes</button> -->
 				      </div>

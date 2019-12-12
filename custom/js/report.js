@@ -12,7 +12,7 @@ $(document).ready(function() {
 		if(startDate == "" || endDate == "") {
 			if(startDate == "") {
 				$("#startDate").closest('.form-group').addClass('has-error');
-				$("#startDate").after('<p class="text-danger">The Start Date is required</p>');
+				$("#startDate").after('<p class="text-danger">Lütfen başlangıç tarihini seçin.</p>');
 			} else {
 				$(".form-group").removeClass('has-error');
 				$(".text-danger").remove();
@@ -20,7 +20,7 @@ $(document).ready(function() {
 
 			if(endDate == "") {
 				$("#endDate").closest('.form-group').addClass('has-error');
-				$("#endDate").after('<p class="text-danger">The End Date is required</p>');
+				$("#endDate").after('<p class="text-danger">Lütfen bitiş tarihini seçin.</p>');
 			} else {
 				$(".form-group").removeClass('has-error');
 				$(".text-danger").remove();
@@ -37,8 +37,8 @@ $(document).ready(function() {
 				data: form.serialize(),
 				dataType: 'text',
 				success:function(response) {
-					var mywindow = window.open('', 'Stock Management System', 'height=400,width=600');
-	        mywindow.document.write('<html><head><title>Order Report Slip</title>');        
+					var mywindow = window.open('', 'Baerlocher PMS', 'height=400,width=600');
+	        mywindow.document.write('<html><head><title>Sipariş Genel Raporu</title>');        
 	        mywindow.document.write('</head><body>');
 	        mywindow.document.write(response);
 	        mywindow.document.write('</body></html>');

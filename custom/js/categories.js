@@ -102,6 +102,41 @@ $(document).ready(function() {
 
 }); // /document
 
+// show categories function
+function showCategories(categoriesId = null) {
+	if(categoriesId) {
+		
+		$.ajax({
+			url: 'php_action/fetchSelectedCategories.php',
+			type: 'post',
+			data: {categoriesId: categoriesId},
+			dataType: 'json',
+			success:function(response) {
+
+				// modal spinner
+				$('.modal-loading').addClass('div-hide');
+				// modal result
+				$('.show-categories-result').removeClass('div-hide');
+				//modal footer
+				$(".showCategoriesFooter").removeClass('div-hide');	
+
+				// set the categories name
+				$("#showCategoriesName").val(response.categories_name);
+				// set the categories status
+				$("#showCategoriesStatus").val(response.categories_active);
+				// set the categories description
+				$("#showCategoriesDescription").val(response.categories_description);
+				// add the categories id 
+				$(".showCategoriesFooter").after('<input type="hidden" name="showCategoriesId" id="showCategoriesId" value="'+response.categories_id+'" />');
+				
+			} // /success
+		}); // /fetch the selected categories data
+
+	} else {
+		alert('HATA! Lutfen sayfayi yenileyin.');
+	}
+} // /show categories function
+
 // edit categories function
 function editCategories(categoriesId = null) {
 	if(categoriesId) {

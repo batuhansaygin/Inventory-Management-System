@@ -14,7 +14,7 @@ $sql = "SELECT * FROM categories WHERE categories_status = 1";
 $query = $connect->query($sql);
 $countCategories = $query->num_rows;
 
-$formulasql = "SELECT categories_name , categories_status FROM categories WHERE categories_status = 1 GROUP BY categories_id";
+$formulasql = "SELECT categories_name , categories_status FROM categories WHERE categories_active = 1 GROUP BY categories_id";
 $categoriesQuery = $connect->query($formulasql);
 $formulaQuery = $categoriesQuery->num_rows;
 
@@ -82,30 +82,38 @@ $connect->close();
 		  </div>
 		</div>
 		<br/>
+		<div class="card text-white bg-info mb-3">
+		  <div class="card-body">
+			<h2 class="card-title">Deneyimsel Geliştirme</h2>
+			<p class="card-text">Bu kısım deneyimsel geliştirme alanıdır.</p>
+		  </div>
+		</div>
 	</div>
 	
 	<?php  if(isset($_SESSION['userId']) && $_SESSION['userId']==1) { ?>
 	<div class="col-md-8">
 		<div class="panel panel-default">
-			<div class="panel-heading"> <i class="glyphicon glyphicon-calendar"></i>&emsp;Aktif Formüller</div>
-			<div class="panel-body">
-				<table class="table" id="manageCategoriesTable">
-			  	<thead>
-			  		<tr>			  			
-			  			<th style="width:40%;">Formül Adı</th>
-			  			<th style="width:20%;">Durum</th>
-			  		</tr>
-			  	</thead>
-			  	<tbody>
-					<?php while ($categoriesResult = $categoriesQuery->fetch_assoc()) { ?>
-						<tr>
-							<td><?php echo $categoriesResult['categories_name']?></td>
-							<td><?php echo $categoriesResult['categories_status']?></td>
+			<div class="panel-heading"> <i class="glyphicon glyphicon-tint"></i>&emsp;Aktif Formüller</div>
+				<div class="panel-body">
+				<div style="max-height: 450px; overflow-x: hidden; overflow-y: auto;">
+					<table class="table table-striped" id="manageCategoriesTable">
+					<thead>
+						<tr>			  			
+							<th style="width:40%;">Formül Adı</th>
+							<th style="width:15%;">Durum</th>
 						</tr>
-					<?php } ?>
-				</tbody>
-				</table>
-				<!--<div id="calendar"></div>-->
+					</thead>
+					<tbody>
+						<?php while ($categoriesResult = $categoriesQuery->fetch_assoc()) { ?>
+							<tr>
+								<td><?php echo $categoriesResult['categories_name']?></td>
+								<td><?php echo "<label class='label label-success'>Aktif</label>";?></td>
+							</tr>
+						<?php } ?>
+					</tbody>
+					</table>
+					<!--<div id="calendar"></div>-->
+				</div>
 			</div>	
 		</div>
 	</div> 

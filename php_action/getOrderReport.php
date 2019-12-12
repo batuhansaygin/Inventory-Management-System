@@ -19,10 +19,10 @@ if($_POST) {
 	$table = '
 	<table border="1" cellspacing="0" cellpadding="0" style="width:100%;">
 		<tr>
-			<th>Order Date</th>
-			<th>Client Name</th>
-			<th>Contact</th>
-			<th>Grand Total</th>
+			<th>Sipariş Tarihi</th>
+			<th>Müşteri Bilgisi</th>
+			<th>İletişim Bilgisi</th>
+			<th>Toplam</th>
 		</tr>
 
 		<tr>';
@@ -40,7 +40,7 @@ if($_POST) {
 		</tr>
 
 		<tr>
-			<td colspan="3"><center>Total Amount</center></td>
+			<td colspan="3"><center>Genel Toplam</center></td>
 			<td><center>'.$totalAmount.'</center></td>
 		</tr>
 	</table>

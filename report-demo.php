@@ -4,27 +4,27 @@
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<i class="glyphicon glyphicon-check"></i>	Order Report
+				<i class="glyphicon glyphicon-check"></i> Sipariş Raporu
 			</div>
 			<!-- /panel-heading -->
 			<div class="panel-body">
 				
 				<form class="form-horizontal" action="php_action/getOrderReport.php" method="post" id="getOrderReportForm">
 				  <div class="form-group">
-				    <label for="startDate" class="col-sm-2 control-label">Start Date</label>
+				    <label for="startDate" class="col-sm-2 control-label">Başlangıç Tarihi</label>
 				    <div class="col-sm-10">
-				      <input type="text" class="form-control" id="startDate" name="startDate" placeholder="Start Date" />
+				      <input type="text" class="form-control" id="startDate" name="startDate" placeholder="Örn: 12/03/2018" />
 				    </div>
 				  </div>
 				  <div class="form-group">
-				    <label for="endDate" class="col-sm-2 control-label">End Date</label>
+				    <label for="endDate" class="col-sm-2 control-label">Bitiş Tarihi</label>
 				    <div class="col-sm-10">
-				      <input type="text" class="form-control" id="endDate" name="endDate" placeholder="End Date" />
+				      <input type="text" class="form-control" id="endDate" name="endDate" placeholder="Örn: 12/03/2019" />
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <div class="col-sm-offset-2 col-sm-10">
-				      <button type="submit" class="btn btn-success" id="generateReportBtn"> <i class="glyphicon glyphicon-ok-sign"></i> Generate Report</button>
+				      <button type="submit" class="btn btn-success" id="generateReportBtn"> <i class="glyphicon glyphicon-ok-sign"></i> Raporla</button>
 				    </div>
 				  </div>
 				</form>
