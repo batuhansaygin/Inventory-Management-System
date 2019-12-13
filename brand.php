@@ -26,9 +26,9 @@
 				<table class="table table-hover" id="manageBrandTable">
 					<thead>
 						<tr>							
-							<th>Şirket Adı</th>
-							<th>Durum</th>
-							<th style="width:15%;">İşlem</th>
+							<th style="width:70%;">Şirket Adı</th>
+							<th style="width:15%; text-align:center;">Durum</th>
+							<th style="width:15%; text-align:center;">İşlem</th>
 						</tr>
 					</thead>
 				</table>

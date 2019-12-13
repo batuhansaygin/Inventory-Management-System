@@ -15,10 +15,10 @@ if($_POST) {
 
 	if($connect->query($sql) === TRUE) {
 	 	$valid['success'] = true;
-		$valid['messages'] = "Başarıyla Eklendi.";	
+		$valid['messages'] = "Formul Basariyla Eklendi.";	
 	} else {
 	 	$valid['success'] = false;
-	 	$valid['messages'] = "Ekleme esnasında hata ile karşılaşıldı.";
+	 	$valid['messages'] = "Ekleme sirasinda bir hata ile karsilasildi.";
 	}
 
 	$connect->close();

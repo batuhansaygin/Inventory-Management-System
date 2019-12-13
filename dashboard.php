@@ -107,7 +107,7 @@ $connect->close();
 						<?php while ($categoriesResult = $categoriesQuery->fetch_assoc()) { ?>
 							<tr>
 								<td><?php echo $categoriesResult['categories_name']?></td>
-								<td><?php echo "<label class='label label-success'>Aktif</label>";?></td>
+								<td style="vertical-align: middle;"><?php echo "<label class='label label-success'>Aktif</label>";?></td>
 							</tr>
 						<?php } ?>
 					</tbody>

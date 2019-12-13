@@ -25,14 +25,14 @@
 				<table class="table table-hover" id="manageProductTable">
 					<thead>
 						<tr>
-							<th style="width:10%;">Görsel</th>							
-							<th>Ürün Adı</th>
-							<th>Fiyat</th>							
-							<th>Adet</th>
-							<th>Firma</th>
-							<th>Formül</th>
-							<th>Durum</th>
-							<th style="width:15%;">İşlem</th>
+							<th style="width:10%; text-align:center;">Görsel</th>							
+							<th style="text-align:center;">Ürün Adı</th>
+							<th style="text-align:center;">Fiyat</th>							
+							<th style="text-align:center;">Adet</th>
+							<th style="text-align:center;">Firma</th>
+							<th style="text-align:center;">Formül</th>
+							<th style="text-align:center;">Durum</th>
+							<th style="text-align:center;">İşlem</th>
 						</tr>
 					</thead>
 				</table>

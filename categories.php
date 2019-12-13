@@ -22,9 +22,9 @@
 				<table class="table table-hover" id="manageCategoriesTable">
 					<thead>
 						<tr>							
-							<th style="width:60%;">Formül Adı</th>
-							<th style="width:25%;">Durum</th>
-							<th style="width:15%;">İşlem</th>
+							<th style="width:70%;">Formül Adı</th>
+							<th style="width:15%; text-align:center;">Durum</th>
+							<th style="width:15%; text-align:center;">İşlem</th>
 						</tr>
 					</thead>
 				</table>

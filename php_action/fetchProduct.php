@@ -25,16 +25,16 @@ if($result->num_rows > 0) {
  	// active 
  	if($row[7] == 1) {
  		// activate member
- 		$active = "<label class='label label-success'>Aktif</label>";
+ 		$active = "<center><label class='label label-success'>Aktif</label></center>";
  	} else {
  		// deactivate member
- 		$active = "<label class='label label-danger'>Pasif</label>";
+ 		$active = "<center><label class='label label-danger'>Pasif</label></center>";
  	} // /else
 
  	$button = '<!-- Single button -->
-	<div class="btn-group">
+	<div class="btn-group" style="display: flex; justify-content: center;">
 	  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	    Düzenle <span class="caret"></span>
+	    Eylem <span class="caret"></span>
 	  </button>
 	  <ul class="dropdown-menu">
 	    <li><a type="button" data-toggle="modal" id="editProductModalBtn" data-target="#editProductModal" onclick="editProduct('.$productId.')"> <i class="glyphicon glyphicon-edit"></i> Düzenle</a></li>
@@ -54,7 +54,7 @@ if($result->num_rows > 0) {
 	$category = $row[10];
 
 	$imageUrl = substr($row[2], 3);
-	$productImage = "<img class='img-round' src='".$imageUrl."' style='height:30px; width:50px;'  />";
+	$productImage = "<center><img class='img-round' src='".$imageUrl."' style='height:30px; width:50px;'/></center>";
 
  	$output['data'][] = array( 		
  		// image
@@ -62,13 +62,13 @@ if($result->num_rows > 0) {
  		// product name
  		$row[1], 
  		// rate
- 		$row[6],
+ 		"<center>$row[6]</center>",
  		// quantity 
- 		$row[5], 		 	
+ 		"<center>$row[5]</center>", 		 	
  		// brand
  		$brand,
  		// category 		
- 		$category,
+ 		"<center>$category</center>",
  		// active
  		$active,
  		// button

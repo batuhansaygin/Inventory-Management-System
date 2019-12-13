@@ -13,10 +13,10 @@ if($_POST) {
 
 	if($connect->query($sql) === TRUE) {
 	 	$valid['success'] = true;
-		$valid['messages'] = "Başarıyla Eklendi.";	
+		$valid['messages'] = "Sirket Basariyla Eklendi.";	
 	} else {
 	 	$valid['success'] = false;
-	 	$valid['messages'] = "Error while adding the members";
+	 	$valid['messages'] = "Ekleme sirasinda bir hata ile karsilasildi.";
 	}
 	 
 

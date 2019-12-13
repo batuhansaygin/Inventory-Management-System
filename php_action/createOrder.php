@@ -63,7 +63,7 @@ if($_POST) {
 	} // /for quantity
 
 	$valid['success'] = true;
-	$valid['messages'] = "Başarıyla Eklendi.";		
+	$valid['messages'] = "Siparis Basariyla Eklendi..";		
 	
 	$connect->close();
 

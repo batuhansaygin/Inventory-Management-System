@@ -17,14 +17,14 @@ if($result->num_rows > 0) {
  	// active 
  	if($row[2] == 1) {
  		// activate member
- 		$activeBrands = "<label class='label label-success'>Aktif</label>";
+ 		$activeBrands = "<center><label class='label label-success'>Aktif</label></center>";
  	} else {
  		// deactivate member
- 		$activeBrands = "<label class='label label-danger'>Pasif</label>";
+ 		$activeBrands = "<center><label class='label label-danger'>Pasif</label></center>";
  	}
 
  	$button = '<!-- Single button -->
-	<div class="btn-group">
+	<div class="btn-group" style="display: flex; justify-content: center;">
 	  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	    Eylem <span class="caret"></span>
 	  </button>
