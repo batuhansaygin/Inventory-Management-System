@@ -18,21 +18,22 @@ $connect->close();
 
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<div class="page-heading"> <i class="glyphicon glyphicon-wrench"></i> Kullanıcı Ayarları</div>
+				<div class="page-heading"> <i class="glyphicon glyphicon-wrench"></i> Profil Ayarları</div>
 			</div> <!-- /panel-heading -->
 
 			<div class="panel-body">
 
-				
-
 				<form action="php_action/changeUsername.php" method="post" class="form-horizontal" id="changeUsernameForm">
+				
 					<fieldset>
+						
 						<legend>Kullanıcı Adı</legend>
 
 						<div class="changeUsenrameMessages"></div>			
 
 						<div class="form-group">
 					    <label for="username" class="col-sm-2 control-label">Kullanıcı Adı</label>
+						
 					    <div class="col-sm-10">
 					      <input type="text" class="form-control" id="username" name="username" placeholder="Kullanıcı Adı" value="<?php echo $result['username']; ?>"/>
 					    </div>
@@ -44,6 +45,7 @@ $connect->close();
 					      <button type="submit" class="btn btn-success" data-loading-text="Yükleniyor..." id="changeUsernameBtn"> <i class="glyphicon glyphicon-ok-sign"></i> Değişiklikleri Kaydet </button>
 					    </div>
 					  </div>
+					  
 					</fieldset>
 				</form>
 

@@ -9,8 +9,8 @@ $categoriesId = $_POST['categoriesId'];
 
 if($categoriesId) { 
 
- $sql = "UPDATE categories SET categories_status = 2 WHERE categories_id = {$categoriesId}";
-
+ $sql = "DELETE FROM tests WHERE tests_id = {$categoriesId}";
+ 
  if($connect->query($sql) === TRUE) {
  	$valid['success'] = true;
 	$valid['messages'] = "Başarıyla Silindi.";		

@@ -4,7 +4,7 @@ require_once 'core.php';
 
 $categoriesId = $_POST['categoriesId'];
 
-$sql = "SELECT categories_id, categories_name, categories_active, categories_status, categories_description FROM categories WHERE categories_id = $categoriesId";
+$sql = "SELECT tests_id, tests_company, tests_pg, tests_date, tests_formula, tests_mp, tests_output, tests_result, tests_by FROM tests WHERE tests_id = $categoriesId";
 $result = $connect->query($sql);
 
 if($result->num_rows > 0) { 

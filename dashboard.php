@@ -2,23 +2,41 @@
 
 <?php 
 
-$sql = "SELECT * FROM product WHERE status = 1";
-$query = $connect->query($sql);
-$countProduct = $query->num_rows;
+$countProductSql = "SELECT * FROM product WHERE status = 1";
+$countProductQuery = $connect->query($countProductSql);
+$countProduct = $countProductQuery->num_rows;
 
-$sql = "SELECT * FROM brands WHERE brand_status = 1";
+$countCustomerSql = "SELECT * FROM customers";
+$countCustomerQuery = $connect->query($countCustomerSql);
+$countCustomer = $countCustomerQuery->num_rows;
+
+$countTestSql = "SELECT * FROM tests";
+$countTestQuery = $connect->query($countTestSql);
+$countTest = $countTestQuery->num_rows;
+
+$user_id = $_SESSION['userId'];
+$sql = "SELECT * FROM users WHERE user_id = {$user_id}";
 $query = $connect->query($sql);
-$countBrand = $query->num_rows;
+$currentUser = $query->fetch_assoc();
+
+$brandSql = "SELECT DISTINCT companies_name, companies_id FROM companies GROUP BY companies_name";
+$brandQuery = $connect->query($brandSql);
+$showBrandQuery = $brandQuery->num_rows;
 
 $sql = "SELECT * FROM categories WHERE categories_status = 1";
 $query = $connect->query($sql);
 $countCategories = $query->num_rows;
 
-$formulasql = "SELECT categories_name , categories_status FROM categories WHERE categories_active = 1 GROUP BY categories_id";
-$categoriesQuery = $connect->query($formulasql);
-$formulaQuery = $categoriesQuery->num_rows;
-
 $connect->close();
+
+date_default_timezone_set("Europe/Istanbul");
+setlocale(LC_TIME,'turkish');
+$dateTR    = iconv('latin5','utf-8',strftime('%Y %B %d'));
+
+function strftime_tr($date_format){
+	$dateTR    = iconv('latin5','utf-8',strftime($date_format)); 
+	return $dateTR; 
+}
 
 ?>
 
@@ -33,13 +51,13 @@ $connect->close();
     <link rel="stylesheet" href="assests/plugins/fullcalendar/fullcalendar.print.css" media="print">
 
 <div class="row">
-	<?php  if(isset($_SESSION['userId']) && $_SESSION['userId']==1) { ?>
+	<?php  if(isset($_SESSION['userId']) /* && $_SESSION['userId']==1 */) { ?>
 	<div class="col-md-4">
 			<div class="panel panel-info">
 			<div class="panel-heading">
-				<a href="brand.php" style="text-decoration:none;color:white;">
-					Toplam Şirket
-					<span class="badge pull pull-right" ><?php echo $countBrand; ?></span>
+				<a href="customers.php" style="text-decoration:none;color:white;">
+					Müşteri Bazlı Arama
+					<span class="badge pull pull-right" ><?php echo $countCustomer; ?></span>
 				</a>
 					
 			</div> <!--/panel-hdeaing-->
@@ -47,11 +65,11 @@ $connect->close();
 		</div> <!--/col-md-4-->
 	
 	<div class="col-md-4">
-		<div class="panel panel-danger">
+		<div class="panel panel-warning">
 			<div class="panel-heading">
-				<a href="categories.php" style="text-decoration:none;color:black;">
-					Toplam Formül
-					<span class="badge pull pull-right"><?php echo $countCategories; ?></span>	
+				<a href="products.php" style="text-decoration:none;color:black;">
+					Ürün Bazlı Arama
+					<span class="badge pull pull-right"><?php echo $countCategories; ?></span>
 				</a>
 			</div> <!--/panel-hdeaing-->
 		</div> <!--/panel-->
@@ -62,9 +80,9 @@ $connect->close();
 		<div class="panel panel-success">
 			<div class="panel-heading">
 				
-				<a href="product.php" style="text-decoration:none;color:black;">
-					Toplam Ürün
-					<span class="badge pull pull-right"><?php echo $countProduct; ?></span>	
+				<a href="tests.php" style="text-decoration:none;color:black;">
+					Test Bazlı Arama
+					<span class="badge pull pull-right"><?php echo $countTest; ?></span>	
 				</a>
 				
 			</div> <!--/panel-hdeaing-->
@@ -73,27 +91,42 @@ $connect->close();
 	
 	<div class="col-md-4">
 		<div class="card">
-		  <div class="cardHeader">
-		    <h1><?php echo date('d'); ?></h1>
+		  <div class="cardHeaderUser">
+		    <h1>
+				Hoşgeldiniz
+			</h1>
 		  </div>
 
-		  <div class="cardContainer">
-		    <p><?php echo date('l') .' '.date('d').', '.date('Y'); ?></p>
+		  <div class="cardContainerUser">
+		    <h4>
+				<a href="setting.php"><?php echo $currentUser['username']; ?></a>
+			</h4>
 		  </div>
 		</div>
 		<br/>
-		<div class="card text-white bg-info mb-3">
-		  <div class="card-body">
-			<h2 class="card-title">Deneyimsel Geliştirme</h2>
-			<p class="card-text">Bu kısım deneyimsel geliştirme alanıdır.</p>
+		<div class="card">
+		  <div class="cardHeader">
+		    <h1>
+				<?php 
+					echo strftime_tr("%A"); 
+				?>
+			</h1>
+		  </div>
+
+		  <div class="cardContainer">
+		    <p>
+				<?php
+					echo strftime_tr("%d %B %Y");
+				?>
+			</p>
 		  </div>
 		</div>
 	</div>
 	
-	<?php  if(isset($_SESSION['userId']) && $_SESSION['userId']==1) { ?>
+	<?php  if(isset($_SESSION['userId'])/* && $_SESSION['userId']==1 */ ) { ?>
 	<div class="col-md-8">
 		<div class="panel panel-default">
-			<div class="panel-heading"> <i class="glyphicon glyphicon-tint"></i>&emsp;Aktif Formüller</div>
+			<div class="panel-heading"> <i class="glyphicon glyphicon-tint"></i>&emsp;Aktif Müşteriler</div>
 				<div class="panel-body">
 				<div style="max-height: 450px; overflow-x: hidden; overflow-y: auto;">
 					<table class="table table-striped" id="manageCategoriesTable">
@@ -104,9 +137,9 @@ $connect->close();
 						</tr>
 					</thead>
 					<tbody>
-						<?php while ($categoriesResult = $categoriesQuery->fetch_assoc()) { ?>
+						<?php while ($brandResult = $brandQuery->fetch_assoc()) { ?>
 							<tr>
-								<td><?php echo $categoriesResult['categories_name']?></td>
+								<td><?php echo $brandResult['companies_name']?></td>
 								<td style="vertical-align: middle;"><?php echo "<label class='label label-success'>Aktif</label>";?></td>
 							</tr>
 						<?php } ?>

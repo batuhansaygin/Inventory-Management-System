@@ -26,10 +26,10 @@ if($_POST) {
 
 				if($connect->query($sql) === TRUE) {
 					$valid['success'] = true;
-					$valid['messages'] = "Urun Basariyla Eklendi..";	
+					$valid['messages'] = "Successfully Added";	
 				} else {
 					$valid['success'] = false;
-					$valid['messages'] = "Ekleme sirasinda bir hata ile karsilasildi.";
+					$valid['messages'] = "Error while adding the members";
 				}
 
 			}	else {

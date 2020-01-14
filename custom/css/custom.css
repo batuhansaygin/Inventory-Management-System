@@ -12,7 +12,6 @@ div.card {
   text-align: center;
 }
 
-
 div.cardHeader {
     background-color: #EEE3AB;
     color: white;
@@ -24,6 +23,16 @@ div.cardContainer {
     padding: 10px;
 }
 
+div.cardHeaderUser {
+    background-color: #cbdfb7;
+    color: white;
+    padding: 10px;
+    font-size: 40px;
+}
+
+div.cardContainerUser {
+    padding: 10px;
+}
 
 .div-hide {
 	display: none;
@@ -41,4 +50,13 @@ div.kv-avatar div.file-input div.file-preview {
 .vertical {
 	padding-top: 150px;
 	padding-bottom: 150px;
+}
+
+/*searchCustomers*/
+div#customersList ul{
+	background-color:#eee;  
+	cursor:pointer;  
+}
+div#customersList li{  
+	padding:12px;  
 }

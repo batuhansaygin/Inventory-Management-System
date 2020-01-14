@@ -2,26 +2,15 @@
 
 require_once 'core.php';
 
-$sql = "SELECT categories_id, categories_name, categories_active, categories_status, categories_description FROM categories WHERE categories_status = 1";
+$sql = "SELECT customers_id, customers_company, customers_product, customers_mb, customers_application, customers_pb, customers_pf, customers_equivalent FROM customers";
 $result = $connect->query($sql);
 
 $output = array('data' => array());
 
 if($result->num_rows > 0) { 
 
- // $row = $result->fetch_array();
- $activeCategories = ""; 
-
  while($row = $result->fetch_array()) {
  	$categoriesId = $row[0];
- 	// active 
- 	if($row[2] == 1) {
- 		// activate member
- 		$activeCategories = "<center><label class='label label-success'>Aktif</label></center>";
- 	} else {
- 		// deactivate member
- 		$activeCategories = "<center><label class='label label-danger'>Pasif</label></center>";
- 	}
 
  	$button = '<!-- Single button -->
 	<div class="btn-group" style="display: flex; justify-content: center;">
@@ -37,7 +26,10 @@ if($result->num_rows > 0) {
 
  	$output['data'][] = array( 		
  		$row[1], 		
- 		$activeCategories,
+ 		$row[2],
+		$row[3],
+		$row[5],
+		$row[6],
  		$button 		
  		); 	
  } // /while 

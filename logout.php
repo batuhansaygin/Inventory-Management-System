@@ -1,13 +1,13 @@
-<?php 
+<?php
 
 require_once 'php_action/core.php';
 
 // remove all session variables
-session_unset(); 
+session_unset();
 
-// destroy the session 
-session_destroy(); 
+// destroy the session
+session_destroy();
 
-header('location: http://localhost/baerlocher/index.php');
+header('location: index.php');
 
 ?>

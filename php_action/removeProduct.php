@@ -9,15 +9,14 @@ $productId = $_POST['productId'];
 
 if($productId) { 
 
-//	$sql = "UPDATE product SET active = 2, status = 2 WHERE product_id = {$productId}";
-	$sql = "DELETE FROM product WHERE product_id = {$productId}";
+ $sql = "UPDATE product SET active = 2, status = 2 WHERE product_id = {$productId}";
 
  if($connect->query($sql) === TRUE) {
  	$valid['success'] = true;
-	$valid['messages'] = "Başarıyla Silindi.";		
+	$valid['messages'] = "Successfully Removed";		
  } else {
  	$valid['success'] = false;
- 	$valid['messages'] = "Silinirken bir hata ile karşılaşıldı.";
+ 	$valid['messages'] = "Error while remove the brand";
  }
  
  $connect->close();

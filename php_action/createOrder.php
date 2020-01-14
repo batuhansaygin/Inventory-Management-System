@@ -24,7 +24,8 @@ if($_POST) {
   $userid 						= $_SESSION['userId'];
 
 				
-	$sql = "INSERT INTO orders (order_date, client_name, client_contact, sub_total, vat, total_amount, discount, grand_total, paid, due, payment_type, payment_status,payment_place, gstn,order_status,user_id) VALUES ('$orderDate', '$clientName', '$clientContact', '$subTotalValue', '$vatValue', '$totalAmountValue', '$discount', '$grandTotalValue', '$paid', '$dueValue', $paymentType, $paymentStatus,$paymentPlace,$gstn, 1,$userid)";
+	$sql = "INSERT INTO orders (order_date, client_name, client_contact, sub_total, vat, total_amount, discount, grand_total, paid, due, payment_type, payment_status,payment_place, gstn,order_status,user_id) 
+	VALUES ('$orderDate', '$clientName', '$clientContact', '$subTotalValue', '$vatValue', '$totalAmountValue', '$discount', '$grandTotalValue', '$paid', '$dueValue', $paymentType, $paymentStatus,$paymentPlace,$gstn, 1,$userid)";
 	
 	$order_id;
 	$orderStatus = false;
@@ -63,7 +64,7 @@ if($_POST) {
 	} // /for quantity
 
 	$valid['success'] = true;
-	$valid['messages'] = "Siparis Basariyla Eklendi..";		
+	$valid['messages'] = "Siparis Basariyla Eklendi.";		
 	
 	$connect->close();
 

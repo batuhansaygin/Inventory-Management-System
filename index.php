@@ -1,15 +1,15 @@
-<?php 
+<?php
 require_once 'php_action/db_connect.php';
 
 session_start();
 
 if(isset($_SESSION['userId'])) {
-	header('location: http://localhost/baerlocher/dashboard.php');
+	header('location: dashboard.php');
 }
 
 $errors = array();
 
-if($_POST) {		
+if($_POST) {
 
 	$username = $_POST['username'];
 	$password = $_POST['password'];
@@ -17,7 +17,7 @@ if($_POST) {
 	if(empty($username) || empty($password)) {
 		if($username == "") {
 			$errors[] = "Kullanıcı adı alanı boş bırakılamaz.";
-		} 
+		}
 
 		if($password == "") {
 			$errors[] = "Şifre alanı boş bırakılamaz.";
@@ -39,16 +39,16 @@ if($_POST) {
 				// set session
 				$_SESSION['userId'] = $user_id;
 
-				header('location: http://localhost/baerlocher/dashboard.php');	
+				header('location: dashboard.php');
 			} else{
-				
+
 				$errors[] = "Hatalı Şifre/Kullancı Adı girdiniz.";
 			} // /else
-		} else {		
-			$errors[] = "Böyle bir kullanıcı mevcut değil.";		
+		} else {
+			$errors[] = "Böyle bir kullanıcı mevcut değil.";
 		} // /else
 	} // /else not empty username // password
-	
+
 } // /if $_POST
 ?>
 
@@ -65,11 +65,11 @@ if($_POST) {
 	<link rel="stylesheet" href="assests/font-awesome/css/font-awesome.min.css">
 
   <!-- custom css -->
-  <link rel="stylesheet" href="custom/css/custom.css">	
+  <link rel="stylesheet" href="custom/css/custom.css">
 
   <!-- jquery -->
 	<script src="assests/jquery/jquery.min.js"></script>
-  <!-- jquery ui -->  
+  <!-- jquery ui -->
   <link rel="stylesheet" href="assests/jquery-ui/jquery-ui.min.css">
   <script src="assests/jquery-ui/jquery-ui.min.js"></script>
 
@@ -92,7 +92,7 @@ if($_POST) {
 								foreach ($errors as $key => $value) {
 									echo '<div class="alert alert-warning" role="alert">
 									<i class="glyphicon glyphicon-exclamation-sign"></i>
-									'.$value.'</div>';										
+									'.$value.'</div>';
 									}
 								} ?>
 						</div>
@@ -110,7 +110,7 @@ if($_POST) {
 									<div class="col-sm-10">
 									  <input type="password" class="form-control" id="password" name="password" placeholder="Şifre" autocomplete="off" />
 									</div>
-								</div>								
+								</div>
 								<div class="form-group">
 									<div class="col-sm-offset-2 col-sm-10">
 									  <button type="submit" class="btn btn-default"> <i class="glyphicon glyphicon-log-in"></i>&emsp;Giriş</button>
@@ -127,14 +127,6 @@ if($_POST) {
 		</div>
 		<!-- /row -->
 	</div>
-	<!-- container -->	
+	<!-- container -->
 </body>
 </html>
-
-
-
-
-
-
-
-	
