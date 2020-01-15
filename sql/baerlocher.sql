@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Anamakine: localhost
--- Üretim Zamanı: 06 Oca 2020, 09:12:34
--- Sunucu sürümü: 10.4.11-MariaDB
--- PHP Sürümü: 7.2.26
+-- Anamakine: 127.0.0.1
+-- Üretim Zamanı: 15 Oca 2020, 14:45:10
+-- Sunucu sürümü: 10.1.37-MariaDB
+-- PHP Sürümü: 5.6.40
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,116 +25,46 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tablo için tablo yapısı `brands`
+-- Tablo için tablo yapısı `companies`
 --
 
-CREATE TABLE `brands` (
-  `brand_id` int(11) NOT NULL,
-  `brand_name` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
-  `brand_active` int(11) NOT NULL DEFAULT 0,
-  `brand_status` int(11) NOT NULL DEFAULT 0
+CREATE TABLE `companies` (
+  `companies_id` int(11) NOT NULL COMMENT 'ID',
+  `companies_name` varchar(255) COLLATE utf8_turkish_ci NOT NULL COMMENT 'Company Name'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 --
--- Tablo döküm verisi `brands`
+-- Tablo döküm verisi `companies`
 --
 
-INSERT INTO `brands` (`brand_id`, `brand_name`, `brand_active`, `brand_status`) VALUES
-(24, 'Deneme', 1, 1),
-(25, 'aaa', 2, 1),
-(26, 'Baerlocher', 1, 1),
-(27, 'aghsd', 2, 1),
-(28, 'ASAÅž', 1, 1),
-(29, 'ETKÄ°N PLASTÄ°K KALIP MAKÄ°NA SAN.VE TÄ°C.', 1, 1),
-(30, 'Ã‡etin Elektro Plastik', 1, 1),
-(31, 'A.g.m Plastik Ambalaj', 1, 1),
-(32, 'Ã‡ankaya plastik, Ãœretim SaksÄ±sÄ±', 1, 1),
-(33, 'Alptekin Plastik', 1, 1),
-(34, 'şöçÇ', 1, 1),
-(35, 'batu ışğüçöÇÖİŞÜĞ', 1, 1);
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `categories`
---
-
-CREATE TABLE `categories` (
-  `categories_id` int(11) NOT NULL,
-  `categories_name` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
-  `categories_active` int(11) NOT NULL DEFAULT 0,
-  `categories_status` int(11) NOT NULL DEFAULT 0,
-  `categories_description` text COLLATE utf8_turkish_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
---
--- Tablo döküm verisi `categories`
---
-
-INSERT INTO `categories` (`categories_id`, `categories_name`, `categories_active`, `categories_status`, `categories_description`) VALUES
-(8, 'Florlu Polimerler', 1, 1, '1'),
-(9, 'Poliolefinler12', 1, 1, 'deneme'),
-(11, 'Polistiren', 1, 1, 'PS ya da polistiren, Ä±sÄ±tÄ±ldÄ±ÄŸÄ±nda yumuÅŸayan ve film, plaka gibi yarÄ± bitmiÅŸ Ã¼rÃ¼nlere ve birÃ§ok birÃ§ok bitmiÅŸ Ã¼rÃ¼ne dÃ¶nÃ¼ÅŸtÃ¼rÃ¼lebilen termoplastik bir polimerdir.'),
-(12, 'PoliÃ¼retanlar', 1, 1, 'PUR (ya da poliÃ¼retan) direnÃ§li, esnek ve dayanÄ±klÄ± bir Ã¼rÃ¼ndÃ¼r.'),
-(13, 'PolivinilklorÃ¼r', 2, 1, 'PVC ya da polivinil klorÃ¼r Ã¼retilen ilk plastiklerden birisidir ve Ã§ok yaygÄ±n bir kullanÄ±ma sahiptir. Tuz (%57) ve petrol yahut gazdan (%43) elde edilir.'),
-(14, 'Termoplastikler', 1, 1, 'Termoplastik, Ä±sÄ±tÄ±ldÄ±ÄŸÄ±nda homojen bir sÄ±vÄ± haline gelen ve soÄŸutulduÄŸunda sertleÅŸen polimer reÃ§inelerinden Ã¼retilen bir plastik tÃ¼rÃ¼dÃ¼r. Ancak termoplastik dondurulduÄŸu zaman cama benzer ve Ã§atlamaya elveriÅŸli bir hal alÄ±r. Malzemeye adÄ±nÄ± veren bu Ã¶zellikler ...'),
-(15, 'Termosetler', 1, 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer enim est, sagittis at leo sit amet, vulputate viverra nisi. Aliquam suscipit quam a orci ultrices, et ultrices mauris ornare. Curabitur viverra imperdiet semper. Maecenas a sapien nisi. Nulla eleifend, elit eget dapibus ultrices, mi ipsum tristique sapien, sit amet sagittis massa eros ut metus. Suspendisse orci purus, egestas sed eleifend tincidunt, ullamcorper sed ex. Aenean consectetur pellentesque tincidunt. Vestibulum dui ligula, dignissim a est vel, pellentesque sodales felis. Mauris eleifend orci non velit tempor eleifend. Praesent ac lacus placerat, lobortis elit sit amet, finibus enim. Etiam nec massa in tellus sollicitudin blandit. Sed id purus dolor.\r\n\r\nCurabitur magna diam, sollicitudin id sagittis eu, consectetur quis est. Duis ac erat id ipsum ultricies aliquet vitae id enim. Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis sit amet neque turpis. Nulla quis lacus lectus. Vivamus ex diam, egestas ac vehicula at, blandit eu risus. Etiam eu congue massa. Vestibulum eleifend elit tempus tellus volutpat dapibus. Nunc vitae facilisis sem. Aenean nec lorem consequat, efficitur eros vitae, tristique odio. Praesent varius, mauris a accumsan vulputate, ante nulla lacinia magna, et sodales nibh dui eu justo.\r\n\r\nProin justo mi, suscipit ornare porttitor eu, cursus nec velit. Phasellus tristique accumsan enim in molestie. Nunc augue orci, sodales vitae gravida et, faucibus vitae tellus. Fusce vel nisl sem. Sed sed purus ex. Nunc dapibus elit at augue facilisis, condimentum accumsan tortor ultricies. Nunc finibus rhoncus vestibulum. Nulla non nunc ut nisi vulputate egestas nec eget nisi. Morbi a tortor orci. Duis tincidunt purus ante, a cursus massa dictum nec. Fusce nibh metus, tincidunt sed porttitor ut, bibendum sed nulla.\r\n\r\nMauris ullamcorper euismod orci vitae auctor. Donec eget luctus ipsum. Pellentesque consectetur ipsum risus, sed sagittis diam pellentesque vel. Praesent quis elit rutrum, condimentum tellus in, dapibus est. Quisque vel enim elit. Maecenas vehicula aliquam blandit. Donec sed tellus ante. Praesent nibh neque, faucibus quis justo eu, tristique pulvinar lorem. Nulla facilisi.\r\n\r\nAliquam molestie sollicitudin iaculis. Nulla a purus id est interdum elementum. Sed maximus nisi non ligula vehicula, quis iaculis leo ornare. Phasellus non justo sed elit auctor luctus. Cras quis felis vitae dui commodo dapibus. In sollicitudin mi nec turpis venenatis, vel rhoncus nulla pretium. Proin sodales gravida lectus, eget imperdiet urna suscipit non. Nam sagittis, tellus at placerat consectetur, arcu augue molestie quam, non iaculis quam lacus nec tortor. Maecenas mollis dolor sed pretium tristique. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam at egestas sem, eget rutrum nisl.\r\n\r\nDuis ultricies ultricies turpis, sit amet fermentum justo semper in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam mattis odio et nunc cursus, quis rhoncus lectus finibus. Morbi pretium enim quis felis consequat ultricies. Curabitur sed tortor lorem. Vivamus eget hendrerit arcu. Morbi non ipsum dapibus, tempus mi eget, sodales dolor. Integer egestas tristique felis, et pulvinar mi consectetur a. Sed tincidunt, justo a porttitor cursus, purus velit tincidunt ante, a cursus sapien ligula ut massa. Vivamus sit amet odio ut diam aliquet consectetur. Curabitur nec massa vitae tortor blandit maximus. In vel tempor nunc. Suspendisse dignissim felis et felis aliquet accumsan. Sed dignissim nisl elit, porttitor maximus sem vestibulum commodo. Ut malesuada finibus quam.\r\n\r\nUt et eros eu turpis commodo tincidunt id at dolor. In tristique tellus non felis fringilla auctor. Fusce auctor mi arcu, sed volutpat nibh dapibus quis. Sed ac arcu enim. Aenean sit amet elit varius, accumsan justo vitae, euismod arcu. Nunc imperdiet sagittis nulla ut consectetur. Suspendisse potenti. Nulla tempus eget enim vitae lobortis. Etiam vestibulum metus id sagittis hendrerit. Etiam bibendum volutpat aliquet. In venenatis tortor nec est dignissim, a placerat nisl efficitur. Proin hendrerit mi vitae lacus molestie congue. Duis ut nulla accumsan, dapibus nisi in, ornare sem. Integer pharetra dignissim augue quis tempor.\r\n\r\nAliquam ac pharetra enim. Curabitur nisl tellus, condimentum eget quam nec, fringilla malesuada sapien. Aenean bibendum cursus neque, luctus pellentesque odio aliquam id. Proin finibus, lacus nec vulputate dignissim, justo erat porta nibh, vel auctor turpis velit non tellus. Aliquam erat volutpat. Morbi diam enim, consectetur nec ex vel, interdum pellentesque urna. Ut at diam et eros faucibus scelerisque.\r\n\r\nProin id ipsum sit amet ante accumsan luctus vel at eros. Aliquam eget velit vel sem pulvinar efficitur. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras volutpat iaculis leo, id faucibus amet.'),
-(16, 'deded', 2, 2, 'deded'),
-(17, 'asdasd', 2, 1, 'asdasd'),
-(18, 'asdasdasd', 1, 1, 'asdasdas'),
-(19, 'zxczxc', 1, 1, 'zxc'),
-(20, 'zxczxc', 1, 1, 'zxczxc'),
-(21, 'zxcqac', 1, 1, 'zxc'),
-(22, 'wdxc', 1, 1, 'qwcac'),
-(23, 'zxczxc', 1, 1, 'ascasczx'),
-(24, 'Deneme Web 123', 2, 1, 'Deneme Web 123'),
-(25, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer enim est, sagittis at leo sit amet, vulputate viverra nisi. Aliquam suscipit quam a orci ultrices, et ultrices mauris ornare. Curabitur viverra imperdiet semper. Maecenas a sapien nisi. Null', 1, 1, 'asdasdasdse'),
-(26, 'wefwscfw3', 1, 1, 'sefsd'),
-(28, 'adktif_deneme', 1, 1, 'asdadaszxcas'),
-(29, 'bu gÃ¼ncellemeden sonraki denemedir', 1, 1, 'dÃ¼zeltildi'),
-(30, 'Ã‡Åž.Ä°ÅžÄžÃœÃ–', 1, 1, 'Ã‡Åž.Ä°ÅžÄžÃœÃ–'),
-(32, 'denedim oldu', 1, 1, 'denedim oldu'),
-(33, 'şşşş', 2, 1, 'şşş');
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `customer`
---
-
-CREATE TABLE `customer` (
-  `customer_id` int(11) NOT NULL,
-  `customer_name` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
-  `product_group` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
-  `machine_parameters` text COLLATE utf8_turkish_ci NOT NULL,
-  `test_date` date NOT NULL,
-  `test_formula` text COLLATE utf8_turkish_ci NOT NULL,
-  `test_result` text COLLATE utf8_turkish_ci NOT NULL,
-  `test_by` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
-  `result` varchar(25) COLLATE utf8_turkish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
---
--- Tablo döküm verisi `customer`
---
-
-INSERT INTO `customer` (`customer_id`, `customer_name`, `product_group`, `machine_parameters`, `test_date`, `test_formula`, `test_result`, `test_by`, `result`) VALUES
-(70, 'deneme', 'Tmz.Su.Br-Pb', 'asd', '2019-12-05', 'asd', 'asd', 'aksoy.fatih', ''),
-(71, 's', 'By.Pnc.Prf-Pb', 'aa', '2019-12-08', 'aa', 'aa', 'citak.omer', ''),
-(72, 'd', 'By.Pnc.Prf-Pb', 'd', '2019-12-17', 'd', 'd', 'oztekin.meric', ''),
-(73, 'asd', 'By.Pnc.Prf-Ca', 'asd', '2019-12-27', 'asd', 'asd', 'akkaynak.ali', ''),
-(74, '12', 'Atk.Su.Br-Ca', 'xcv', '2019-12-12', 'xcv ', 'xcv', 'kucukbayrak.ruchan', ''),
-(75, 'KurtoÄŸlu Plastik', 'By.Pnc.Prf-Pb', 'sdf', '2019-12-13', 'sdf', 'sdf', 'aksoy.fatih', ''),
-(76, 'Etapak', 'Atk.Su.Br-Ca', 'deneme', '2019-10-03', 'deneme', 'deneme', 'kunt.kenan', ''),
-(77, 'ARDA AMBALAJ PLASTÄ°K SAN.TÄ°C.LTD.ÅžTÄ°', 'Enj.Bar-Pb', 'asd', '2019-12-12', 'asd', 'asd', 'kucukbayrak.ruchan', ''),
-(78, 'PÃ¼l-san Plastik', 'Rk.Pnc.Prf-Pb', 'asd', '2019-12-06', 'asd', 'asd', 'kucukbayrak.ruchan', ''),
-(79, 'Ã‡etin Elektro Plastik ŞŞŞ', 'Atk.Su.Br-Ca', 'asd', '2018-04-04', 'asd', 'asd', 'citak.omer', ''),
-(80, '', '', '', '1970-01-01', '', '', '', ''),
-(82, 'Deneme', 'By.Pnc.Prf-Pb', 'denendi', '2019-12-19', 'denendi', 'denendi', 'aksoy.fatih', 'approved'),
-(83, 'Yeni MÃ¼ÅŸteri', 'Enj.Bar-Ca', 'deneme', '2019-12-14', 'deneme', 'deneme', 'aksoy.fatih', 'unapproved'),
-(84, 'Åžirket 1', 'Rk.Pnc.Prf-Pb', 'Deneme Parametre', '2019-10-17', 'Deneme FormÃ¼l', 'Test Ã‡Ä±ktÄ±larÄ±mÄ± bla bla bla', 'aksoy.fatih', '2'),
-(85, 'Denemedir', 'Rk.Pnc.Prf-Pb', 'Aa', '2020-01-08', 'Aa', 'Aa', 'aksoy.fatih', '1'),
-(86, 'ŞŞŞ', 'By.Pnc.Prf-Pb', 'asd', '2020-01-02', 'asd', 'asd', 'kunt.kenan', '2');
+INSERT INTO `companies` (`companies_id`, `companies_name`) VALUES
+(24, 'Deneme'),
+(25, 'aaa'),
+(26, 'Baerlocher'),
+(27, 'aghsd'),
+(28, 'ASAÅž'),
+(29, 'ETKÄ°N PLASTÄ°K KALIP MAKÄ°NA SAN.VE TÄ°C.'),
+(30, 'Ã‡etin Elektro Plastik'),
+(31, 'A.g.m Plastik Ambalaj'),
+(32, 'Ã‡ankaya plastik, Ãœretim SaksÄ±sÄ±'),
+(33, 'Alptekin Plastik'),
+(34, 'şöçÇ'),
+(35, 'batu ışğüçöÇÖİŞÜĞ'),
+(44, 'Baerlocher'),
+(45, 'ETKÄ°N PLASTÄ°K KALIP MAKÄ°NA SAN.VE TÄ°C.'),
+(47, 'osman osmanoÄŸlu'),
+(49, 'son denemem'),
+(50, 'osmanlÄ±yÄ±z'),
+(51, 'yeni bir deneme'),
+(52, 'yeni bir deneme'),
+(53, 'yeni bir deneme'),
+(54, 'yeni bir deneme'),
+(55, 'son'),
+(56, 'son'),
+(57, 'asdf'),
+(58, 'ahahah denedim'),
+(59, 'ASHDGasd'),
+(60, 'ASHDGasd');
 
 -- --------------------------------------------------------
 
@@ -143,30 +73,39 @@ INSERT INTO `customer` (`customer_id`, `customer_name`, `product_group`, `machin
 --
 
 CREATE TABLE `customers` (
-  `customer_id` int(11) NOT NULL,
-  `customer_name` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
-  `product_name` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
-  `mb` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
-  `application` text COLLATE utf8_turkish_ci NOT NULL,
-  `product_base` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
-  `product_form` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
-  `equivalent` text COLLATE utf8_turkish_ci NOT NULL
+  `customers_id` int(11) NOT NULL COMMENT 'ID',
+  `customers_company` varchar(255) COLLATE utf8_turkish_ci NOT NULL COMMENT 'Company Name',
+  `customers_product` varchar(255) COLLATE utf8_turkish_ci NOT NULL COMMENT 'Product',
+  `customers_mb` varchar(255) COLLATE utf8_turkish_ci NOT NULL COMMENT 'MB',
+  `customers_application` text COLLATE utf8_turkish_ci NOT NULL COMMENT 'Application',
+  `customers_pb` varchar(255) COLLATE utf8_turkish_ci NOT NULL COMMENT 'Product Base',
+  `customers_pf` varchar(255) COLLATE utf8_turkish_ci NOT NULL COMMENT 'Product Form',
+  `customers_equivalent` text COLLATE utf8_turkish_ci NOT NULL COMMENT 'Equivalent'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 --
 -- Tablo döküm verisi `customers`
 --
 
-INSERT INTO `customers` (`customer_id`, `customer_name`, `product_name`, `mb`, `application`, `product_base`, `product_form`, `equivalent`) VALUES
-(4, 'batuhan', 'asd', '2', 'asd', '1', '1', 'asd'),
-(5, 'batuhan', 's', '1', 'asd', '2', '2', 'asd'),
-(6, 'batuhan', 'asd', '2', 'asd', '2', '2', 'asd'),
+INSERT INTO `customers` (`customers_id`, `customers_company`, `customers_product`, `customers_mb`, `customers_application`, `customers_pb`, `customers_pf`, `customers_equivalent`) VALUES
 (7, 'asd', 'asd', '2', 'asd', '2', '2', 'asd'),
 (8, 'asd', 'asd', '2', 'asd', '2', '2', 'asd'),
 (9, 'asd', 'asd', '2', 'asd', '1', '2', 'asd'),
 (10, 'asd', 'asd', '2', 'asd', '2', '2', 'asd'),
 (11, 'asd', 'asd', '1', 'asd', '1', '1', 'asd'),
-(12, 'osman', 'asd', '1', 'asd', '1', '1', 'asd');
+(12, 'osman aaa', 'asd', '1', 'asd', '1', '1', 'asd'),
+(13, 'yeni', 'sad', '1', 'asd', '1', '2', 'asd'),
+(14, 'asd', 'asd', '1', 'asd', '1', '1', 'asd'),
+(15, 'deneme 11', 'daed', '1', 'asd', '1', '1', 'asd'),
+(17, 'batuhan ', 'denem ', '1', 'denemedr bu ', '1', '1', 'muadil budur'),
+(18, 'ASHDG', 'BATUHAN ', '1', 'GHASDF', '1', '1', 'ASHD'),
+(19, 'asd', 'asd', '1', 'asd', '2', '2', 'asd'),
+(20, 'osman', 'asd', '1', 'asd', '1', '1', 'asd'),
+(21, 'ASHDGasd', 'qwe', '1', 'asd', '1', '1', 'asd'),
+(22, 'yeni bir deneme', 'asd', '1', 'asd', '2', '2', 'asd'),
+(23, 'yeni bir deneme', 'asd', '1', 'asd', '1', '2', 'asd'),
+(24, 'yeni bir deneme', 'asd', '1', 'asd', '1', '1', 'asd'),
+(25, 'son', 'son', '1', 'son', '1', '1', 'son');
 
 -- --------------------------------------------------------
 
@@ -190,7 +129,7 @@ CREATE TABLE `orders` (
   `payment_status` int(11) NOT NULL,
   `payment_place` int(11) NOT NULL,
   `gstn` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
-  `order_status` int(11) NOT NULL DEFAULT 0,
+  `order_status` int(11) NOT NULL DEFAULT '0',
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
@@ -199,7 +138,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `order_date`, `client_name`, `client_contact`, `sub_total`, `vat`, `total_amount`, `discount`, `grand_total`, `paid`, `due`, `payment_type`, `payment_status`, `payment_place`, `gstn`, `order_status`, `user_id`) VALUES
-(1, '2019-12-04', 'SipariÅŸ 1', '05656584852', '4126.20', '742.72', '4868.92', '0', '4868.92', '1523', '3345.92', 2, 1, 1, '742.72', 1, 1),
+(1, '1970-01-01', 'SipariÅŸ 1', '05656584852', '4126.20', '742.72', '4868.92', '0', '4868.92', '1523', '3345.92', 2, 1, 1, '742.72', 1, 1),
 (2, '2019-12-09', 'SipariÅŸ 2', '123234234', '739.50', '133.11', '872.61', '0', '872.61', '0', '872.61', 2, 3, 2, '133.11', 1, 1),
 (4, '2019-11-12', 'SipariÅŸ 4', '12323434', '1798.60', '323.75', '2122.35', '500', '1622.35', '4200', '-2577.65', 2, 2, 1, '730.91', 1, 3),
 (5, '1970-01-01', 'asd', 'asd', '204.40', '36.79', '241.19', '2', '239.19', '23', '216.19', 1, 1, 1, '36.79', 1, 1);
@@ -212,12 +151,12 @@ INSERT INTO `orders` (`order_id`, `order_date`, `client_name`, `client_contact`,
 
 CREATE TABLE `order_item` (
   `order_item_id` int(11) NOT NULL,
-  `order_id` int(11) NOT NULL DEFAULT 0,
-  `product_id` int(11) NOT NULL DEFAULT 0,
+  `order_id` int(11) NOT NULL DEFAULT '0',
+  `product_id` int(11) NOT NULL DEFAULT '0',
   `quantity` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
   `rate` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
   `total` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
-  `order_item_status` int(11) NOT NULL DEFAULT 0
+  `order_item_status` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 --
@@ -225,7 +164,6 @@ CREATE TABLE `order_item` (
 --
 
 INSERT INTO `order_item` (`order_item_id`, `order_id`, `product_id`, `quantity`, `rate`, `total`, `order_item_status`) VALUES
-(1, 1, 1, '78', '52.90', '4126.20', 1),
 (2, 2, 2, '13', '14.50', '188.50', 1),
 (3, 2, 2, '19', '14.50', '275.50', 1),
 (4, 2, 2, '19', '14.50', '275.50', 1),
@@ -233,7 +171,8 @@ INSERT INTO `order_item` (`order_item_id`, `order_id`, `product_id`, `quantity`,
 (6, 3, 2, '33', '14.50', '478.50', 2),
 (7, 3, 1, '44', '52.90', '2327.60', 2),
 (12, 5, 4, '14', '14.60', '204.40', 1),
-(14, 4, 1, '34', '52.90', '1798.60', 1);
+(14, 4, 1, '34', '52.90', '1798.60', 1),
+(15, 1, 1, '78', '52.90', '4126.20', 1);
 
 -- --------------------------------------------------------
 
@@ -249,8 +188,8 @@ CREATE TABLE `product` (
   `categories_id` int(11) NOT NULL,
   `quantity` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
   `rate` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
-  `active` int(11) NOT NULL DEFAULT 0,
-  `status` int(11) NOT NULL DEFAULT 0
+  `active` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 --
@@ -266,6 +205,60 @@ INSERT INTO `product` (`product_id`, `product_name`, `product_image`, `brand_id`
 (10, 'deneme', '../assests/images/stock/6175e05aba2729aa.jpg', 24, 26, '2', '32', 1, 1),
 (11, '1 METRE 100MM SN 4 HDPE KORUGE BORU', '../assests/images/stock/5420712605e0dcfbd1b27e.jpg', 24, 14, '260', '7.90', 1, 1),
 (12, 'Beyaz Pencere Profili', '../assests/images/stock/9524686965e0dd069c2d08.jpg', 26, 8, '445', '3.70', 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `tests`
+--
+
+CREATE TABLE `tests` (
+  `tests_id` int(11) NOT NULL COMMENT 'ID',
+  `tests_company` varchar(255) COLLATE utf8_turkish_ci NOT NULL COMMENT 'Company Name',
+  `tests_pg` varchar(255) COLLATE utf8_turkish_ci NOT NULL COMMENT 'Product Group',
+  `tests_mp` text COLLATE utf8_turkish_ci NOT NULL COMMENT 'Machine Parameters',
+  `tests_date` date NOT NULL COMMENT 'Test Date',
+  `tests_formula` text COLLATE utf8_turkish_ci NOT NULL COMMENT 'Formula',
+  `tests_output` text COLLATE utf8_turkish_ci NOT NULL COMMENT 'Output',
+  `tests_by` varchar(255) COLLATE utf8_turkish_ci NOT NULL COMMENT 'Test By',
+  `tests_result` varchar(25) COLLATE utf8_turkish_ci NOT NULL COMMENT '1 = approved ~ 2 = need modify ~ 3 = unapproved ',
+  `tests_file` text COLLATE utf8_turkish_ci COMMENT 'Extensions File'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+--
+-- Tablo döküm verisi `tests`
+--
+
+INSERT INTO `tests` (`tests_id`, `tests_company`, `tests_pg`, `tests_mp`, `tests_date`, `tests_formula`, `tests_output`, `tests_by`, `tests_result`, `tests_file`) VALUES
+(71, 'ilk ÅžÃ‡Ã–', 'Atk.Su.Bor-Ca', 'asd', '2020-01-27', 'klÅŸ', 'ilk', 'ergun.bekir', '3', NULL),
+(72, 'd', 'Enj.Bor-Pb', 'd', '2019-12-26', 'd', 'd', 'oztekin.meric', '2', NULL),
+(73, 'asd', 'Tmz.Su.Bor-Pb', 'asd', '2019-12-27', 'asd', 'asd', 'akkaynak.ali', '1', NULL),
+(74, '12', 'Kbl-Ca', 'xcv', '2019-12-12', 'xcv ', 'xcv', 'kucukbayrak.ruchan', '2', NULL),
+(75, 'KurtoÄŸlu Plastik', 'Kbl-Ca', 'sdf', '2019-12-13', 'sdf', 'sdf', 'aksoy.fatih', '3', NULL),
+(76, 'Etapak', 'Rnk.Pnc.Prf-Ca', 'deneme', '2019-10-03', 'deneme', 'deneme', 'kunt.kenan', '1', NULL),
+(77, 'ARDA AMBALAJ PLASTÄ°K SAN.TÄ°C.LTD.ÅžTÄ°', 'Enj.Bor-Pb', 'asd', '2019-12-12', 'asd', 'asd', 'kucukbayrak.ruchan', '3', NULL),
+(78, 'PÃ¼l-san Plastik', 'Kbl-Pb', 'asd', '2019-12-06', 'asd', 'asd', 'kucukbayrak.ruchan', '1', NULL),
+(79, 'Ã‡etin Elektro Plastik ???', 'Atk.Su.Br-Ca', 'asd', '2018-04-04', 'asd', 'asd', 'citak.omer', '2', NULL),
+(82, 'Deneme', 'Rnk.Pnc.Prf-Ca', 'denendi', '2019-12-19', 'denendi', 'denendi', 'ergun.bekir', '1', NULL),
+(83, 'Yeni MÃ¼ÅŸteri', 'Enj.Bor-Ca', 'deneme', '2019-12-14', 'deneme', 'deneme', 'aksoy.fatih', '1', NULL),
+(84, 'Åžirket 1', 'Byz.Pnc.Prf-Pb', 'Deneme Parametre', '2019-10-17', 'Deneme FormÃ¼l', 'Test Ã‡Ä±ktÄ±larÄ±mÄ± bla bla bla', 'aksoy.fatih', '2', NULL),
+(85, 'Denemedir', 'Tmz.Su.Bor-Ca', 'Aa', '2020-01-08', 'Aa', 'Aa', 'aksoy.fatih', '1', NULL),
+(86, '???', 'Enj.Bor-Pb', 'asd', '2020-01-02', 'asd', 'asd', 'kunt.kenan', '2', NULL),
+(87, 'batuhan son', 'Enj.Bor-Ca', 'asd', '0000-00-00', 'asd', 'asd', 'aksoy.fatih', '3', NULL),
+(88, 'asdasd', 'Tmz.Su.Bor-Ca', 'asd', '2020-01-31', 'asd', 'asd', 'aksoy.fatih', '1', NULL),
+(89, 'asdf', 'Atk.Su.Bor-Ca', 'asdf', '1970-01-01', 'asdfasdf', 'asdf', 'aksoy.fatih', '1', NULL),
+(90, 'asd', 'Tmz.Su.Bor-Pb', 'asd', '1970-01-01', 'asd', 'asd', 'oztekin.meric', '1', NULL),
+(91, 'deneme 11qwe', 'Rnk.Pnc.Prf-Pb', 'asd', '2020-01-09', 'asd', 'asd', 'ergun.bekir', '2', NULL),
+(92, 'asd', 'Byz.Pnc.Prf-Pb', 'asd', '2020-01-02', 'asd', 'asd', 'kunt.kenan', '1', NULL),
+(93, 'osmanlÄ±yÄ±z', 'Byz.Pnc.Prf-Ca', 'asd', '2020-01-17', 'asd', 'asd', 'ergun.bekir', '2', NULL),
+(94, 'yeni bir deneme', 'Byz.Pnc.Prf-Pb', 'asda', '2020-01-09', 'asd', 'sd', 'aksoy.fatih', '2', NULL),
+(95, 'yeni bir deneme', 'Rnk.Pnc.Prf-Pb', 'asd', '2020-01-02', 'asd', 'asd', 'aksoy.fatih', '1', NULL),
+(96, 'yeni bir deneme', 'Byz.Pnc.Prf-Pb', 'asd', '2020-01-17', 'asd', 'asd', 'ergun.bekir', '2', NULL),
+(97, 'son', 'Rnk.Pnc.Prf-Pb', 'son', '2020-01-01', 'son', 'son', 'ergun.bekir', '1', NULL),
+(98, 'asdf', 'Byz.Pnc.Prf-Pb', 'asd', '2020-01-16', 'asd', 'asd', 'kunt.kenan', '1', NULL),
+(99, 'ahahah denedimasd', 'Rnk.Pnc.Prf-Pb', 'asd', '2020-01-09', 'asdasd', 'asd', 'kunt.kenan', '2', NULL),
+(100, 'ASHDGasd', 'Byz.Pnc.Prf-Ca', 'asd', '2020-01-09', 'asd', 'asd', 'ergun.bekir', '1', NULL),
+(101, 'ASHDGasd', 'Byz.Pnc.Prf-Ca', 'asd', '2020-01-18', 'asd', 'asd', 'kunt.kenan', '2', NULL);
 
 -- --------------------------------------------------------
 
@@ -299,28 +292,16 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `email`) VALUES
 --
 
 --
--- Tablo için indeksler `brands`
+-- Tablo için indeksler `companies`
 --
-ALTER TABLE `brands`
-  ADD PRIMARY KEY (`brand_id`);
-
---
--- Tablo için indeksler `categories`
---
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`categories_id`);
-
---
--- Tablo için indeksler `customer`
---
-ALTER TABLE `customer`
-  ADD PRIMARY KEY (`customer_id`);
+ALTER TABLE `companies`
+  ADD PRIMARY KEY (`companies_id`);
 
 --
 -- Tablo için indeksler `customers`
 --
 ALTER TABLE `customers`
-  ADD PRIMARY KEY (`customer_id`);
+  ADD PRIMARY KEY (`customers_id`);
 
 --
 -- Tablo için indeksler `orders`
@@ -341,6 +322,12 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`product_id`);
 
 --
+-- Tablo için indeksler `tests`
+--
+ALTER TABLE `tests`
+  ADD PRIMARY KEY (`tests_id`);
+
+--
 -- Tablo için indeksler `users`
 --
 ALTER TABLE `users`
@@ -351,28 +338,16 @@ ALTER TABLE `users`
 --
 
 --
--- Tablo için AUTO_INCREMENT değeri `brands`
+-- Tablo için AUTO_INCREMENT değeri `companies`
 --
-ALTER TABLE `brands`
-  MODIFY `brand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
-
---
--- Tablo için AUTO_INCREMENT değeri `categories`
---
-ALTER TABLE `categories`
-  MODIFY `categories_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
-
---
--- Tablo için AUTO_INCREMENT değeri `customer`
---
-ALTER TABLE `customer`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+ALTER TABLE `companies`
+  MODIFY `companies_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID', AUTO_INCREMENT=61;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `customers_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID', AUTO_INCREMENT=26;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `orders`
@@ -384,7 +359,7 @@ ALTER TABLE `orders`
 -- Tablo için AUTO_INCREMENT değeri `order_item`
 --
 ALTER TABLE `order_item`
-  MODIFY `order_item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `order_item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `product`
@@ -393,10 +368,16 @@ ALTER TABLE `product`
   MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
+-- Tablo için AUTO_INCREMENT değeri `tests`
+--
+ALTER TABLE `tests`
+  MODIFY `tests_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID', AUTO_INCREMENT=102;
+
+--
 -- Tablo için AUTO_INCREMENT değeri `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
