@@ -38,13 +38,12 @@
 	</div> <!-- /col-md-12 -->
 </div> <!-- /row -->
 
-
 <!-- add categories -->
 <div class="modal fade" id="addCategoriesModal" tabindex="-1" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
 
-    	<form class="form-horizontal" id="submitCategoriesForm" action="php_action/createTests.php" method="POST" enctype="multipart/form-data">
+    	<form class="form-horizontal" id="submitCategoriesForm" action="php_action/createTests.php" method="POST">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	        <h4 class="modal-title"><i class="fa fa-plus"></i> Yeni Test</h4>
@@ -52,21 +51,6 @@
 	      <div class="modal-body">
 
 	      	<div id="add-categories-messages"></div>
-			
-			<!--testsCustomer form-group-->
-			<div class="form-group">
-	        	<label for="testsFile" class="col-sm-4 control-label">Product Image: </label>
-	        	<label class="col-sm-1 control-label">: </label>
-				    <div class="col-sm-7">
-					    <!-- the avatar markup -->
-							<div id="kv-avatar-errors-1" class="center-block" style="display:none;"></div>							
-					    <div class="kv-avatar center-block">					        
-					        <input type="file" class="form-control" id="testsFile" placeholder="Product Name" name="testsFile" class="file-loading" style="width:auto;"/>
-					    </div>
-				      
-				    </div>
-	        </div>
-			<!--/testsCustomer form-group-->
 			
 	        <!--testsCustomer form-group-->
 			<div class="form-group">
@@ -176,6 +160,17 @@
 				</div>
 			</div>
 			<!--/testsBy form-group-->
+			
+			<!--testsFile form-group-->
+			<div class="form-group">
+	        	<label for="testsFile" class="col-sm-4 control-label">Ek Dosya</label>
+	        	<label class="col-sm-1 control-label">: </label>
+				    <div class="col-sm-7">
+						<input type="file" id="testsFile" name="testsFile[]" multiple />
+						<div id="errorBlock" class="help-block"></div>
+				    </div>
+	        </div>
+			<!--/testsFile form-group-->
 			
 	      </div> <!-- /modal-body -->
 	      

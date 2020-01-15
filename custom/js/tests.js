@@ -24,12 +24,19 @@ $(document).ready(function() {
            $('#customersList').fadeOut();
       });
 	
-	// active top navbar categories
-	$('#navCategories').addClass('active');	
+	// active top navbar for Testler
+	$('#navTests').addClass('active');	
 	
-	// order date picker
+	// Test Tarihi datepicker
 	$("#testsDate").datepicker({ dateFormat: 'yy-mm-dd' });
 	$("#editTestsDate").datepicker({ dateFormat: 'yy-mm-dd' });
+	
+	// Ek Dosya fileinput 
+	$("#testsFile").fileinput({
+        showPreview: false,
+        //allowedFileExtensions: ["jpg", "jpeg", "gif", "png"],
+        elErrorContainer: "#errorBlock"
+    });
 
 	manageCategoriesTable = $('#manageCategoriesTable').DataTable({
 		'ajax' : 'php_action/fetchTests.php',

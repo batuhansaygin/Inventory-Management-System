@@ -14,7 +14,7 @@ if($_POST) {
 	$testsOutput	= $_POST['testsOutput'];
 	$testsResult	= $_POST['testsResult'];
     $testsBy 		= $_POST['testsBy'];
-	 
+	
 	$sqlTests = "INSERT INTO tests (tests_company, tests_pg, tests_date, tests_formula, tests_mp, tests_output, tests_result, tests_by) 
 	VALUES ('$testsCustomer', '$testsPG', '$testsDate', '$testsFormula', '$testsMP', '$testsOutput', '$testsResult', '$testsBy')";
 

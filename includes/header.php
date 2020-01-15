@@ -56,9 +56,9 @@
       <ul class="nav navbar-nav navbar-right">        
 
       	<li id="navDashboard"><a href="index.php"><i class="glyphicon glyphicon-home"></i>&emsp;Ana Sayfa</a></li> 
-        <li id="navCustomer"><a href="customers.php"> <i class="glyphicon glyphicon-briefcase"></i>&emsp;Müşteriler</a></li>
+        <li id="navCustomers"><a href="customers.php"> <i class="glyphicon glyphicon-briefcase"></i>&emsp;Müşteriler</a></li>
         <li id="navProduct"><a href="products.php"> <i class="glyphicon glyphicon-tags"></i>&emsp;Ürünler</a></li> 
-        <li id="navReport"><a href="tests.php"> <i class="glyphicon glyphicon-check"></i>&emsp;Testler</a></li>
+        <li id="navTests"><a href="tests.php"> <i class="glyphicon glyphicon-check"></i>&emsp;Testler</a></li>
 		<?php if(isset($_SESSION['userId']) && $_SESSION['userId']==1) { ?>
 		<li class="dropdown" id="navOrder">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-console"></i> Geliştirme <span class="caret"></span></a>

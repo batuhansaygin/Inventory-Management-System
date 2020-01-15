@@ -19,10 +19,10 @@ $type = explode('.', $_FILES['editProductImage']['name']);
 
 				if($connect->query($sql) === TRUE) {									
 					$valid['success'] = true;
-					$valid['messages'] = "Successfully Updated";	
+					$valid['messages'] = "Başarıyla değiştirildi.";	
 				} else {
 					$valid['success'] = false;
-					$valid['messages'] = "Error while updating product image";
+					$valid['messages'] = "Değiştirilirken bir hata ile karşılaşıldı.";
 				}
 			}	else {
 				return false;

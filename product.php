@@ -63,7 +63,7 @@
 	        	<label class="col-sm-1 control-label">: </label>
 				    <div class="col-sm-8">
 					    <!-- the avatar markup -->
-							<div id="kv-avatar-errors-1" class="center-block" style="display:none;"></div>							
+													
 					    <div class="kv-avatar center-block">					        
 					        <input type="file" class="form-control" id="productImage" placeholder="Product Name" name="productImage" class="file-loading" style="width:auto;"/>
 					    </div>
