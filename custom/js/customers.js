@@ -3,34 +3,66 @@ var manageCategoriesTable;
 $(document).ready(function() {
 	
 	// search customer_name for customer
-	$('#customersName').keyup(function(){
-           var query = $(this).val();
-           if(query != '')
-           {
-                $.ajax({
-                     url:"php_action/searchCustomers.php",
-                     method:"POST",
-                     data:{query:query},
-                     success:function(data)
-                     {
-                          $('#customersList').fadeIn();
-                          $('#customersList').html(data);
-                     }
-                });
-           }
-      });
-      $(document).on('click', 'li', function(){
-           $('#customersName').val($(this).text());
-           $('#customersList').fadeOut();
-      });
+	// $('#customersName').keyup(function(){
+		   // var query = $(this).val();
+		   // if(query != '')
+		   // {
+				// $.ajax({
+					 // url:"php_action/searchCustomers.php",
+					 // method:"POST",
+					 // data:{query:query},
+					 // success:function(data)
+					 // {
+						  // $('#customersList').fadeIn();
+						  // $('#customersList').html(data);
+					 // }
+				// });
+		   // }
+	  // });
+	  // $(document).on('click', 'li', function(){
+		   // $('#customersName').val($(this).text());
+		   // $('#customersList').fadeOut();
+	  // });
 	
 	// active top navbar categories
 	$('#navCategories').addClass('active');	
+	
+	// selectize
+	var $select = $('#customersName').selectize({
+		sortField: 'text'
+	});
+	var control = $select[0].selectize;
+	
+	// Individual column searching (text inputs) Data Table
+    $('#manageCategoriesTable tfoot th').each( function () {
+        var title = $('#manageCategoriesTable thead th').eq( $(this).index() ).text();
+        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+    } );
 
-	manageCategoriesTable = $('#manageCategoriesTable').DataTable({
-		'ajax' : 'php_action/fetchCustomers.php',
-		'order': []
-	}); // manage categories Data Table
+    // DataTable
+    manageCategoriesTable = $('#manageCategoriesTable').DataTable( {
+        "ajax" : "php_action/fetchCustomers.php",
+		"order": [],
+		colReorder: true,
+        scrollX: true,
+		scrollY: '50vh',
+        scrollCollapse: true,
+        paging: false,
+		dom: 'Bfrtip',
+        buttons: [
+			'columnsToggle'
+        ]
+    } );
+	
+    $( manageCategoriesTable.table().container() ).on( 'keyup change', 'tfoot input', function () {
+       manageCategoriesTable
+            .column( $(this).parent().index()+':visible' )
+            .search( this.value )
+            .draw();
+    } );
+	// Individual column searching (text inputs) Data Table
+	
+	$('#manageCategoriesTable').css('min-height','50vh'); // DataTables for default minimum size
 
 	// on click on submit categories form modal
 	$('#addCategoriesModalBtn').unbind('click').bind('click', function() {
@@ -58,7 +90,7 @@ $(document).ready(function() {
 			var customersEquivalent 	= $("#customersEquivalent").val();
 
 			if(customersName == "") {
-				$("#customersName").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+				$("#customersName").after('<p class="text-danger">This section cannot be left blank.<br/>If you cannot find your customer in the list, please add a new company from "Companies" tab.</p>');
 				$('#customersName').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
@@ -68,7 +100,7 @@ $(document).ready(function() {
 			}
 			
 			if(customersProduct == "") {
-				$("#customersProduct").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+				$("#customersProduct").after('<p class="text-danger">This section cannot be left blank.</p>');
 				$('#customersProduct').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
@@ -78,7 +110,7 @@ $(document).ready(function() {
 			}
 			
 			if(customersMB == "") {
-				$("#customersMB").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+				$("#customersMB").after('<p class="text-danger">This section cannot be left blank.</p>');
 				$('#customersMB').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
@@ -88,7 +120,7 @@ $(document).ready(function() {
 			}
 			
 			if(customersApplication == "") {
-				$("#customersApplication").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+				$("#customersApplication").after('<p class="text-danger">This section cannot be left blank.</p>');
 				$('#customersApplication').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
@@ -98,7 +130,7 @@ $(document).ready(function() {
 			}
 			
 			if(customersPB == "") {
-				$("#customersPB").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+				$("#customersPB").after('<p class="text-danger">This section cannot be left blank.</p>');
 				$('#customersPB').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
@@ -108,7 +140,7 @@ $(document).ready(function() {
 			}
 			
 			if(customersPF == "") {
-				$("#customersPF").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+				$("#customersPF").after('<p class="text-danger">This section cannot be left blank.</p>');
 				$('#customersPF').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
@@ -118,7 +150,7 @@ $(document).ready(function() {
 			}
 			
 			if(customersEquivalent == "") {
-				$("#customersEquivalent").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+				$("#customersEquivalent").after('<p class="text-danger">This section cannot be left blank.</p>');
 				$('#customersEquivalent').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
@@ -145,7 +177,10 @@ $(document).ready(function() {
 							// reload the manage member table 
 							manageCategoriesTable.ajax.reload(null, false);						
 
-	  	  			// reset the form text
+							// clear selectize state
+							control.clear();
+
+							// reset the form text
 							$("#submitCategoriesForm")[0].reset();
 							// remove the error text
 							$(".text-danger").remove();
@@ -277,7 +312,7 @@ function editCategories(categoriesId = null) {
 					var customersEquivalent 	= $("#editCustomersEquivalent").val();
 
 					if(customersName == "") {
-						$("#editCustomersName").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+						$("#editCustomersName").after('<p class="text-danger">This section cannot be left blank.</p>');
 						$('#editCustomersName').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
@@ -287,7 +322,7 @@ function editCategories(categoriesId = null) {
 					}
 					
 					if(customersProduct == "") {
-						$("#editCustomersProduct").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+						$("#editCustomersProduct").after('<p class="text-danger">This section cannot be left blank.</p>');
 						$('#editCustomersProduct').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
@@ -297,7 +332,7 @@ function editCategories(categoriesId = null) {
 					}
 					
 					if(customersMB == "") {
-						$("#editCustomersMB").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+						$("#editCustomersMB").after('<p class="text-danger">This section cannot be left blank.</p>');
 						$('#editCustomersMB').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
@@ -307,7 +342,7 @@ function editCategories(categoriesId = null) {
 					}
 					
 					if(customersApplication == "") {
-						$("#editCustomersApplication").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+						$("#editCustomersApplication").after('<p class="text-danger">This section cannot be left blank.</p>');
 						$('#editCustomersApplication').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
@@ -317,7 +352,7 @@ function editCategories(categoriesId = null) {
 					}
 					
 					if(customersPB == "") {
-						$("#editCustomersPB").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+						$("#editCustomersPB").after('<p class="text-danger">This section cannot be left blank.</p>');
 						$('#editCustomersPB').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
@@ -327,7 +362,7 @@ function editCategories(categoriesId = null) {
 					}
 					
 					if(customersPF == "") {
-						$("#editCustomersPF").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+						$("#editCustomersPF").after('<p class="text-danger">This section cannot be left blank.</p>');
 						$('#editCustomersPF').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
@@ -337,7 +372,7 @@ function editCategories(categoriesId = null) {
 					}
 					
 					if(customersEquivalent == "") {
-						$("#editCustomersEquivalent").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+						$("#editCustomersEquivalent").after('<p class="text-danger">This section cannot be left blank.</p>');
 						$('#editCustomersEquivalent').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field

@@ -17,17 +17,26 @@
 	<link rel="stylesheet" href="custom/css/custom.css">
 
 	<!-- DataTables -->
-	<link rel="stylesheet" href="assests/plugins/datatables/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="assests/plugins/datatables/dataTables.min.css">
 
 	<!-- file input -->
 	<link rel="stylesheet" href="assests/plugins/fileinput/css/fileinput.min.css">
 
 	<!-- jquery -->
 	<script src="assests/jquery/jquery.min.js"></script>
+	
 	<!-- jquery ui -->  
 	<link rel="stylesheet" href="assests/jquery-ui/jquery-ui.min.css">
 	<script src="assests/jquery-ui/jquery-ui.min.js"></script>
+	
+	<!-- selectize js -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script> -->
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" /> -->
+	
+	<script src="assests/plugins/selectize/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="assests/plugins/selectize/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
 
+	
 	<!-- bootstrap js -->
 	<script src="assests/bootstrap/js/bootstrap.min.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -55,32 +64,39 @@
 
       <ul class="nav navbar-nav navbar-right">        
 
-      	<li id="navDashboard"><a href="index.php"><i class="glyphicon glyphicon-home"></i>&emsp;Ana Sayfa</a></li> 
-        <li id="navCustomers"><a href="customers.php"> <i class="glyphicon glyphicon-briefcase"></i>&emsp;Müşteriler</a></li>
-        <li id="navProduct"><a href="products.php"> <i class="glyphicon glyphicon-tags"></i>&emsp;Ürünler</a></li> 
-        <li id="navTests"><a href="tests.php"> <i class="glyphicon glyphicon-check"></i>&emsp;Testler</a></li>
+      	<li id="navDashboard"><a href="index.php"><i class="glyphicon glyphicon-home"></i>&emsp;Dashboard</a></li> 
+        <li id="navCustomers"><a href="customers.php"> <i class="glyphicon glyphicon-briefcase"></i>&emsp;Customers</a></li>
+        <li id="navProducts"><a href="recipe.php?r=manord"> <i class="glyphicon glyphicon-tags"></i>&emsp;Recipes</a></li> 
+        <li id="navProduct"><a href="tests.php"> <i class="glyphicon glyphicon-check"></i>&emsp;Tests</a></li>
+		<li class="dropdown" id="navOrder">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-plus"></i> New <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+			<li id="topNavCompanies"><a href="companies.php"> <i class="fa fa-building-o"></i> Companies</a></li>
+			<li id="topNavProducts"><a href="products.php"> <i class="fa fa-flask"></i> Products</a></li>
+          </ul>
+        </li>
 		<?php if(isset($_SESSION['userId']) && $_SESSION['userId']==1) { ?>
 		<li class="dropdown" id="navOrder">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-console"></i> Geliştirme <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-code"></i> Development <span class="caret"></span></a>
           <ul class="dropdown-menu">
-			<li id="topNavAddOrder"><a href="orders.php?o=add"> <i class="glyphicon glyphicon-plus"></i> Yeni Sipariş</a></li>
-            <li id="topNavManageOrder"><a href="orders.php?o=manord"> <i class="glyphicon glyphicon-shopping-cart"></i> Siparişler</a></li>
-			<li id="topNavReport"><a href="report.php"> <i class="glyphicon glyphicon-list-alt"></i> Raporlama</a></li>
+			<li id="topNavAddOrder"><a href="orders.php?o=add"> <i class="glyphicon glyphicon-plus"></i> New Order</a></li>
+            <li id="topNavManageOrder"><a href="orders.php?o=manord"> <i class="glyphicon glyphicon-shopping-cart"></i> Orders</a></li>
+			<li id="topNavReport"><a href="report.php"> <i class="glyphicon glyphicon-list-alt"></i> Report</a></li>
           </ul>
-        </li> 
+        </li>
 		<?php } ?>
 		
         <li class="dropdown" id="navSetting">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span></a>
           <ul class="dropdown-menu">    
 			
-            <li id="topNavSetting"><a href="setting.php"> <i class="glyphicon glyphicon-user"></i> Profil</a></li>
+            <li id="topNavSetting"><a href="setting.php"> <i class="glyphicon glyphicon-user"></i> Profile</a></li>
             <li id="topNavUser">
 			<?php if(isset($_SESSION['userId']) && $_SESSION['userId']==1) { ?>
-			<a href="user.php"> <i class="glyphicon glyphicon-wrench"></i> Kullanıcılar</a>
+			<a href="user.php"> <i class="glyphicon glyphicon-wrench"></i> Users</a>
 			<?php } ?> 
 			</li>
-            <li id="topNavLogout"><a href="logout.php"> <i class="glyphicon glyphicon-log-out"></i> Çıkış Yap</a></li>            
+            <li id="topNavLogout"><a href="logout.php"> <i class="glyphicon glyphicon-log-out"></i> Logout</a></li>            
           </ul>
         </li>        
            

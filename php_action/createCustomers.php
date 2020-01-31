@@ -16,10 +16,8 @@ if($_POST) {
 
 	$sqlCustomers = "INSERT INTO customers (customers_company, customers_product, customers_mb, customers_application, customers_pb, customers_pf, customers_equivalent) 
 	VALUES ('$customersName', '$customersProduct', '$customersMB', '$customersApplication', '$customersPB', '$customersPF', '$customersEquivalent')";
-	
-	$sqlCompanies = "INSERT INTO companies (companies_name) VALUES ('$customersName');";
 
-	if($connect->query($sqlCustomers) === TRUE && $connect->query($sqlCompanies) === TRUE) {
+	if($connect->query($sqlCustomers) === TRUE) {
 	 	$valid['success'] = true;
 		$valid['messages'] = "Başarıyla Eklendi.";	
 	} else {

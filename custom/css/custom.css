@@ -60,3 +60,20 @@ div#customersList ul{
 div#customersList li{  
 	padding:12px;  
 }
+
+/*datatables column highlight*/
+td.highlight {
+    background-color: whitesmoke !important;
+}data
+
+/*datatables scrollX wrapper*/
+div.dataTables_wrapper {
+        margin: 0 auto;
+}
+
+/*datatables text inputs*/
+tfoot input {
+	width: 100%;
+	padding: 3px;
+	box-sizing: border-box;
+}

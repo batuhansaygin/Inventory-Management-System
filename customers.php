@@ -5,31 +5,46 @@
 	<div class="col-md-12">
 
 		<ol class="breadcrumb">
-		  <li><a href="dashboard.php">Anasayfa</a></li>		  
-		  <li class="active">Müşteri Bazlı Arama</li>
+		  <li><a href="dashboard.php">Dashboard</a></li>		  
+		  <li class="active">Customer Based Search</li>
 		</ol>
 
 		<div class="div-action pull pull-right" style="padding: 4px 20px 20px 0;">
-					<button class="btn btn-default button1" data-toggle="modal" id="addCategoriesModalBtn" data-target="#addCategoriesModal"> <i class="glyphicon glyphicon-plus-sign"></i> Müşteri Ekle </button>
+			<button class="btn btn-default button1" data-toggle="modal" id="addCategoriesModalBtn" data-target="#addCategoriesModal"> <i class="glyphicon glyphicon-plus"></i> Add Customer </button>
 		</div> <!-- /div-action -->
 
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<div class="page-heading"> <i class="glyphicon glyphicon-briefcase"></i> Kayıtlı Müşteriler</div>
+				<div class="page-heading"> <i class="glyphicon glyphicon-briefcase"></i> Registered Customers</div>
 			</div> <!-- /panel-heading -->
 			<div class="panel-body">
 				<div class="remove-messages"></div>
-				<table class="table table-hover table-striped" id="manageCategoriesTable">
+				
+				<table id="manageCategoriesTable" class="table table-hover table-striped display" cellspacing="0" width="100%">
 					<thead>
 						<tr>							
-							<th style="text-align:center;">Müşteri Adı</th>
-							<th style="text-align:center;">Ürün</th>
+							<th style="text-align:center;">Customer</th>
+							<th style="text-align:center;">Product</th>
 							<th style="text-align:center;">MB</th>
-							<th style="text-align:center;">Ürün Bazı</th>
-							<th style="text-align:center;">Ürün Formu</th>
-							<th style="text-align:center;">İşlem</th>
+							<th style="text-align:center;">Application</th>
+							<th style="text-align:center;">Product Base</th>
+							<th style="text-align:center;">Product Form</th>
+							<th style="text-align:center;">Equivalent</th>
+							<th style="text-align:center;">Operations</th>
 						</tr>
 					</thead>
+					<tfoot>
+						<tr>							
+							<th>Customer</th>
+							<th>Product</th>
+							<th>MB</th>
+							<th>Application</th>
+							<th>Product Base</th>
+							<th>Product Form</th>
+							<th>Equivalent</th>
+							<th>Operations</th>
+						</tr>
+					</tfoot>
 				</table>
 				<!-- /table -->
 
@@ -47,26 +62,38 @@
     	<form class="form-horizontal" id="submitCategoriesForm" action="php_action/createCustomers.php" method="POST">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title"><i class="fa fa-plus"></i> Yeni Müşteri</h4>
+	        <h4 class="modal-title"><i class="fa fa-plus-sign"></i> New Customer Registration </h4>
 	      </div>
 	      <div class="modal-body">
 
 	      	<div id="add-categories-messages"></div>
 
-	        <div class="form-group">
-	        	<label for="customersName" class="col-sm-3 control-label">Müşteri Adı </label>
+			<!--customersName form-group-->
+			<div class="form-group">
+	        	<label for="customersName" class="col-sm-3 control-label">Customer</label>
 	        	<label class="col-sm-1 control-label">: </label>
 				    <div class="col-sm-8">
-				      <input type="text" class="form-control" id="customersName" placeholder="Örn: X Plastik San. Tic. Ltd. Şti." name="customersName">
-						<div id="customersList"></div>
-					</div>
+				      <select class="form-control" id="customersName" name="customersName">
+				      	<option value="">Search and choose customer...</option>
+				      	<?php 
+				      	$sql = "SELECT companies_id, companies_name FROM companies";
+								$result = $connect->query($sql);
+
+								while($row = $result->fetch_array()) {
+									echo "<option value='".$row[1]."'>".$row[1]."</option>";
+								} // while
+				      	?>
+				      </select>
+					  <!-- <div id="customersList"></div> -->
+				    </div>
 	        </div> <!-- /form-group-->
+			<!--/customersName form-group-->
 
 			<div class="form-group">
-	        	<label for="customersProduct" class="col-sm-3 control-label">Ürün Adı </label>
+	        	<label for="customersProduct" class="col-sm-3 control-label">Product </label>
 	        	<label class="col-sm-1 control-label">: </label>
 				    <div class="col-sm-8">
-				      <input type="text" class="form-control" id="customersProduct" placeholder="Örn: Beyaz Renkli Pencere Profili" name="customersProduct" autocomplete="off">
+				      <input type="text" class="form-control" id="customersProduct" placeholder="e.g., Beyaz Renkli Pencere Profili" name="customersProduct" autocomplete="off">
 				    </div>
 	        </div> <!-- /form-group-->
 
@@ -83,15 +110,15 @@
 	        </div> <!-- /form-group-->
 
 			<div class="form-group">
-	        	<label for="customersApplication" class="col-sm-3 control-label">Uygulama </label>
+	        	<label for="customersApplication" class="col-sm-3 control-label">Application </label>
 	        	<label class="col-sm-1 control-label">: </label>
 				    <div class="col-sm-8">
-				      <textarea type="text" style="max-width: 100%; min-width: 100%; min-height:100px;" class="form-control" rows="5" id="customersApplication" placeholder="Örn: Şu maddeden şu kadar kullanıldı." name="customersApplication" autocomplete="off"></textarea>
+				      <textarea type="text" style="max-width: 100%; min-width: 100%; min-height:100px;" class="form-control" rows="5" id="customersApplication" placeholder="e.g., Şu maddeden şu kadar kullanıldı." name="customersApplication" autocomplete="off"></textarea>
 					</div>
 	        </div> <!-- /form-group-->
 
 			<div class="form-group">
-	        	<label for="customersPB" class="col-sm-3 control-label">Ürün Bazı </label>
+	        	<label for="customersPB" class="col-sm-3 control-label">Product Base </label>
 	        	<label class="col-sm-1 control-label">: </label>
 				    <div class="col-sm-8">
 				      <select class="form-control" id="customersPB" name="customersPB">
@@ -103,7 +130,7 @@
 	        </div> <!-- /form-group-->
 
 			<div class="form-group">
-	        	<label for="customersPF" class="col-sm-3 control-label">Ürün Formu </label>
+	        	<label for="customersPF" class="col-sm-3 control-label">Product Form </label>
 	        	<label class="col-sm-1 control-label">: </label>
 				    <div class="col-sm-8">
 				      <select class="form-control" id="customersPF" name="customersPF">
@@ -115,18 +142,18 @@
 	        </div> <!-- /form-group-->
 
 			<div class="form-group">
-	        	<label for="customersEquivalent" class="col-sm-3 control-label">Muadil </label>
+	        	<label for="customersEquivalent" class="col-sm-3 control-label">Equivalent </label>
 	        	<label class="col-sm-1 control-label">: </label>
 				    <div class="col-sm-8">
-				      <input type="text" class="form-control" id="customersEquivalent" placeholder="Örn: Muadil şudur." name="customersEquivalent" autocomplete="off">
+				      <input type="text" class="form-control" id="customersEquivalent" placeholder="e.g., Equivalent şudur." name="customersEquivalent" autocomplete="off">
 				    </div>
 	        </div> <!-- /form-group-->
 	      </div> <!-- /modal-body -->
 	      
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i> İptal Et</button>
+	        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i> Cancel</button>
 	        
-	        <button type="submit" class="btn btn-success" id="createCategoriesBtn" data-loading-text="Yükleniyor..." autocomplete="off"> <i class="glyphicon glyphicon-ok"></i> Kaydet</button>
+	        <button type="submit" class="btn btn-success" id="createCategoriesBtn" data-loading-text="Yükleniyor..." autocomplete="off"> <i class="glyphicon glyphicon-ok"></i> Save</button>
 	      </div> <!-- /modal-footer -->	      
      	</form> <!-- /.form -->	     
     </div> <!-- /modal-content -->    
@@ -157,19 +184,19 @@
 		      <div class="edit-categories-result">
 		      	
 			<div class="form-group">
-	        	<label for="editCustomersName" class="col-sm-3 control-label">Müşteri Adı </label>
+	        	<label for="editCustomersName" class="col-sm-3 control-label">Customer </label>
 	        	<label class="col-sm-1 control-label">: </label>
 				    <div class="col-sm-8">
-				      <input type="text" class="form-control" id="editCustomersName" placeholder="Örn: X Plastik San. Tic. Ltd. Şti." name="editCustomersName">
+				      <input type="text" class="form-control" id="editCustomersName" placeholder="e.g., X Plastik San. Tic. Ltd. Şti." name="editCustomersName">
 						<div id="customersList"></div>
 					</div>
 	        </div> <!-- /form-group-->
 
 			<div class="form-group">
-	        	<label for="editCustomersProduct" class="col-sm-3 control-label">Ürün Adı </label>
+	        	<label for="editCustomersProduct" class="col-sm-3 control-label">Product </label>
 	        	<label class="col-sm-1 control-label">: </label>
 				    <div class="col-sm-8">
-				      <input type="text" class="form-control" id="editCustomersProduct" placeholder="Örn: Beyaz Renkli Pencere Profili" name="editCustomersProduct" autocomplete="off">
+				      <input type="text" class="form-control" id="editCustomersProduct" placeholder="e.g., Beyaz Renkli Pencere Profili" name="editCustomersProduct" autocomplete="off">
 				    </div>
 	        </div> <!-- /form-group-->
 
@@ -186,15 +213,15 @@
 	        </div> <!-- /form-group-->
 
 			<div class="form-group">
-	        	<label for="editCustomersApplication" class="col-sm-3 control-label">Uygulama </label>
+	        	<label for="editCustomersApplication" class="col-sm-3 control-label">Application </label>
 	        	<label class="col-sm-1 control-label">: </label>
 				    <div class="col-sm-8">
-				      <textarea type="text" style="max-width: 100%; min-width: 100%; min-height:100px;" class="form-control" rows="5" id="editCustomersApplication" placeholder="Örn: Şu maddeden şu kadar kullanıldı." name="editCustomersApplication" autocomplete="off"></textarea>
+				      <textarea type="text" style="max-width: 100%; min-width: 100%; min-height:100px;" class="form-control" rows="5" id="editCustomersApplication" placeholder="e.g., Şu maddeden şu kadar kullanıldı." name="editCustomersApplication" autocomplete="off"></textarea>
 					</div>
 	        </div> <!-- /form-group-->
 
 			<div class="form-group">
-	        	<label for="editCustomersPB" class="col-sm-3 control-label">Ürün Bazı </label>
+	        	<label for="editCustomersPB" class="col-sm-3 control-label">Product Base </label>
 	        	<label class="col-sm-1 control-label">: </label>
 				    <div class="col-sm-8">
 				      <select class="form-control" id="editCustomersPB" name="editCustomersPB">
@@ -206,7 +233,7 @@
 	        </div> <!-- /form-group-->
 
 			<div class="form-group">
-	        	<label for="editCustomersPF" class="col-sm-3 control-label">Ürün Formu </label>
+	        	<label for="editCustomersPF" class="col-sm-3 control-label">Product Form </label>
 	        	<label class="col-sm-1 control-label">: </label>
 				    <div class="col-sm-8">
 				      <select class="form-control" id="editCustomersPF" name="editCustomersPF">
@@ -218,10 +245,10 @@
 	        </div> <!-- /form-group-->
 
 			<div class="form-group">
-	        	<label for="editCustomersEquivalent" class="col-sm-3 control-label">Muadil </label>
+	        	<label for="editCustomersEquivalent" class="col-sm-3 control-label">Equivalent </label>
 	        	<label class="col-sm-1 control-label">: </label>
 				    <div class="col-sm-8">
-				      <input type="text" class="form-control" id="editCustomersEquivalent" placeholder="Örn: Muadil şudur." name="editCustomersEquivalent" autocomplete="off">
+				      <input type="text" class="form-control" id="editCustomersEquivalent" placeholder="e.g., Equivalent şudur." name="editCustomersEquivalent" autocomplete="off">
 				    </div>
 	        </div> <!-- /form-group-->
 				
@@ -231,9 +258,9 @@
 	      </div> <!-- /modal-body -->
 	      
 	      <div class="modal-footer editCategoriesFooter">
-	        <button type="button" class="btn btn-danger" data-dismiss="modal"> <i class="glyphicon glyphicon-remove"></i> İptal Et</button>
+	        <button type="button" class="btn btn-danger" data-dismiss="modal"> <i class="glyphicon glyphicon-remove"></i> Cancel</button>
 	        
-	        <button type="submit" class="btn btn-success" id="editCategoriesBtn" data-loading-text="Yükleniyor..." autocomplete="off"> <i class="glyphicon glyphicon-ok"></i> Değişiklikleri Kaydet</button>
+	        <button type="submit" class="btn btn-success" id="editCategoriesBtn" data-loading-text="Yükleniyor..." autocomplete="off"> <i class="glyphicon glyphicon-ok"></i> Save Changes</button>
 	      </div>
 	      <!-- /modal-footer -->
      	</form>
@@ -273,7 +300,7 @@
     	<form class="form-horizontal" id="showCategoriesForm" action="php_action/editCustomers.php" method="POST">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title"><i class="glyphicon glyphicon-list-alt"></i> Müşteri Bilgileri Ayrıntıları</h4>
+	        <h4 class="modal-title"><i class="glyphicon glyphicon-list-alt"></i> Customer Information Details</h4>
 	      </div>
 	      <div class="modal-body">
 
@@ -286,18 +313,18 @@
 
 		      <div class="show-categories-result">
 		      	<div class="form-group">
-	        	<label for="showCustomersName" class="col-sm-3 control-label">Müşteri Adı </label>
+	        	<label for="showCustomersName" class="col-sm-3 control-label">Customer </label>
 	        	<label class="col-sm-1 control-label">: </label>
 				    <div class="col-sm-8">
-				      <input type="text" style="font-weight: bold; pointer-events: none; background-color: white;" class="form-control" id="showCustomersName" placeholder="Örn: X Plastik San. Tic. Ltd. Şti." name="showCustomersName">
+				      <input type="text" style="font-weight: bold; pointer-events: none; background-color: white;" class="form-control" id="showCustomersName" placeholder="e.g., X Plastik San. Tic. Ltd. Şti." name="showCustomersName">
 					</div>
 	        </div> <!-- /form-group-->
 
 			<div class="form-group">
-	        	<label for="showCustomersProduct" class="col-sm-3 control-label">Ürün Adı </label>
+	        	<label for="showCustomersProduct" class="col-sm-3 control-label">Product </label>
 	        	<label class="col-sm-1 control-label">: </label>
 				    <div class="col-sm-8">
-				      <input type="text" style="font-weight: bold; pointer-events: none; background-color: white;" class="form-control" id="showCustomersProduct" placeholder="Örn: Beyaz Renkli Pencere Profili" name="showCustomersProduct" autocomplete="off">
+				      <input type="text" style="font-weight: bold; pointer-events: none; background-color: white;" class="form-control" id="showCustomersProduct" placeholder="e.g., Beyaz Renkli Pencere Profili" name="showCustomersProduct" autocomplete="off">
 				    </div>
 	        </div> <!-- /form-group-->
 
@@ -314,15 +341,15 @@
 	        </div> <!-- /form-group-->
 
 			<div class="form-group">
-	        	<label for="showCustomersApplication" class="col-sm-3 control-label">Uygulama </label>
+	        	<label for="showCustomersApplication" class="col-sm-3 control-label">Application </label>
 	        	<label class="col-sm-1 control-label">: </label>
 				    <div class="col-sm-8">
-				      <textarea type="text" style="font-weight: bold; max-width: 100%; min-width: 100%; min-height:100px; pointer-events: none; background-color: white;" class="form-control" rows="5" id="showCustomersApplication" placeholder="Örn: Şu maddeden şu kadar kullanıldı." name="showCustomersApplication" autocomplete="off" readonly="true"></textarea>
+				      <textarea type="text" style="font-weight: bold; max-width: 100%; min-width: 100%; min-height:100px; background-color: white;" class="form-control" rows="5" id="showCustomersApplication" placeholder="e.g., Şu maddeden şu kadar kullanıldı." name="showCustomersApplication" autocomplete="off" readonly="true"></textarea>
 					</div>
 	        </div> <!-- /form-group-->
 
 			<div class="form-group">
-	        	<label for="showCustomersPB" class="col-sm-3 control-label">Ürün Bazı </label>
+	        	<label for="showCustomersPB" class="col-sm-3 control-label">Product Base </label>
 	        	<label class="col-sm-1 control-label">: </label>
 				    <div class="col-sm-8">
 				      <select style="font-weight: bold; pointer-events: none; background-color: white; -webkit-appearance: none;" class="form-control" id="showCustomersPB" name="showCustomersPB">
@@ -334,7 +361,7 @@
 	        </div> <!-- /form-group-->
 
 			<div class="form-group">
-	        	<label for="showCustomersPF" class="col-sm-3 control-label">Ürün Formu </label>
+	        	<label for="showCustomersPF" class="col-sm-3 control-label">Product Form </label>
 	        	<label class="col-sm-1 control-label">: </label>
 				    <div class="col-sm-8">
 				      <select style="font-weight: bold; pointer-events: none; background-color: white; -webkit-appearance: none;" class="form-control" id="showCustomersPF" name="showCustomersPF">
@@ -346,10 +373,10 @@
 	        </div> <!-- /form-group-->
 
 			<div class="form-group">
-	        	<label for="showCustomersEquivalent" class="col-sm-3 control-label">Muadil </label>
+	        	<label for="showCustomersEquivalent" class="col-sm-3 control-label">Equivalent </label>
 	        	<label class="col-sm-1 control-label">: </label>
 				    <div class="col-sm-8">
-				      <input type="text" style="font-weight: bold; pointer-events: none; background-color: white;" class="form-control" id="showCustomersEquivalent" placeholder="Örn: Muadil şudur." name="showCustomersEquivalent" autocomplete="off">
+				      <input type="text" style="font-weight: bold; pointer-events: none; background-color: white;" class="form-control" id="showCustomersEquivalent" placeholder="e.g., Equivalent şudur." name="showCustomersEquivalent" autocomplete="off">
 				    </div>
 	        </div> <!-- /form-group-->
 		      </div>         	        
@@ -358,7 +385,7 @@
 	      </div> <!-- /modal-body -->
 	      
 	      <div class="modal-footer showCategoriesFooter">
-	        <button type="submit" class="btn btn-success" data-dismiss="modal"> <i class="glyphicon glyphicon-ok"></i> Tamam</button>
+	        <button type="submit" class="btn btn-success" data-dismiss="modal"> <i class="glyphicon glyphicon-ok"></i> Okay</button>
 	      </div>
 	      <!-- /modal-footer -->
      	</form>
