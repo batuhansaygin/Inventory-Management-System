@@ -5,16 +5,16 @@
 
 		<ol class="breadcrumb">
 		  <li><a href="dashboard.php">Home</a></li>		  
-		  <li class="active">Brand</li>
+		  <li class="active">Company</li>
 		</ol>
 		
 		<div class="div-action pull pull-right" style="padding: 4px 20px 20px 0;">
-					<button class="btn btn-default button1" data-toggle="modal" data-target="#addBrandModel"> <i class="glyphicon glyphicon-plus-sign"></i> Add Brand </button>
+					<button class="btn btn-default button1" data-toggle="modal" data-target="#addBrandModel"> <i class="glyphicon glyphicon-plus-sign"></i> Add Company </button>
 				</div> <!-- /div-action -->				
 
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<div class="page-heading"> <i class="glyphicon glyphicon-edit"></i> Manage Brand</div>
+				<div class="page-heading"> <i class="glyphicon glyphicon-edit"></i> Manage Company</div>
 			</div> <!-- /panel-heading -->
 			<div class="panel-body">
 
@@ -23,7 +23,7 @@
 				<table class="table" id="manageBrandTable">
 					<thead>
 						<tr>							
-							<th>Brand Name</th>
+							<th>Company Name</th>
 							<th style="width:15%;">Options</th>
 						</tr>
 					</thead>
@@ -42,17 +42,17 @@
     	<form class="form-horizontal" id="submitBrandForm" action="php_action/createBrand.php" method="POST">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title"><i class="fa fa-plus"></i> Add Brand</h4>
+	        <h4 class="modal-title"><i class="fa fa-plus"></i> Add Company</h4>
 	      </div>
 	      <div class="modal-body">
 
 	      	<div id="add-brand-messages"></div>
 
 	        <div class="form-group">
-	        	<label for="brandName" class="col-sm-3 control-label">Brand Name: </label>
+	        	<label for="brandName" class="col-sm-3 control-label">Company Name: </label>
 	        	<label class="col-sm-1 control-label">: </label>
 				    <div class="col-sm-8">
-				      <input type="text" class="form-control" id="brandName" placeholder="Brand Name" name="brandName" autocomplete="off">
+				      <input type="text" class="form-control" id="brandName" placeholder="Company Name" name="brandName" autocomplete="off">
 				    </div>
 	        </div> <!-- /form-group-->         	        
 
@@ -81,7 +81,7 @@
     	<form class="form-horizontal" id="editBrandForm" action="php_action/editBrand.php" method="POST">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title"><i class="fa fa-edit"></i> Edit Brand</h4>
+	        <h4 class="modal-title"><i class="fa fa-edit"></i> Edit Company</h4>
 	      </div>
 	      <div class="modal-body">
 
@@ -94,10 +94,10 @@
 
 		      <div class="edit-brand-result">
 		      	<div class="form-group">
-		        	<label for="editBrandName" class="col-sm-3 control-label">Brand Name: </label>
+		        	<label for="editBrandName" class="col-sm-3 control-label">Company Name: </label>
 		        	<label class="col-sm-1 control-label">: </label>
 					    <div class="col-sm-8">
-					      <input type="text" class="form-control" id="editBrandName" placeholder="Brand Name" name="editBrandName" autocomplete="off">
+					      <input type="text" class="form-control" id="editBrandName" placeholder="Company Name" name="editBrandName" autocomplete="off">
 					    </div>
 		        </div> <!-- /form-group-->
 		      </div>         	        
@@ -127,7 +127,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title"><i class="glyphicon glyphicon-trash"></i> Remove Brand</h4>
+        <h4 class="modal-title"><i class="glyphicon glyphicon-trash"></i> Remove Company</h4>
       </div>
       <div class="modal-body">
         <p>Do you really want to remove ?</p>

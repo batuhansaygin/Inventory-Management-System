@@ -25,7 +25,7 @@ $(document).ready(function() {
       });
 	
 	// active top navbar categories
-	$('#navCategories').addClass('active');	
+	$('#topNavProducts').addClass('active');	
 	
 	// Individual column searching (text inputs) Data Table
     $('#manageCategoriesTable tfoot th').each( function () {

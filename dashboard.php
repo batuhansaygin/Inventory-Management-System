@@ -23,12 +23,12 @@ $brandSql = "SELECT DISTINCT companies_name, companies_id FROM companies GROUP B
 $brandQuery = $connect->query($brandSql);
 $showBrandQuery = $brandQuery->num_rows;
 
-$sql = "SELECT * FROM categories WHERE categories_status = 1";
+$sql = "SELECT * FROM recipes WHERE recipe_status = 1";
 $query = $connect->query($sql);
 $countCategories = $query->num_rows;
 
 $connect->close();
-
+//TimeZone for Turkey
 date_default_timezone_set("Europe/Istanbul");
 setlocale(LC_TIME,'turkish');
 $dateTR    = iconv('latin5','utf-8',strftime('%Y %B %d'));
@@ -56,7 +56,7 @@ function strftime_tr($date_format){
 			<div class="panel panel-info">
 			<div class="panel-heading">
 				<a href="customers.php" style="text-decoration:none;color:white;">
-					Müşteri Bazlı Arama
+					Customer Based Search
 					<span class="badge pull pull-right" ><?php echo $countCustomer; ?></span>
 				</a>
 					
@@ -67,8 +67,8 @@ function strftime_tr($date_format){
 	<div class="col-md-4">
 		<div class="panel panel-warning">
 			<div class="panel-heading">
-				<a href="products.php" style="text-decoration:none;color:black;">
-					Ürün Bazlı Arama
+				<a href="recipes.php?o=manord" style="text-decoration:none;color:black;">
+					Product Based Search
 					<span class="badge pull pull-right"><?php echo $countCategories; ?></span>
 				</a>
 			</div> <!--/panel-hdeaing-->
@@ -81,7 +81,7 @@ function strftime_tr($date_format){
 			<div class="panel-heading">
 				
 				<a href="tests.php" style="text-decoration:none;color:black;">
-					Test Bazlı Arama
+					Test Based Search
 					<span class="badge pull pull-right"><?php echo $countTest; ?></span>	
 				</a>
 				
@@ -93,7 +93,7 @@ function strftime_tr($date_format){
 		<div class="card">
 		  <div class="cardHeaderUser">
 		    <h1>
-				Hoşgeldiniz
+				Welcome
 			</h1>
 		  </div>
 
@@ -108,7 +108,7 @@ function strftime_tr($date_format){
 		  <div class="cardHeader">
 		    <h1>
 				<?php 
-					echo strftime_tr("%A"); 
+					echo date('l'); 
 				?>
 			</h1>
 		  </div>
@@ -116,7 +116,7 @@ function strftime_tr($date_format){
 		  <div class="cardContainer">
 		    <p>
 				<?php
-					echo strftime_tr("%d %B %Y");
+					echo date('d') .' '.date('M').' '.date('Y');
 				?>
 			</p>
 		  </div>
@@ -126,21 +126,21 @@ function strftime_tr($date_format){
 	<?php  if(isset($_SESSION['userId'])/* && $_SESSION['userId']==1 */ ) { ?>
 	<div class="col-md-8">
 		<div class="panel panel-default">
-			<div class="panel-heading"> <i class="glyphicon glyphicon-tint"></i>&emsp;Aktif Müşteriler</div>
+			<div class="panel-heading"> <i class="glyphicon glyphicon-tint"></i>&emsp;Active Customers</div>
 				<div class="panel-body">
 				<div style="max-height: 450px; overflow-x: hidden; overflow-y: auto;">
 					<table class="table table-striped" id="manageCategoriesTable">
 					<thead>
 						<tr>			  			
-							<th style="width:40%;">Formül Adı</th>
-							<th style="width:15%;">Durum</th>
+							<th style="width:40%;">Customer Name</th>
+							<th style="width:15%;">Status</th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php while ($brandResult = $brandQuery->fetch_assoc()) { ?>
 							<tr>
 								<td><?php echo $brandResult['companies_name']?></td>
-								<td style="vertical-align: middle;"><?php echo "<label class='label label-success'>Aktif</label>";?></td>
+								<td style="vertical-align: middle;"><?php echo "<label class='label label-success'>Active</label>";?></td>
 							</tr>
 						<?php } ?>
 					</tbody>

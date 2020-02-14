@@ -1,70 +1,42 @@
-<?php 	
-//ALTER TABLE `orders` ADD `payment_place` INT NOT NULL AFTER `payment_status`;
-//AlTER TABLE `orders` ADD `gstn` VARCHAR(255) NOT NULL AFTER `payment_place`;
+<?php
 require_once 'core.php';
 
-$valid['success'] = array('success' => false, 'messages' => array(), 'order_id' => '');
+$valid['success'] = array('success' => false, 'messages' => array(), 'recipe_id' => '');
 // print_r($valid);
 if($_POST) {	
 
-  $orderDate 					= date('Y-m-d', strtotime($_POST['orderDate']));	
-  $clientName 					= $_POST['clientName'];
-  $clientContact 				= $_POST['clientContact'];
-  $subTotalValue 				= $_POST['subTotalValue'];
-  $vatValue 					= $_POST['vatValue'];
-  $totalAmountValue     		= $_POST['totalAmountValue'];
-  $discount 					= $_POST['discount'];
-  $grandTotalValue 				= $_POST['grandTotalValue'];
-  $paid 						= $_POST['paid'];
-  $dueValue 					= $_POST['dueValue'];
-  $paymentType 					= $_POST['paymentType'];
-  $paymentStatus 				= $_POST['paymentStatus'];
-  $paymentPlace 				= $_POST['paymentPlace'];
-  $gstn 						= $_POST['gstn'];
-  $userid 						= $_SESSION['userId'];
-
-				
-	$sql = "INSERT INTO orders (order_date, client_name, client_contact, sub_total, vat, total_amount, discount, grand_total, paid, due, payment_type, payment_status,payment_place, gstn,order_status,user_id) 
-	VALUES ('$orderDate', '$clientName', '$clientContact', '$subTotalValue', '$vatValue', '$totalAmountValue', '$discount', '$grandTotalValue', '$paid', '$dueValue', $paymentType, $paymentStatus,$paymentPlace,$gstn, 1,$userid)";
+	$recipeName 		= $_POST['recipeName'];
+	$customerName 		= $_POST['customerName'];
+	$userid 			= $_SESSION['userId'];
+	  
+	$sql = "INSERT INTO recipes (recipe_name, customer_name,recipe_status,user_id) VALUES ('$recipeName', '$customerName', 1, $userid)";
 	
-	$order_id;
+	$recipe_id;
 	$orderStatus = false;
 	if($connect->query($sql) === true) {
-		$order_id = $connect->insert_id;
-		$valid['order_id'] = $order_id;	
+		$recipe_id = $connect->insert_id;
+		$valid['recipe_id'] = $recipe_id;
 
 		$orderStatus = true;
 	}
-
 		
 	// echo $_POST['productName'];
 	$orderItemStatus = false;
+	
+	for($x = 0; $x < count($_POST['productName']); $x++) {	
+	// add into recipe_item
+	$orderItemSql = "INSERT INTO recipe_item (recipe_id, products_id, quantity, products_detail, recipe_item_status) 
+	VALUES ('$recipe_id', '".$_POST['productName'][$x]."', '".$_POST['quantity'][$x]."', '".$_POST['hiddenProductsDetail'][$x]."',  1)";
 
-	for($x = 0; $x < count($_POST['productName']); $x++) {			
-		$updateProductQuantitySql = "SELECT product.quantity FROM product WHERE product.product_id = ".$_POST['productName'][$x]."";
-		$updateProductQuantityData = $connect->query($updateProductQuantitySql);
-		
-		
-		while ($updateProductQuantityResult = $updateProductQuantityData->fetch_row()) {
-			$updateQuantity[$x] = $updateProductQuantityResult[0] - $_POST['quantity'][$x];							
-				// update product table
-				$updateProductTable = "UPDATE product SET quantity = '".$updateQuantity[$x]."' WHERE product_id = ".$_POST['productName'][$x]."";
-				$connect->query($updateProductTable);
+	$connect->query($orderItemSql);	
 
-				// add into order_item
-				$orderItemSql = "INSERT INTO order_item (order_id, product_id, quantity, rate, total, order_item_status) 
-				VALUES ('$order_id', '".$_POST['productName'][$x]."', '".$_POST['quantity'][$x]."', '".$_POST['rateValue'][$x]."', '".$_POST['totalValue'][$x]."', 1)";
-
-				$connect->query($orderItemSql);		
-
-				if($x == count($_POST['productName'])) {
-					$orderItemStatus = true;
-				}		
-		} // while	
-	} // /for quantity
-
+			if($x == count($_POST['productName'])) {
+				$orderItemStatus = true;
+			}
+	} // for
+	
 	$valid['success'] = true;
-	$valid['messages'] = "Siparis Basariyla Eklendi.";		
+	$valid['messages'] = "Successfully Added";		
 	
 	$connect->close();
 

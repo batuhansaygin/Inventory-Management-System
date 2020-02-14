@@ -2,64 +2,67 @@
 
 require_once 'core.php';
 
-$sql = "SELECT order_id, order_date, client_name, client_contact, payment_status FROM orders WHERE order_status = 1";
+$sql = "SELECT recipe_id, recipe_name, customer_name, user_id FROM recipes WHERE recipe_status = 1";
 $result = $connect->query($sql);
-
-
 
 $output = array('data' => array());
 
 if($result->num_rows > 0) { 
  
- $paymentStatus = ""; 
- $x = 1;
+$x = 1;
 
  while($row = $result->fetch_array()) {
  	$orderId = $row[0];
 
- 	$countOrderItemSql = "SELECT count(*) FROM order_item WHERE order_id = $orderId";
+ 	$countOrderItemSql = "SELECT count(*) FROM recipe_item WHERE recipe_id = $orderId";
  	$itemCountResult = $connect->query($countOrderItemSql);
  	$itemCountRow = $itemCountResult->fetch_row();
 
 
- 	// active 
- 	if($row[4] == 1) { 		
- 		$paymentStatus = "<label class='label label-success'>Tam Ödeme</label>";
- 	} else if($row[4] == 2) { 		
- 		$paymentStatus = "<label class='label label-info'>Ön Ödeme</label>";
+ 	// if user_id
+	if($row[3] == 3) { 		
+ 		$recipeBy = "<label class='label label-default'>Fatih AKSOY</label>";
+ 	} else if($row[3] == 4) { 		
+ 		$recipeBy = "<label class='label label-default'>Bekir Sıtkı ERGÜN</label>";
+ 	} else if($row[3] == 5) { 		
+ 		$recipeBy = "<label class='label label-default'>Rüçhan KÜÇÜKBAYRAK</label>";
+ 	} else if($row[3] == 6) { 		
+ 		$recipeBy = "<label class='label label-default'>Ömer ÇITAK</label>";
+ 	} else if($row[3] == 7) { 		
+ 		$recipeBy = "<label class='label label-default'>Kenan KUNT</label>";
+ 	} else if($row[3] == 8) { 		
+ 		$recipeBy = "<label class='label label-default'>Meriç ÖZTEKİN</label>";
+ 	} else if($row[3] == 9) { 		
+ 		$recipeBy = "<label class='label label-default'>Ali AKKAYNAK</label>";
  	} else { 		
- 		$paymentStatus = "<label class='label label-warning'>Ödeme Yok</label>";
- 	} // /else
+ 		$recipeBy = "<label class='label label-danger'>Administrator</label>";
+ 	} // else user_id
 
  	$button = '<!-- Single button -->
 	<div class="btn-group">
 	  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	    Eylem <span class="caret"></span>
+	    Action <span class="caret"></span>
 	  </button>
-	  <ul class="dropdown-menu">
-	    <li><a href="orders.php?o=editOrd&i='.$orderId.'" id="editOrderModalBtn"> <i class="glyphicon glyphicon-edit"></i> Düzenle</a></li>
+	  <ul class="dropdown-menu dropdown-menu-right">
+	    <li><a href="recipes.php?o=editOrd&i='.$orderId.'" id="editOrderModalBtn"> <i class="glyphicon glyphicon-edit"></i> Details</a></li>
 	    
-	    <li><a type="button" data-toggle="modal" id="paymentOrderModalBtn" data-target="#paymentOrderModal" onclick="paymentOrder('.$orderId.')"> <i class="glyphicon glyphicon-usd"></i> Borç Ödeme</a></li>
-
-	    <li><a type="button" onclick="printOrder('.$orderId.')"> <i class="glyphicon glyphicon-print"></i> Yazdır </a></li>
 	    
-	    <li><a type="button" data-toggle="modal" data-target="#removeOrderModal" id="removeOrderModalBtn" onclick="removeOrder('.$orderId.')"> <i class="glyphicon glyphicon-trash"></i> Sil</a></li>       
+	    <li><a type="button" onclick="printOrder('.$orderId.')"> <i class="glyphicon glyphicon-print"></i> Print </a></li>
+	    
+	    <li><a type="button" data-toggle="modal" data-target="#removeOrderModal" id="removeOrderModalBtn" onclick="removeOrder('.$orderId.')"> <i class="glyphicon glyphicon-trash"></i> Remove</a></li>       
 	  </ul>
 	</div>';		
 
  	$output['data'][] = array( 		
- 		// image
+ 		// recipe no
  		$x,
- 		// order date
+ 		// recipe name
  		$row[1],
- 		// client name
+ 		// customer name
  		$row[2], 
- 		// client contact
- 		$row[3], 		 	
- 		$itemCountRow, 		 	
- 		$paymentStatus,
- 		// button
- 		$button 		
+ 		// user_id
+ 		"<center>$recipeBy</center>",
+ 		"<center>$button</center>"		
  		); 	
  	$x++;
  } // /while 

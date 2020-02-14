@@ -2,7 +2,7 @@ var manageBrandTable;
 
 $(document).ready(function() {
 	// top bar active
-	$('#navBrand').addClass('active');
+	$('#topNavCompanies').addClass('active');
 	
 	// manage brand table
 	manageBrandTable = $("#manageBrandTable").DataTable({
@@ -20,7 +20,7 @@ $(document).ready(function() {
 		var brandName = $("#brandName").val();
 
 		if(brandName == "") {
-			$("#brandName").after('<p class="text-danger">Brand Name field is required</p>');
+			$("#brandName").after('<p class="text-danger">Company Name field is required</p>');
 			$('#brandName').closest('.form-group').addClass('has-error');
 		} else {
 			// remov error text field
@@ -121,7 +121,7 @@ function editBrands(brandId = null) {
 					var brandName = $('#editBrandName').val();
 
 					if(brandName == "") {
-						$("#editBrandName").after('<p class="text-danger">Brand Name field is required</p>');
+						$("#editBrandName").after('<p class="text-danger">Company Name field is required</p>');
 						$('#editBrandName').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field

@@ -23,7 +23,7 @@ if($_POST) {
 		if(is_uploaded_file($_FILES['productImage']['tmp_name'])) {			
 			if(move_uploaded_file($_FILES['productImage']['tmp_name'], $url)) {
 				
-				$sql = "INSERT INTO tests (tests_file, tests_company, tests_pg, tests_date, tests_formula, tests_mp, tests_output, tests_result, tests_by) 
+				$sql = "INSERT INTO tests (tests_file, companies_id, tests_pg, tests_date, tests_formula, tests_mp, tests_output, tests_result, tests_by) 
 				VALUES ('$url', '$testsCustomer', '$testsPG', '$testsDate', '$testsFormula', '$testsMP', '$testsOutput', '$testsResult', '$testsBy')";
 
 				if($connect->query($sql) === TRUE) {

@@ -4,23 +4,23 @@ $(document).ready(function() {
 	$("#paymentPlace").change(function(){
 		if($("#paymentPlace").val() == 2)
 		{
-			$(".gst").text("//YurtDışı Oranı Yazılacak 18%");
+			$(".gst").text("IGST 18%");
 		}
 		else
 		{
-			$(".gst").text("%18 KDV");	
+			$(".gst").text("GST 18%");	
 		}
 });
 
 	var divRequest = $(".div-request").text();
 
 	// top nav bar 
-	$("#navOrder").addClass('active');
+	$("#navRecipes").addClass('active');
 
 	if(divRequest == 'add')  {
 		// add order	
 		// top nav child bar 
-		$('#topNavAddOrder').addClass('active');	
+		$('#navRecipes').addClass('active');	
 
 		// order date picker
 		$("#orderDate").datepicker();
@@ -32,64 +32,22 @@ $(document).ready(function() {
 			$('.form-group').removeClass('has-error').removeClass('has-success');
 			$('.text-danger').remove();
 				
-			var orderDate = $("#orderDate").val();
-			var clientName = $("#clientName").val();
-			var clientContact = $("#clientContact").val();
-			var paid = $("#paid").val();
-			var discount = $("#discount").val();
-			var paymentType = $("#paymentType").val();
-			var paymentStatus = $("#paymentStatus").val();		
+			var recipeName = $("#recipeName").val();
+			var customerName = $("#customerName").val();
 
-			// form validation 
-			if(orderDate == "") {
-				$("#orderDate").after('<p class="text-danger"> Lütfen sipariş tarihi girin. </p>');
-				$('#orderDate').closest('.form-group').addClass('has-error');
+			if(recipeName == "") {
+				$("#recipeName").after('<p class="text-danger"> The Recipe Name field is required </p>');
+				$('#recipeName').closest('.form-group').addClass('has-error');
 			} else {
-				$('#orderDate').closest('.form-group').addClass('has-success');
+				$('#recipeName').closest('.form-group').addClass('has-success');
 			} // /else
 
-			if(clientName == "") {
-				$("#clientName").after('<p class="text-danger"> Lütfen müşteri bilgisi girin. </p>');
-				$('#clientName').closest('.form-group').addClass('has-error');
+			if(customerName == "") {
+				$("#customerName").after('<p class="text-danger"> The Contact field is required </p>');
+				$('#customerName').closest('.form-group').addClass('has-error');
 			} else {
-				$('#clientName').closest('.form-group').addClass('has-success');
+				$('#customerName').closest('.form-group').addClass('has-success');
 			} // /else
-
-			if(clientContact == "") {
-				$("#clientContact").after('<p class="text-danger"> Lütfen iletişim bilgisi girin. </p>');
-				$('#clientContact').closest('.form-group').addClass('has-error');
-			} else {
-				$('#clientContact').closest('.form-group').addClass('has-success');
-			} // /else
-
-			if(paid == "") {
-				$("#paid").after('<p class="text-danger"> Lütfen ödenen miktarı girin. </p>');
-				$('#paid').closest('.form-group').addClass('has-error');
-			} else {
-				$('#paid').closest('.form-group').addClass('has-success');
-			} // /else
-
-			if(discount == "") {
-				$("#discount").after('<p class="text-danger"> Lütfen indirim miktarı girin. </p>');
-				$('#discount').closest('.form-group').addClass('has-error');
-			} else {
-				$('#discount').closest('.form-group').addClass('has-success');
-			} // /else
-
-			if(paymentType == "") {
-				$("#paymentType").after('<p class="text-danger"> Lütfen ödeme tipini seçin. </p>');
-				$('#paymentType').closest('.form-group').addClass('has-error');
-			} else {
-				$('#paymentType').closest('.form-group').addClass('has-success');
-			} // /else
-
-			if(paymentStatus == "") {
-				$("#paymentStatus").after('<p class="text-danger"> Lütfen ödeme durumu seçin. </p>');
-				$('#paymentStatus').closest('.form-group').addClass('has-error');
-			} else {
-				$('#paymentStatus').closest('.form-group').addClass('has-success');
-			} // /else
-
 
 			// array validation
 			var productName = document.getElementsByName('productName[]');				
@@ -97,7 +55,7 @@ $(document).ready(function() {
 			for (var x = 0; x < productName.length; x++) {       			
 				var productNameId = productName[x].id;	    	
 		    if(productName[x].value == ''){	    		    	
-		    	$("#"+productNameId+"").after('<p class="text-danger"> Lütfen eklemek istediğiniz ürünü seçin. </p>');
+		    	$("#"+productNameId+"").after('<p class="text-danger"> Product Name Field is required! </p>');
 		    	$("#"+productNameId+"").closest('.form-group').addClass('has-error');	    		    	    	
 	      } else {      	
 		    	$("#"+productNameId+"").closest('.form-group').addClass('has-success');	    		    		    	
@@ -117,7 +75,7 @@ $(document).ready(function() {
 	   	for (var x = 0; x < quantity.length; x++) {       
 	 			var quantityId = quantity[x].id;
 		    if(quantity[x].value == ''){	    	
-		    	$("#"+quantityId+"").after('<p class="text-danger"> Lütfen eklemek istediğiniz ürünü seçin. </p>');
+		    	$("#"+quantityId+"").after('<p class="text-danger"> Quantity Field is required! </p>');
 		    	$("#"+quantityId+"").closest('.form-group').addClass('has-error');	    		    		    	
 	      } else {      	
 		    	$("#"+quantityId+"").closest('.form-group').addClass('has-success');	    		    		    		    	
@@ -131,9 +89,8 @@ $(document).ready(function() {
 		    	validateQuantity = false;
 	      }          
 	   	} // for       	
-	   	
 
-			if(orderDate && clientName && clientContact && paid && discount && paymentType && paymentStatus) {
+			if(recipeName && customerName) {
 				if(validateProduct == true && validateQuantity == true) {
 					// create order button
 					// $("#createOrderBtn").button('loading');
@@ -157,8 +114,8 @@ $(document).ready(function() {
 								$(".success-messages").html('<div class="alert alert-success">'+
 	            	'<button type="button" class="close" data-dismiss="alert">&times;</button>'+
 	            	'<strong><i class="glyphicon glyphicon-ok-sign"></i></strong> '+ response.messages +
-	            	' <br /> <br /> <a type="button" onclick="printOrder('+response.order_id+')" class="btn btn-primary"> <i class="glyphicon glyphicon-print"></i> Yazdır </a>'+
-	            	'<a href="orders.php?o=add" class="btn btn-default" style="margin-left:10px;"> <i class="glyphicon glyphicon-plus-sign"></i> Yeni Sipariş </a>'+
+	            	' <br /> <br /> <a type="button" onclick="printOrder('+response.recipe_id+')" class="btn btn-primary"> <i class="glyphicon glyphicon-print"></i> Print </a>'+
+	            	'<a href="recipes.php?o=add" class="btn btn-default" style="margin-left:10px;"> <i class="glyphicon glyphicon-plus-sign"></i> Add New Order </a>'+
 	            	
 	   		       '</div>');
 								
@@ -166,7 +123,7 @@ $(document).ready(function() {
 
 							// disabled te modal footer button
 							$(".submitButtonFooter").addClass('div-hide');
-							// remove the product row
+							// remove the products row
 							$(".removeProductRowBtn").addClass('div-hide');
 								
 							} else {
@@ -183,7 +140,7 @@ $(document).ready(function() {
 	
 	} else if(divRequest == 'manord') {
 		// top nav child bar 
-		$('#topNavManageOrder').addClass('active');
+		$('#navRecipes').addClass('active');
 
 		manageOrderTable = $("#manageOrderTable").DataTable({
 			'ajax': 'php_action/fetchOrder.php',
@@ -202,8 +159,8 @@ $(document).ready(function() {
 			$('.text-danger').remove();
 				
 			var orderDate = $("#orderDate").val();
-			var clientName = $("#clientName").val();
-			var clientContact = $("#clientContact").val();
+			var recipeName = $("#recipeName").val();
+			var customerName = $("#customerName").val();
 			var paid = $("#paid").val();
 			var discount = $("#discount").val();
 			var paymentType = $("#paymentType").val();
@@ -211,49 +168,49 @@ $(document).ready(function() {
 
 			// form validation 
 			if(orderDate == "") {
-				$("#orderDate").after('<p class="text-danger"> Lütfen sipariş tarihi girin. </p>');
+				$("#orderDate").after('<p class="text-danger"> The Order Date field is required </p>');
 				$('#orderDate').closest('.form-group').addClass('has-error');
 			} else {
 				$('#orderDate').closest('.form-group').addClass('has-success');
 			} // /else
 
-			if(clientName == "") {
-				$("#clientName").after('<p class="text-danger"> Lütfen müşteri bilgisi girin. </p>');
-				$('#clientName').closest('.form-group').addClass('has-error');
+			if(recipeName == "") {
+				$("#recipeName").after('<p class="text-danger"> The Recipe Name field is required </p>');
+				$('#recipeName').closest('.form-group').addClass('has-error');
 			} else {
-				$('#clientName').closest('.form-group').addClass('has-success');
+				$('#recipeName').closest('.form-group').addClass('has-success');
 			} // /else
 
-			if(clientContact == "") {
-				$("#clientContact").after('<p class="text-danger"> Lütfen iletişim bilgisi girin. </p>');
-				$('#clientContact').closest('.form-group').addClass('has-error');
+			if(customerName == "") {
+				$("#customerName").after('<p class="text-danger"> The Contact field is required </p>');
+				$('#customerName').closest('.form-group').addClass('has-error');
 			} else {
-				$('#clientContact').closest('.form-group').addClass('has-success');
+				$('#customerName').closest('.form-group').addClass('has-success');
 			} // /else
 
 			if(paid == "") {
-				$("#paid").after('<p class="text-danger"> Lütfen ödenen miktarı girin. </p>');
+				$("#paid").after('<p class="text-danger"> The Paid field is required </p>');
 				$('#paid').closest('.form-group').addClass('has-error');
 			} else {
 				$('#paid').closest('.form-group').addClass('has-success');
 			} // /else
 
 			if(discount == "") {
-				$("#discount").after('<p class="text-danger"> Lütfen indirim miktarı girin. </p>');
+				$("#discount").after('<p class="text-danger"> The Discount field is required </p>');
 				$('#discount').closest('.form-group').addClass('has-error');
 			} else {
 				$('#discount').closest('.form-group').addClass('has-success');
 			} // /else
 
 			if(paymentType == "") {
-				$("#paymentType").after('<p class="text-danger"> Lütfen ödeme tipini seçin. </p>');
+				$("#paymentType").after('<p class="text-danger"> The Payment Type field is required </p>');
 				$('#paymentType').closest('.form-group').addClass('has-error');
 			} else {
 				$('#paymentType').closest('.form-group').addClass('has-success');
 			} // /else
 
 			if(paymentStatus == "") {
-				$("#paymentStatus").after('<p class="text-danger"> Lütfen ödeme durumu seçin. </p>');
+				$("#paymentStatus").after('<p class="text-danger"> The Payment Status field is required </p>');
 				$('#paymentStatus').closest('.form-group').addClass('has-error');
 			} else {
 				$('#paymentStatus').closest('.form-group').addClass('has-success');
@@ -266,7 +223,7 @@ $(document).ready(function() {
 			for (var x = 0; x < productName.length; x++) {       			
 				var productNameId = productName[x].id;	    	
 		    if(productName[x].value == ''){	    		    	
-		    	$("#"+productNameId+"").after('<p class="text-danger"> Lütfen eklemek istediğiniz ürünü seçin. </p>');
+		    	$("#"+productNameId+"").after('<p class="text-danger"> Product Name Field is required!! </p>');
 		    	$("#"+productNameId+"").closest('.form-group').addClass('has-error');	    		    	    	
 	      } else {      	
 		    	$("#"+productNameId+"").closest('.form-group').addClass('has-success');	    		    		    	
@@ -286,7 +243,7 @@ $(document).ready(function() {
 	   	for (var x = 0; x < quantity.length; x++) {       
 	 			var quantityId = quantity[x].id;
 		    if(quantity[x].value == ''){	    	
-		    	$("#"+quantityId+"").after('<p class="text-danger"> Lütfen eklemek istediğiniz ürünü seçin. </p>');
+		    	$("#"+quantityId+"").after('<p class="text-danger"> Product Name Field is required!! </p>');
 		    	$("#"+quantityId+"").closest('.form-group').addClass('has-error');	    		    		    	
 	      } else {      	
 		    	$("#"+quantityId+"").closest('.form-group').addClass('has-success');	    		    		    		    	
@@ -302,7 +259,7 @@ $(document).ready(function() {
 	   	} // for       	
 	   	
 
-			if(orderDate && clientName && clientContact && paid && discount && paymentType && paymentStatus) {
+			if(recipeName && customerName) {
 				if(validateProduct == true && validateQuantity == true) {
 					// create order button
 					// $("#createOrderBtn").button('loading');
@@ -332,7 +289,7 @@ $(document).ready(function() {
 
 							// disabled te modal footer button
 							$(".editButtonFooter").addClass('div-hide');
-							// remove the product row
+							// remove the products row
 							$(".removeProductRowBtn").addClass('div-hide');
 								
 							} else {
@@ -362,8 +319,8 @@ function printOrder(orderId = null) {
 			dataType: 'text',
 			success:function(response) {
 				
-				var mywindow = window.open('', 'Baerlocher PMS', 'height=400,width=600');
-        mywindow.document.write('<html><head><title>Sipariş Faturası</title>');        
+				var mywindow = window.open('', 'Baerlocher', 'height=400,width=600');
+        mywindow.document.write('<html><head><title>Baerlocher Recipe List</title>');        
         mywindow.document.write('</head><body>');
         mywindow.document.write(response);
         mywindow.document.write('</body></html>');
@@ -406,7 +363,7 @@ function addRow() {
 	}
 
 	$.ajax({
-		url: 'php_action/fetchProductData.php',
+		url: 'php_action/fetchProductsData.php',
 		type: 'post',
 		dataType: 'json',
 		success:function(response) {
@@ -417,37 +374,32 @@ function addRow() {
 					'<div class="form-group">'+
 
 					'<select class="form-control" name="productName[]" id="productName'+count+'" onchange="getProductData('+count+')" >'+
-						'<option value="">~~ SEÇİM YAP ~~</option>';
+						'<option value="">~~SELECT~~</option>';
 						// console.log(response);
 						$.each(response, function(index, value) {
 							tr += '<option value="'+value[0]+'">'+value[1]+'</option>';							
 						});
-													
+						
 					tr += '</select>'+
 					'</div>'+
 				'</td>'+
-				'<td style="padding-left:20px;"">'+
-					'<input type="text" name="rate[]" id="rate'+count+'" autocomplete="off" disabled="true" class="form-control" />'+
-					'<input type="hidden" name="rateValue[]" id="rateValue'+count+'" autocomplete="off" class="form-control" />'+
-				'</td style="padding-left:20px;">'+
-				'<td style="padding-left:20px;">'+
-					'<div class="form-group">'+
-					'<p id="available_quantity'+count+'"></p>'+
-					'</div>'+
-				'</td>'+
-				'<td style="padding-left:20px;">'+
+				
+				'<td style="padding-left:35px;">'+
 					'<div class="form-group">'+
 					'<input type="number" name="quantity[]" id="quantity'+count+'" onkeyup="getTotal('+count+')" autocomplete="off" class="form-control" min="1" />'+
 					'</div>'+
 				'</td>'+
-				'<td style="padding-left:20px;">'+
-					'<input type="text" name="total[]" id="total'+count+'" autocomplete="off" class="form-control" disabled="true" />'+
-					'<input type="hidden" name="totalValue[]" id="totalValue'+count+'" autocomplete="off" class="form-control" />'+
-				'</td>'+
+				
+				'<td style="padding-left:20px;"">'+
+					'<input type="text" name="productsDetail[]" id="productsDetail'+count+'" autocomplete="off" disabled="true" class="form-control" />'+
+					'<input type="hidden" name="hiddenProductsDetail[]" id="hiddenProductsDetail'+count+'" autocomplete="off" class="form-control" />'+
+				'</td style="padding-left:20px;">'+
+				
 				'<td>'+
 					'<button class="btn btn-default removeProductRowBtn" type="button" onclick="removeProductRow('+count+')"><i class="glyphicon glyphicon-trash"></i></button>'+
 				'</td>'+
 			'</tr>';
+			
 			if(tableLength > 0) {							
 				$("#productTable tbody tr:last").after(tr);
 			} else {				
@@ -455,7 +407,7 @@ function addRow() {
 			}		
 
 		} // /success
-	});	// get the product data
+	});	// get the products data
 
 } // /add row
 
@@ -466,203 +418,38 @@ function removeProductRow(row = null) {
 
 		subAmount();
 	} else {
-		alert('HATA! Lütfen sayfayı yenileyin.');
+		alert('error! Refresh the page again');
 	}
 }
 
-// select on product data
+// select on products data
 function getProductData(row = null) {
 
 	if(row) {
 		var productId = $("#productName"+row).val();		
 		
 		if(productId == "") {
-			$("#rate"+row).val("");
-
-			$("#quantity"+row).val("");						
-			$("#total"+row).val("");
-
-			// remove check if product name is selected
-			// var tableProductLength = $("#productTable tbody tr").length;			
-			// for(x = 0; x < tableProductLength; x++) {
-			// 	var tr = $("#productTable tbody tr")[x];
-			// 	var count = $(tr).attr('id');
-			// 	count = count.substring(3);
-
-			// 	var productValue = $("#productName"+row).val()
-
-			// 	if($("#productName"+count).val() == "") {					
-			// 		$("#productName"+count).find("#changeProduct"+productId).removeClass('div-hide');	
-			// 		console.log("#changeProduct"+count);
-			// 	}											
-			// } // /for
+			$("#productsDetail"+row).val("");
 
 		} else {
 			$.ajax({
-				url: 'php_action/fetchSelectedProduct.php',
+				url: 'php_action/fetchSelectedRecipes.php',
 				type: 'post',
 				data: {productId : productId},
 				dataType: 'json',
 				success:function(response) {
-					// setting the rate value into the rate input field
+					// setting the products_detail value into the products_detail input field
 					
-					$("#rate"+row).val(response.rate);
-					$("#rateValue"+row).val(response.rate);
-
-					$("#quantity"+row).val(1);
-					$("#available_quantity"+row).text(response.quantity);
-
-					var total = Number(response.rate) * 1;
-					total = total.toFixed(2);
-					$("#total"+row).val(total);
-					$("#totalValue"+row).val(total);
-					
-					// check if product name is selected
-					// var tableProductLength = $("#productTable tbody tr").length;					
-					// for(x = 0; x < tableProductLength; x++) {
-					// 	var tr = $("#productTable tbody tr")[x];
-					// 	var count = $(tr).attr('id');
-					// 	count = count.substring(3);
-
-					// 	var productValue = $("#productName"+row).val()
-
-					// 	if($("#productName"+count).val() != productValue) {
-					// 		// $("#productName"+count+" #changeProduct"+count).addClass('div-hide');	
-					// 		$("#productName"+count).find("#changeProduct"+productId).addClass('div-hide');								
-					// 		console.log("#changeProduct"+count);
-					// 	}											
-					// } // /for
-			
-					subAmount();
+					$("#productsDetail"+row).val(response.products_detail);
+					$("#hiddenProductsDetail"+row).val(response.products_detail);
 				} // /success
-			}); // /ajax function to fetch the product data	
+			}); // /ajax function to fetch the products data	
 		}
 				
 	} else {
-		alert('Satır mevcut değil! Lütfen sayfayı yenileyin.');
+		alert('no row! please refresh the page');
 	}
-} // /select on product data
-
-// table total
-function getTotal(row = null) {
-	if(row) {
-		var total = Number($("#rate"+row).val()) * Number($("#quantity"+row).val());
-		total = total.toFixed(2);
-		$("#total"+row).val(total);
-		$("#totalValue"+row).val(total);
-		
-		subAmount();
-
-	} else {
-		alert('Satır mevcut değil! Lütfen sayfayı yenileyin.');
-	}
-}
-
-function subAmount() {
-	var tableProductLength = $("#productTable tbody tr").length;
-	var totalSubAmount = 0;
-	for(x = 0; x < tableProductLength; x++) {
-		var tr = $("#productTable tbody tr")[x];
-		var count = $(tr).attr('id');
-		count = count.substring(3);
-
-		totalSubAmount = Number(totalSubAmount) + Number($("#total"+count).val());
-	} // /for
-
-	totalSubAmount = totalSubAmount.toFixed(2);
-
-	// sub total
-	$("#subTotal").val(totalSubAmount);
-	$("#subTotalValue").val(totalSubAmount);
-
-	// vat
-	var vat = (Number($("#subTotal").val())/100) * 18;
-	vat = vat.toFixed(2);
-	$("#vat").val(vat);
-	$("#vatValue").val(vat);
-
-	// total amount
-	var totalAmount = (Number($("#subTotal").val()) + Number($("#vat").val()));
-	totalAmount = totalAmount.toFixed(2);
-	$("#totalAmount").val(totalAmount);
-	$("#totalAmountValue").val(totalAmount);
-
-	var discount = $("#discount").val();
-	if(discount) {
-		var grandTotal = Number($("#totalAmount").val()) - Number(discount);
-		grandTotal = grandTotal.toFixed(2);
-		$("#grandTotal").val(grandTotal);
-		$("#grandTotalValue").val(grandTotal);
-	} else {
-		$("#grandTotal").val(totalAmount);
-		$("#grandTotalValue").val(totalAmount);
-	} // /else discount	
-
-	var paidAmount = $("#paid").val();
-	if(paidAmount) {
-		paidAmount =  Number($("#grandTotal").val()) - Number(paidAmount);
-		paidAmount = paidAmount.toFixed(2);
-		$("#due").val(paidAmount);
-		$("#dueValue").val(paidAmount);
-	} else {	
-		$("#due").val($("#grandTotal").val());
-		$("#dueValue").val($("#grandTotal").val());
-	} // else
-
-} // /sub total amount
-
-function discountFunc() {
-	var discount = $("#discount").val();
- 	var totalAmount = Number($("#totalAmount").val());
- 	totalAmount = totalAmount.toFixed(2);
-
- 	var grandTotal;
- 	if(totalAmount) { 	
- 		grandTotal = Number($("#totalAmount").val()) - Number($("#discount").val());
- 		grandTotal = grandTotal.toFixed(2);
-
- 		$("#grandTotal").val(grandTotal);
- 		$("#grandTotalValue").val(grandTotal);
- 	} else {
- 	}
-
- 	var paid = $("#paid").val();
-
- 	var dueAmount; 	
- 	if(paid) {
- 		dueAmount = Number($("#grandTotal").val()) - Number($("#paid").val());
- 		dueAmount = dueAmount.toFixed(2);
-
- 		$("#due").val(dueAmount);
- 		$("#dueValue").val(dueAmount);
- 	} else {
- 		$("#due").val($("#grandTotal").val());
- 		$("#dueValue").val($("#grandTotal").val());
- 	}
-
-} // /discount function
-
-function paidAmount() {
-	var grandTotal = $("#grandTotal").val();
-
-	if(grandTotal) {
-		var dueAmount = Number($("#grandTotal").val()) - Number($("#paid").val());
-		dueAmount = dueAmount.toFixed(2);
-		$("#due").val(dueAmount);
-		$("#dueValue").val(dueAmount);
-	} // /if
-} // /paid amoutn function
-
-
-function resetOrderForm() {
-	// reset the input field
-	$("#createOrderForm")[0].reset();
-	// remove remove text danger
-	$(".text-danger").remove();
-	// remove form group error 
-	$(".form-group").removeClass('has-success').removeClass('has-error');
-} // /reset order form
-
+} // /select on products data
 
 // remove order from server
 function removeOrder(orderId = null) {
@@ -718,7 +505,7 @@ function removeOrder(orderId = null) {
 		
 
 	} else {
-		alert('HATA! Lütfen sayfayı yenileyin.');
+		alert('error! refresh the page again');
 	}
 }
 // /remove order from server
@@ -753,21 +540,21 @@ function paymentOrder(orderId = null) {
 					var paymentStatus = $("#paymentStatus").val();
 
 					if(payAmount == "") {
-						$("#payAmount").after('<p class="text-danger"> Lütfen ödeme tutarı bilgisi girin. </p>');
+						$("#payAmount").after('<p class="text-danger">The Pay Amount field is required</p>');
 						$("#payAmount").closest('.form-group').addClass('has-error');
 					} else {
 						$("#payAmount").closest('.form-group').addClass('has-success');
 					}
 
 					if(paymentType == "") {
-						$("#paymentType").after('<p class="text-danger"> Lütfen ödeme tutarı bilgisi girin. </p>');
+						$("#paymentType").after('<p class="text-danger">The Pay Amount field is required</p>');
 						$("#paymentType").closest('.form-group').addClass('has-error');
 					} else {
 						$("#paymentType").closest('.form-group').addClass('has-success');
 					}
 
 					if(paymentStatus == "") {
-						$("#paymentStatus").after('<p class="text-danger"> Lütfen ödeme tutarı bilgisi girin. </p>');
+						$("#paymentStatus").after('<p class="text-danger">The Pay Amount field is required</p>');
 						$("#paymentStatus").closest('.form-group').addClass('has-error');
 					} else {
 						$("#paymentStatus").closest('.form-group').addClass('has-success');
@@ -822,6 +609,6 @@ function paymentOrder(orderId = null) {
 			} // /success
 		}); // fetch order data
 	} else {
-		alert('HATA! Lütfen sayfayı yenileyin.');
+		alert('Error ! Refresh the page again');
 	}
 }

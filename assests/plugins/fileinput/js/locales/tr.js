@@ -56,7 +56,7 @@
             indicatorNewTitle: 'Henüz yüklenemedi',
             indicatorSuccessTitle: 'Yüklendi',
             indicatorErrorTitle: 'Yükleme Hatası',
-            indicatorLoadingTitle: 'Yükleniyor ...'
+            indicatorLoadingTitle: 'Loading ...'
         },
         previewZoomButtonTitles: {
             prev: 'View previous file',

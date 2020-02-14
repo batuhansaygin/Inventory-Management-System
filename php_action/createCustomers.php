@@ -14,7 +14,7 @@ if($_POST) {
 	$customersPF 			= $_POST['customersPF'];
 	$customersEquivalent 	= $_POST['customersEquivalent'];
 
-	$sqlCustomers = "INSERT INTO customers (customers_company, customers_product, customers_mb, customers_application, customers_pb, customers_pf, customers_equivalent) 
+	$sqlCustomers = "INSERT INTO customers (companies_id, customers_product, customers_mb, customers_application, customers_pb, customers_pf, customers_equivalent) 
 	VALUES ('$customersName', '$customersProduct', '$customersMB', '$customersApplication', '$customersPB', '$customersPF', '$customersEquivalent')";
 
 	if($connect->query($sqlCustomers) === TRUE) {

@@ -17,7 +17,7 @@
 	<link rel="stylesheet" href="custom/css/custom.css">
 
 	<!-- DataTables -->
-	<link rel="stylesheet" href="assests/plugins/datatables/dataTables.min.css">
+	<link rel="stylesheet" href="assests/plugins/datatables/datatables.min.css">
 
 	<!-- file input -->
 	<link rel="stylesheet" href="assests/plugins/fileinput/css/fileinput.min.css">
@@ -46,7 +46,7 @@
 
 	<nav class="navbar navbar-default navbar-static-top">
 		<div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
+    <!-- Company and toggle get grouped for better mobile display -->
     <div class="navbar-header">
 	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 		<span class="sr-only">Gezinti</span>
@@ -62,11 +62,11 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      
 
-      <ul class="nav navbar-nav navbar-right">        
+      <ul class="nav navbar-nav navbar-right">
 
       	<li id="navDashboard"><a href="index.php"><i class="glyphicon glyphicon-home"></i>&emsp;Dashboard</a></li> 
         <li id="navCustomers"><a href="customers.php"> <i class="glyphicon glyphicon-briefcase"></i>&emsp;Customers</a></li>
-        <li id="navProducts"><a href="recipe.php?r=manord"> <i class="glyphicon glyphicon-tags"></i>&emsp;Recipes</a></li> 
+        <li id="navRecipes"><a href="recipes.php?o=manord"> <i class="glyphicon glyphicon-tags"></i>&emsp;Recipes</a></li> 
         <li id="navProduct"><a href="tests.php"> <i class="glyphicon glyphicon-check"></i>&emsp;Tests</a></li>
 		<li class="dropdown" id="navOrder">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-plus"></i> New <span class="caret"></span></a>
@@ -79,8 +79,6 @@
 		<li class="dropdown" id="navOrder">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-code"></i> Development <span class="caret"></span></a>
           <ul class="dropdown-menu">
-			<li id="topNavAddOrder"><a href="orders.php?o=add"> <i class="glyphicon glyphicon-plus"></i> New Order</a></li>
-            <li id="topNavManageOrder"><a href="orders.php?o=manord"> <i class="glyphicon glyphicon-shopping-cart"></i> Orders</a></li>
 			<li id="topNavReport"><a href="report.php"> <i class="glyphicon glyphicon-list-alt"></i> Report</a></li>
           </ul>
         </li>

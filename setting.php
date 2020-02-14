@@ -42,7 +42,7 @@ $connect->close();
 					  <div class="form-group">
 					    <div class="col-sm-offset-2 col-sm-10">
 					    	<input type="hidden" name="user_id" id="user_id" value="<?php echo $result['user_id'] ?>" /> 
-					      <button type="submit" class="btn btn-success" data-loading-text="Yükleniyor..." id="changeUsernameBtn"> <i class="glyphicon glyphicon-ok-sign"></i> Değişiklikleri Kaydet </button>
+					      <button type="submit" class="btn btn-success" data-loading-text="Loading..." id="changeUsernameBtn"> <i class="glyphicon glyphicon-ok-sign"></i> Değişiklikleri Kaydet </button>
 					    </div>
 					  </div>
 					  

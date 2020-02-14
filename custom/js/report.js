@@ -12,7 +12,7 @@ $(document).ready(function() {
 		if(startDate == "" || endDate == "") {
 			if(startDate == "") {
 				$("#startDate").closest('.form-group').addClass('has-error');
-				$("#startDate").after('<p class="text-danger">Lütfen başlangıç tarihini seçin.</p>');
+				$("#startDate").after('<p class="text-danger">Please select the start date.</p>');
 			} else {
 				$(".form-group").removeClass('has-error');
 				$(".text-danger").remove();
@@ -20,7 +20,7 @@ $(document).ready(function() {
 
 			if(endDate == "") {
 				$("#endDate").closest('.form-group').addClass('has-error');
-				$("#endDate").after('<p class="text-danger">Lütfen bitiş tarihini seçin.</p>');
+				$("#endDate").after('<p class="text-danger">Please select the end date.</p>');
 			} else {
 				$(".form-group").removeClass('has-error');
 				$(".text-danger").remove();

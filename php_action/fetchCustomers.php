@@ -2,7 +2,11 @@
 
 require_once 'core.php';
 
-$sql = "SELECT customers_id, customers_company, customers_product, customers_mb, customers_application, customers_pb, customers_pf, customers_equivalent FROM customers";
+$sql = "SELECT customers.customers_id, customers.customers_product, customers.customers_mb, 
+customers.customers_application, customers.customers_pb, customers.customers_pf, customers.customers_equivalent, 
+companies.companies_name FROM customers
+INNER JOIN companies ON customers.companies_id = companies.companies_id";
+
 $result = $connect->query($sql);
 
 $output = array('data' => array());
@@ -26,13 +30,13 @@ if($result->num_rows > 0) {
 
  	$output['data'][] = array( 		
  		// wordwrap($row[1],45,"<br>\n"),
+		$row[7],
 		$row[1],
 		$row[2],
 		$row[3],
 		$row[4],
 		$row[5],
 		$row[6],
-		$row[7],
  		"<center>$button</center>"
  		); 	
  } // /while 

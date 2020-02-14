@@ -62,9 +62,9 @@ div#customersList li{
 }
 
 /*datatables column highlight*/
-td.highlight {
-    background-color: whitesmoke !important;
-}data
+/* td.highlight { */
+    /* background-color: whitesmoke !important; */
+/* }data */
 
 /*datatables scrollX wrapper*/
 div.dataTables_wrapper {

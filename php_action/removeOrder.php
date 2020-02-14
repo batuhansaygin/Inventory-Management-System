@@ -9,16 +9,16 @@ $orderId = $_POST['orderId'];
 
 if($orderId) { 
 
- $sql = "UPDATE orders SET order_status = 2 WHERE order_id = {$orderId}";
+ $sql = "UPDATE recipes SET recipe_status = 2 WHERE recipe_id = {$orderId}";
 
- $orderItem = "UPDATE order_item SET order_item_status = 2 WHERE  order_id = {$orderId}";
+ $orderItem = "UPDATE recipe_item SET recipe_item_status = 2 WHERE  recipe_id = {$orderId}";
 
  if($connect->query($sql) === TRUE && $connect->query($orderItem) === TRUE) {
  	$valid['success'] = true;
-	$valid['messages'] = "Başarıyla Silindi.";		
+	$valid['messages'] = "Successfully Removed";		
  } else {
  	$valid['success'] = false;
- 	$valid['messages'] = "Silinirken bir hata ile karşılaşıldı.";
+ 	$valid['messages'] = "Error while remove the brand";
  }
  
  $connect->close();

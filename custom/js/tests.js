@@ -70,7 +70,7 @@ $(document).ready(function() {
 			var testsBy      	= $("#testsBy").val();
 
 			if(testsCustomer == "") {
-				$("#testsCustomer").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+				$("#testsCustomer").after('<p class="text-danger">This section cannot be left blank.</p>');
 				$('#testsCustomer').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
@@ -80,7 +80,7 @@ $(document).ready(function() {
 			}
 			
 			if(testsPG == "") {
-				$("#testsPG").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+				$("#testsPG").after('<p class="text-danger">This section cannot be left blank.</p>');
 				$('#testsPG').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
@@ -90,7 +90,7 @@ $(document).ready(function() {
 			}
 			
 			if(testsDate == "") {
-				$("#testsDate").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+				$("#testsDate").after('<p class="text-danger">This section cannot be left blank.</p>');
 				$('#testsDate').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
@@ -100,7 +100,7 @@ $(document).ready(function() {
 			}
 			
 			if(testsFormula == "") {
-				$("#testsFormula").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+				$("#testsFormula").after('<p class="text-danger">This section cannot be left blank.</p>');
 				$('#testsFormula').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
@@ -110,7 +110,7 @@ $(document).ready(function() {
 			}
 			
 			if(testsMP == "") {
-				$("#testsMP").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+				$("#testsMP").after('<p class="text-danger">This section cannot be left blank.</p>');
 				$('#testsMP').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
@@ -120,7 +120,7 @@ $(document).ready(function() {
 			}
 			
 			if(testsOutput == "") {
-				$("#testsOutput").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+				$("#testsOutput").after('<p class="text-danger">This section cannot be left blank.</p>');
 				$('#testsOutput').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
@@ -130,7 +130,7 @@ $(document).ready(function() {
 			}
 			
 			if(testsResult == "") {
-				$("#testsResult").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+				$("#testsResult").after('<p class="text-danger">This section cannot be left blank.</p>');
 				$('#testsResult').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
@@ -140,7 +140,7 @@ $(document).ready(function() {
 			}
 			
 			if(testsBy == "") {
-				$("#testsBy").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+				$("#testsBy").after('<p class="text-danger">This section cannot be left blank.</p>');
 				$('#testsBy').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
@@ -302,7 +302,7 @@ function editCategories(categoriesId = null) {
 					var testsBy 		= $("#editTestsBy").val();
 
 					if(testsCustomer == "") {
-						$("#editTestsCustomer").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+						$("#editTestsCustomer").after('<p class="text-danger">This section cannot be left blank.</p>');
 						$('#editTestsCustomer').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
@@ -312,7 +312,7 @@ function editCategories(categoriesId = null) {
 					}
 					
 					if(testsPG == "") {
-						$("#editTestsPG").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+						$("#editTestsPG").after('<p class="text-danger">This section cannot be left blank.</p>');
 						$('#editTestsPG').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
@@ -322,7 +322,7 @@ function editCategories(categoriesId = null) {
 					}
 					
 					if(testsDate == "") {
-						$("#editTestsDate").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+						$("#editTestsDate").after('<p class="text-danger">This section cannot be left blank.</p>');
 						$('#editTestsDate').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
@@ -332,7 +332,7 @@ function editCategories(categoriesId = null) {
 					}
 					
 					if(testsFormula == "") {
-						$("#editTestsFormula").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+						$("#editTestsFormula").after('<p class="text-danger">This section cannot be left blank.</p>');
 						$('#editTestsFormula').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
@@ -342,7 +342,7 @@ function editCategories(categoriesId = null) {
 					}
 					
 					if(testsMP == "") {
-						$("#editTestsMP").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+						$("#editTestsMP").after('<p class="text-danger">This section cannot be left blank.</p>');
 						$('#editTestsMP').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
@@ -352,7 +352,7 @@ function editCategories(categoriesId = null) {
 					}
 					
 					if(testsOutput == "") {
-						$("#editTestsOutput").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+						$("#editTestsOutput").after('<p class="text-danger">This section cannot be left blank.</p>');
 						$('#editTestsOutput').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
@@ -362,7 +362,7 @@ function editCategories(categoriesId = null) {
 					}
 					
 					if(testsResult == "") {
-						$("#editTestsResult").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+						$("#editTestsResult").after('<p class="text-danger">This section cannot be left blank.</p>');
 						$('#editTestsResult').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
@@ -372,7 +372,7 @@ function editCategories(categoriesId = null) {
 					}
 					
 					if(testsBy == "") {
-						$("#editTestsBy").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+						$("#editTestsBy").after('<p class="text-danger">This section cannot be left blank.</p>');
 						$('#editTestsBy').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field

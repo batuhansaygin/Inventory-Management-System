@@ -25,9 +25,9 @@ $(document).ready(function() {
 	  // });
 	
 	// active top navbar categories
-	$('#navCategories').addClass('active');	
+	$('#navCustomers').addClass('active');	
 	
-	// selectize
+	// selectize for createCustomers
 	var $select = $('#customersName').selectize({
 		sortField: 'text'
 	});
@@ -228,7 +228,7 @@ function showCategories(categoriesId = null) {
 				$(".showCategoriesFooter").removeClass('div-hide');	
 
 				// set the categories name
-				$("#showCustomersName").val(response.customers_company);
+				$("#showCustomersName").val(response.companies_id);
 				$("#showCustomersProduct").val(response.customers_product);
 				$("#showCustomersMB").val(response.customers_mb);
 				$("#showCustomersApplication").val(response.customers_application);
@@ -283,7 +283,7 @@ function editCategories(categoriesId = null) {
 				$(".editCategoriesFooter").removeClass('div-hide');	
 
 				// set the categories name
-				$("#editCustomersName").val(response.customers_company);
+				$("#editCustomersName").val(response.companies_id);
 				$("#editCustomersProduct").val(response.customers_product);
 				$("#editCustomersMB").val(response.customers_mb);
 				$("#editCustomersApplication").val(response.customers_application);

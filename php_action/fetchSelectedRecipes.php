@@ -4,7 +4,7 @@ require_once 'core.php';
 
 $productId = $_POST['productId'];
 
-$sql = "SELECT tests_id, companies_id, tests_pg, tests_date, tests_formula, tests_mp, tests_output, tests_result, tests_by, tests_file FROM tests WHERE tests_id = $productId";
+$sql = "SELECT products_id, products_name, products_detail FROM products WHERE products_id = $productId";
 $result = $connect->query($sql);
 
 if($result->num_rows > 0) { 

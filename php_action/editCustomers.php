@@ -16,7 +16,7 @@ if($_POST) {
 	$customersPF 			= $_POST['editCustomersPF'];
 	$customersEquivalent 	= $_POST['editCustomersEquivalent'];
 
-	$sql = "UPDATE customers SET customers_company = '$customersName', customers_product = '$customersProduct', customers_mb = '$customersMB', customers_application = '$customersApplication', customers_pb = '$customersPB', customers_pf = '$customersPF', customers_equivalent = '$customersEquivalent' WHERE customers_id = '$categoriesId'";
+	$sql = "UPDATE customers SET companies_id = '$customersName', customers_product = '$customersProduct', customers_mb = '$customersMB', customers_application = '$customersApplication', customers_pb = '$customersPB', customers_pf = '$customersPF', customers_equivalent = '$customersEquivalent' WHERE customers_id = '$categoriesId'";
 
 	if($connect->query($sql) === TRUE) {
 	 	$valid['success'] = true;

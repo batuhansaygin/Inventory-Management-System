@@ -80,7 +80,7 @@
 								$result = $connect->query($sql);
 
 								while($row = $result->fetch_array()) {
-									echo "<option value='".$row[1]."'>".$row[1]."</option>";
+									echo "<option value='".$row[0]."'>".$row[1]."</option>";
 								} // while
 				      	?>
 				      </select>
@@ -153,7 +153,7 @@
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i> Cancel</button>
 	        
-	        <button type="submit" class="btn btn-success" id="createCategoriesBtn" data-loading-text="Yükleniyor..." autocomplete="off"> <i class="glyphicon glyphicon-ok"></i> Save</button>
+	        <button type="submit" class="btn btn-success" id="createCategoriesBtn" data-loading-text="Loading..." autocomplete="off"> <i class="glyphicon glyphicon-ok"></i> Save</button>
 	      </div> <!-- /modal-footer -->	      
      	</form> <!-- /.form -->	     
     </div> <!-- /modal-content -->    
@@ -178,7 +178,7 @@
 
 	      	<div class="modal-loading div-hide" style="width:50px; margin:auto;padding-top:50px; padding-bottom:50px;">
 						<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-						<span class="sr-only">Yükleniyor...</span>
+						<span class="sr-only">Loading...</span>
 					</div>
 
 		      <div class="edit-categories-result">
@@ -187,8 +187,17 @@
 	        	<label for="editCustomersName" class="col-sm-3 control-label">Customer </label>
 	        	<label class="col-sm-1 control-label">: </label>
 				    <div class="col-sm-8">
-				      <input type="text" class="form-control" id="editCustomersName" placeholder="e.g., X Plastik San. Tic. Ltd. Şti." name="editCustomersName">
-						<div id="customersList"></div>
+						<select class="form-control" id="editCustomersName" name="editCustomersName">
+				      	<option value="">Search and choose customer...</option>
+				      	<?php 
+				      	$sql = "SELECT companies_id, companies_name FROM companies";
+								$result = $connect->query($sql);
+
+								while($row = $result->fetch_array()) {
+									echo "<option value='".$row[0]."'>".$row[1]."</option>";
+								} // while
+				      	?>
+				      </select>
 					</div>
 	        </div> <!-- /form-group-->
 
@@ -260,7 +269,7 @@
 	      <div class="modal-footer editCategoriesFooter">
 	        <button type="button" class="btn btn-danger" data-dismiss="modal"> <i class="glyphicon glyphicon-remove"></i> Cancel</button>
 	        
-	        <button type="submit" class="btn btn-success" id="editCategoriesBtn" data-loading-text="Yükleniyor..." autocomplete="off"> <i class="glyphicon glyphicon-ok"></i> Save Changes</button>
+	        <button type="submit" class="btn btn-success" id="editCategoriesBtn" data-loading-text="Loading..." autocomplete="off"> <i class="glyphicon glyphicon-ok"></i> Save Changes</button>
 	      </div>
 	      <!-- /modal-footer -->
      	</form>
@@ -285,7 +294,7 @@
       </div>
       <div class="modal-footer removeCategoriesFooter">
         <button type="button" class="btn btn-danger" data-dismiss="modal"> <i class="glyphicon glyphicon-remove"></i> İptal Et</button>
-        <button type="button" class="btn btn-success" id="removeCategoriesBtn" data-loading-text="Yükleniyor..."> <i class="glyphicon glyphicon-ok"></i> Onayla</button>
+        <button type="button" class="btn btn-success" id="removeCategoriesBtn" data-loading-text="Loading..."> <i class="glyphicon glyphicon-ok"></i> Onayla</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -308,7 +317,7 @@
 
 	      	<div class="modal-loading div-hide" style="width:50px; margin:auto;padding-top:50px; padding-bottom:50px;">
 						<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-						<span class="sr-only">Yükleniyor...</span>
+						<span class="sr-only">Loading...</span>
 					</div>
 
 		      <div class="show-categories-result">
@@ -316,7 +325,17 @@
 	        	<label for="showCustomersName" class="col-sm-3 control-label">Customer </label>
 	        	<label class="col-sm-1 control-label">: </label>
 				    <div class="col-sm-8">
-				      <input type="text" style="font-weight: bold; pointer-events: none; background-color: white;" class="form-control" id="showCustomersName" placeholder="e.g., X Plastik San. Tic. Ltd. Şti." name="showCustomersName">
+						<select class="form-control" id="showCustomersName" name="showCustomersName" style="font-weight: bold; pointer-events: none; background-color: white; -webkit-appearance: none;" disabled>
+				      	<option value="">Search and choose customer...</option>
+				      	<?php 
+				      	$sql = "SELECT companies_id, companies_name FROM companies";
+								$result = $connect->query($sql);
+
+								while($row = $result->fetch_array()) {
+									echo "<option value='".$row[0]."'>".$row[1]."</option>";
+								} // while
+				      	?>
+				      </select>
 					</div>
 	        </div> <!-- /form-group-->
 

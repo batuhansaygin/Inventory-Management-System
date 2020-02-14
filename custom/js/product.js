@@ -8,11 +8,16 @@ $(document).ready(function() {
 	$("#testsDate").datepicker({ dateFormat: 'yy-mm-dd' });
 	$("#editTestsDate").datepicker({ dateFormat: 'yy-mm-dd' });
 	
-	// selectize
-	var $select = $('#testsCustomer').selectize({
+	// selectize for testsCustomer
+	var $selectCreate = $('#testsCustomer').selectize({
 		sortField: 'text'
 	});
-	var control = $select[0].selectize;
+	var controlCreate = $selectCreate[0].selectize;
+	
+	// selectize for editTestsCustomer
+	// var $selectCreate = $('#editTestsCustomer').selectize({
+		// sortField: 'text'
+	// });
 	
 	// Individual column searching (text inputs) Data Table
 	
@@ -53,13 +58,13 @@ $(document).ready(function() {
 	// Show / hide columns dynamically Data Table
 	
     // Column Highlight
-    $('#manageProductTable tbody')
-        .on( 'mouseenter', 'td', function () {
-            var colIdx = table.cell(this).index().column;
+    // $('#manageProductTable tbody')
+        // .on( 'mouseenter', 'td', function () {
+            // var colIdx = table.cell(this).index().column;
  
-            $( table.cells().nodes() ).removeClass( 'highlight' );
-            $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
-        } );
+            // $( table.cells().nodes() ).removeClass( 'highlight' );
+            // $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
+        // } );
 	// Column Highlight
 
 	// add product modal btn clicked
@@ -98,7 +103,7 @@ $(document).ready(function() {
 			$('.form-group').removeClass('has-error').removeClass('has-success');
 
 			// form validation
-			// var productImage 	= $("#productImage").val();
+			var productImage 	= $("#productImage").val();
 			var testsCustomer	= $("#testsCustomer").val();
 			var testsPG      	= $("#testsPG").val();
 			var testsDate    	= $("#testsDate").val();
@@ -108,9 +113,9 @@ $(document).ready(function() {
 			var testsResult  	= $("#testsResult").val();
 			var testsBy      	= $("#testsBy").val();
 	
-			/*
+			
 			if(productImage == "") {
-				$("#productImage").closest('.center-block').after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+				$("#productImage").closest('.center-block').after('<p class="text-danger">This section cannot be left blank.</p>');
 				$('#productImage').closest('.form-group').addClass('has-error');
 			}	else {
 				// remov error text field
@@ -118,10 +123,10 @@ $(document).ready(function() {
 				// success out for form 
 				$("#productImage").closest('.form-group').addClass('has-success');	  	
 			}	// /else
-			*/
+			
 
 			if(testsCustomer == "") {
-				$("#testsCustomer").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+				$("#testsCustomer").after('<p class="text-danger">This section cannot be left blank.<br/>If you cannot find your customer in the list, please add a new company from "Companies" tab.</p>');
 				$('#testsCustomer').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
@@ -131,7 +136,7 @@ $(document).ready(function() {
 			}
 			
 			if(testsPG == "") {
-				$("#testsPG").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+				$("#testsPG").after('<p class="text-danger">This section cannot be left blank.</p>');
 				$('#testsPG').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
@@ -141,7 +146,7 @@ $(document).ready(function() {
 			}
 			
 			if(testsDate == "") {
-				$("#testsDate").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+				$("#testsDate").after('<p class="text-danger">This section cannot be left blank.</p>');
 				$('#testsDate').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
@@ -151,7 +156,7 @@ $(document).ready(function() {
 			}
 			
 			if(testsFormula == "") {
-				$("#testsFormula").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+				$("#testsFormula").after('<p class="text-danger">This section cannot be left blank.</p>');
 				$('#testsFormula').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
@@ -161,7 +166,7 @@ $(document).ready(function() {
 			}
 			
 			if(testsMP == "") {
-				$("#testsMP").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+				$("#testsMP").after('<p class="text-danger">This section cannot be left blank.</p>');
 				$('#testsMP').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
@@ -171,7 +176,7 @@ $(document).ready(function() {
 			}
 			
 			if(testsOutput == "") {
-				$("#testsOutput").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+				$("#testsOutput").after('<p class="text-danger">This section cannot be left blank.</p>');
 				$('#testsOutput').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
@@ -181,7 +186,7 @@ $(document).ready(function() {
 			}
 			
 			if(testsResult == "") {
-				$("#testsResult").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+				$("#testsResult").after('<p class="text-danger">This section cannot be left blank.</p>');
 				$('#testsResult').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
@@ -191,7 +196,7 @@ $(document).ready(function() {
 			}
 			
 			if(testsBy == "") {
-				$("#testsBy").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+				$("#testsBy").after('<p class="text-danger">This section cannot be left blank.</p>');
 				$('#testsBy').closest('.form-group').addClass('has-error');
 			} else {
 				// remov error text field
@@ -226,7 +231,7 @@ $(document).ready(function() {
 							$("html, body, div.modal, div.modal-content, div.modal-body").animate({scrollTop: '0'}, 100);
 							
 							// clear selectize state
-							control.clear();
+							controlCreate.clear();
 
 							// shows a successful message after operation
 							$('#add-product-messages').html('<div class="alert alert-success">'+
@@ -314,7 +319,7 @@ function editProduct(productId = null) {
 					$('.form-group').removeClass('has-error').removeClass('has-success');
 					
 					// form validation
-					// var productImage 	= $("#editProductImage").val();
+					var productImage 	= $("#editProductImage").val();
 					var testsCustomer 	= $("#editTestsCustomer").val();
 					var testsPG 		= $("#editTestsPG").val();
 					var testsDate		= $("#editTestsDate").val();
@@ -325,7 +330,7 @@ function editProduct(productId = null) {
 					var testsBy 		= $("#editTestsBy").val();
 					
 					if(testsCustomer == "") {
-						$("#editTestsCustomer").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+						$("#editTestsCustomer").after('<p class="text-danger">This section cannot be left blank.</p>');
 						$('#editTestsCustomer').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
@@ -335,7 +340,7 @@ function editProduct(productId = null) {
 					}
 					
 					if(testsPG == "") {
-						$("#editTestsPG").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+						$("#editTestsPG").after('<p class="text-danger">This section cannot be left blank.</p>');
 						$('#editTestsPG').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
@@ -345,7 +350,7 @@ function editProduct(productId = null) {
 					}
 					
 					if(testsDate == "") {
-						$("#editTestsDate").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+						$("#editTestsDate").after('<p class="text-danger">This section cannot be left blank.</p>');
 						$('#editTestsDate').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
@@ -355,7 +360,7 @@ function editProduct(productId = null) {
 					}
 					
 					if(testsFormula == "") {
-						$("#editTestsFormula").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+						$("#editTestsFormula").after('<p class="text-danger">This section cannot be left blank.</p>');
 						$('#editTestsFormula').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
@@ -365,7 +370,7 @@ function editProduct(productId = null) {
 					}
 					
 					if(testsMP == "") {
-						$("#editTestsMP").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+						$("#editTestsMP").after('<p class="text-danger">This section cannot be left blank.</p>');
 						$('#editTestsMP').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
@@ -375,7 +380,7 @@ function editProduct(productId = null) {
 					}
 					
 					if(testsOutput == "") {
-						$("#editTestsOutput").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+						$("#editTestsOutput").after('<p class="text-danger">This section cannot be left blank.</p>');
 						$('#editTestsOutput').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
@@ -385,7 +390,7 @@ function editProduct(productId = null) {
 					}
 					
 					if(testsResult == "") {
-						$("#editTestsResult").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+						$("#editTestsResult").after('<p class="text-danger">This section cannot be left blank.</p>');
 						$('#editTestsResult').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
@@ -395,7 +400,7 @@ function editProduct(productId = null) {
 					}
 					
 					if(testsBy == "") {
-						$("#editTestsBy").after('<p class="text-danger">Bu kısım boş bırakılamaz.</p>');
+						$("#editTestsBy").after('<p class="text-danger">This section cannot be left blank.</p>');
 						$('#editTestsBy').closest('.form-group').addClass('has-error');
 					} else {
 						// remov error text field
@@ -426,7 +431,7 @@ function editProduct(productId = null) {
 									$("#editProductBtn").button('reset');																		
 
 									$("html, body, div.modal, div.modal-content, div.modal-body").animate({scrollTop: '0'}, 100);
-																			
+									
 									// shows a successful message after operation
 									$('#edit-product-messages').html('<div class="alert alert-success">'+
 				            '<button type="button" class="close" data-dismiss="alert">&times;</button>'+
